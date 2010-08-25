@@ -183,6 +183,7 @@ This method returns no value, executes asynchronously, and triggers the error ev
 
 ====getNetwork`*`====
 {{{getNetwork() -> String}}}
+
 How to know which get-Feature methods are async and which ones have return values?
 Use this method to identify the current network status of the device. Possible results include:
 
@@ -201,6 +202,7 @@ Use this method to identify the current network status of the device. Possible r
 
 ====getOrientation`*`====
 {{{getOrientation() -> Number}}}
+
 Use this method to get the current orientation of the device. Possible results include:
 
 || *value*	|| *description* ||
@@ -216,6 +218,7 @@ level: 2
 
 ====getScreenSize`*`====
 {{{getScreenSize() -> JSON}}}
+
 Use this method to get the current point width and height of the device.
 Point width (pt) is preferred over pixel width (px) because of device screens with different DPI specs.
 
@@ -232,6 +235,7 @@ TBD
 
 ====getShake`*`====
 {{{getShake(threshold, time)}}}
+
 A shake is defined as a period of acceleration that ends in the same orientation as it began. However, one developer’s shake is another developer’s jostle. Use this method to identify what a “shake” is for the current ad. This method returns no value, executes asynchronously, and triggers the error event “Accelerometer not supported” if not supported on this device.
 
 Note: “shake” is a helper feature for the ad developer who could also use getTilt and getOrientation for a similar effect.
@@ -248,6 +252,7 @@ Note: “shake” is a helper feature for the ad developer who could also use ge
 
 ====getTilt`*`====
 {{{getTilt()}}}
+
 Use this method to attempt to access the accelerometer. This method returns no value, executes asynchronously, and triggers the error event "Accelerometer not supported" if not supported on this device.
 
   parameters: none
@@ -260,6 +265,7 @@ Use this method to attempt to access the accelerometer. This method returns no v
 
 ====properties====
 {{{properties() -> JSON}}}
+
 Best name? Sounds like a noun while others are verbs
 Use this method to get the current resize properties of the web viewer. Since the resize action is asynchronous, this value does not update until the action has completed execution (when the "resizeChange" event fires).
 
@@ -303,6 +309,7 @@ The "isModal" property is a boolean value (true/false) and if it is not specifie
 
 ====removeAllAssets====
 {{{removeAllAssets()}}}
+
 The method returns no value and executes asynchronously.
 
   parameters: none
@@ -315,6 +322,7 @@ The method returns no value and executes asynchronously.
 
 ====removeAsset====
 {{{removeAsset(alias)}}}
+
 The method returns no value and executes asynchronously.
 
   parameters: none
@@ -342,6 +350,7 @@ Use this method to unsubscribe a specific handler method from a specific event. 
 
 ====request====
 {{{request(uri, display) -> false}}}
+
 The method executes asynchronously, but returns a Boolean value of false to facilitate use in anchor tags. There is also an option explicitly for metrics tracking that will cache requests offline and execute them whenever the device reconnects. The display parameter supports the following values:
  
   parameters: 
@@ -355,7 +364,8 @@ The method executes asynchronously, but returns a Boolean value of false to faci
   level: 1
 
 ====resize====
-resize(dimensions, properties)
+{{{resize(dimensions, properties)}}}
+
 In the resize function, the properties value is optional - if no value is given then default values will be assumed for all resize properties. The ad developer must listen for the “resizeChange” event and not assume success.
 
   parameters:
@@ -370,6 +380,7 @@ In the resize function, the properties value is optional - if no value is given 
 
 ====show====
 {{{show()}}}
+
 This method has no return value and is executed asynchronously (so always listen for a result event before taking action instead of assuming the change has occurred).
  
   parameters: none
@@ -382,6 +393,7 @@ This method has no return value and is executed asynchronously (so always listen
 
 ====supports====
 {{{supports(feature) -> Boolean}}}
+
 For SDKs that do not expose any of the native device features, this method should always return false.
 
   parameters: String, name of feature
@@ -396,6 +408,7 @@ For SDKs that do not expose any of the native device features, this method shoul
 
 ====alignmentChange`*`====
 {{{“alignmentChange” -> (degrees)}}}
+
 This event is thrown when the device has successfully determined its compass alignment.
 
   parameters: Number, radians clockwise from magnetic North
@@ -406,6 +419,7 @@ This event is thrown when the device has successfully determined its compass ali
 
 ====assetReady====
 {{{"assetReady" -> (alias)}}}
+
 This event is thrown when an asset has successfully been loaded in the local cache. 
 
   parameters: String, alias name of asset that was loaded
@@ -416,6 +430,7 @@ This event is thrown when an asset has successfully been loaded in the local cac
 
 ====assetRemoved====
 {{{"assetRemoved" -> (alias)}}}
+
 This event is thrown when an asset has successfully been removed from the local cache.
 
   parameters: String, alias name of asset that was removed
@@ -426,6 +441,7 @@ This event is thrown when an asset has successfully been removed from the local 
 
 ====assetRetired====
 {{{"assetRetired" -> (alias)}}}
+
 This event is thrown when an asset has been retired from the local cache to make room for new assets. 
 
   parameters: String, alias name of asset that was removed
@@ -436,6 +452,7 @@ This event is thrown when an asset has been retired from the local cache to make
 
 ====error====
 {{{"error" -> (message, action)}}}
+
 This event is thrown whenever an error occurs. The event contains a description of the error that occurred and, if appropriate, the name of the action that resulted in the error (in the absence of an associated action, the action parameter is null).
 
   parameters: 
@@ -448,6 +465,7 @@ This event is thrown whenever an error occurs. The event contains a description 
 
 ====locationChange`*`====
 {{{“locationChange” -> (lat, lng)}}}
+
 This event is thrown when the device has successfully geolocated itself.
 
   parameters: 
@@ -460,6 +478,7 @@ This event is thrown when the device has successfully geolocated itself.
 
 ====networkChange`*`====
 {{{“networkChange” -> (online, connection)}}}
+
 This event is thrown when the device network connection changes, such as loosing or acquiring an Internet connection. The connection type values will vary depending on the device and carrier.
 
   parameters: 
@@ -473,6 +492,7 @@ This event is thrown when the device network connection changes, such as loosing
 
 ====orientationChange`*`====
 {{{“orientationChange” -> (orientation)}}}
+
 This event is thrown when the application screen orientation changes.
 
   parameters: orientation - Integer, degrees from upright portrait view
@@ -483,6 +503,7 @@ This event is thrown when the application screen orientation changes.
 
 ====resizeChange====
 {{{“resizeChange” -> (dimensions, properties)}}}
+
 This event is thrown when the display state of the web viewer changes.
 
   parameters: 
@@ -496,6 +517,7 @@ This event is thrown when the display state of the web viewer changes.
 
 ====response====
 {{{“response” -> (uri, response)}}}
+
 This event is thrown when a request action with a display type of "proxy" returns a response. 
 
   parameters: 
@@ -511,6 +533,7 @@ TBD
 
 ====screenSizeChange`*`====
 {{{“screenSizeChange” -> (height, width) }}}
+
 This event is thrown when the point size of the screen changes, including orientation changes.
 Inconsistent – listener gets independent attributes, but calling getScreenSize returns a JSON object
 
@@ -524,6 +547,7 @@ Inconsistent – listener gets independent attributes, but calling getScreenSize
 
 ====shakeChange`*`====
 {{{“shakeChange” -> (threshold, time)}}}
+
 This event is thrown when the device accelerometer detects that the device has been "shaken" as defined by the getShake parameters. Because the ad developer may register one listener for a soft shake and another listener for a harder shake, this event provides threshold and time parameters
 
   parameters: 
@@ -536,6 +560,7 @@ This event is thrown when the device accelerometer detects that the device has b
 
 ====tiltChange`*`====
 {{{“tiltChange” -> (x, y, z)}}}
+
 This event is thrown when the device has successfully determined its spacial orientation.
 
   parameters: x,y,z – Numbers, the x, y, and z axis values in radians 
@@ -546,6 +571,7 @@ This event is thrown when the device has successfully determined its spacial ori
 
 ====visibleChange====
 {{{visibleChange -> (state)}}}
+
 This event is thrown when the AdView changes between a visible and hidden state from the point of view of the end-user.
 
   parameters: state – String, either “hidden” or “visible”
@@ -555,24 +581,29 @@ This event is thrown when the AdView changes between a visible and hidden state 
   level: 1
 
 ==Sample Code for Ad Developers==
-This section still needs proof reading once the above specifications are finalized.
-Level 1
-Event handling
+__This section still needs proof reading once the above specifications are finalized.__
+
+===Level 1===
+====Event handling===
 The following example code illustrates adding a listener:
 
+{{{
 var locateHandler = function(lat, lng) {
 	alert('got ' + lat + ',' + lng);
 };
 AdFrame.addEventListener('locate', locateHandler);
-
+}}}
 
 The following example code illustrates removing the listener that was added in the previous example:
 
+{{{
 AdFrame.removeEventListener('locate', locateHandler);
- 
-Error handling
+ }}}
+
+====Error handling====
 The following code expands upon the "locate" example to illustrate listening for an error event:
 
+{{{
 if (AdFrame.supports('location')) {
 	var onLocate = function(lat, lng) {
 		alert('I\'m at ' + lat + ',' + lng);
@@ -590,8 +621,9 @@ if (AdFrame.supports('location')) {
 	AdFrame.addEventListener('error', onLocateError);
 	AdFrame.locate();
 }
+}}}
 
-Controlling display
+====Controlling display====
 The following example illustrates setting, getting, and listening for changes to the display state:
 
 if (!AdFrame.isVisible()) {
