@@ -1,13 +1,9 @@
-#summary One-sentence summary of this page.
+#summary One-Introduction to this project.
 
 = Introduction =
 
-Add your content here.
+This project is an initiative to provide interoperability for mobile ad units within the mobile ad serving community. Ad units developed to adhere to the ORMMA specifications are based on HTML and JavaScript? and can be served into mobile apps that support the ORMMA APIs.
 
+= Status =
 
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+This project is being worked on by an ad-hoc group of thought leaders in the mobile ad serving community and has not been formally published. If you wish to make comments regarding this project, please contact xavier.facon@crispwireless.com. 
