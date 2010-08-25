@@ -70,7 +70,8 @@ Use this illustration to better define the dimensions.
 
  [http://media.cw.s3.amazonaws.com/ormma/resizing1.png]
 
-properties method, properties object
+*properties method, properties object*
+
 Confusion on a method and an object having the same name
 Use this method to get the current resize properties of the web viewer. 
 
@@ -78,27 +79,30 @@ To reduce clutter, a properties object contains all web viewer configurations. T
 
 These documented view properties could be extended by the SDK. At a minimum, the following properties should be supported.
 
-•	"transition" : "default|dissolve|fade|roll|slide|zoom|none",
-•	"navigation" : "none|close|back|forward|refresh",
-•	"use-background" : "true|false",
-•	"background-color" : "#rrggbb",
-•	"background-opacity" : "n.n",
-•	"is-modal" : "true|false"
+  * "transition" : "default|dissolve|fade|roll|slide|zoom|none",
+  * "navigation" : "none|close|back|forward|refresh",
+  * "use-background" : "true|false",
+  * "background-color" : "#rrggbb",
+  * "background-opacity" : "n.n",
+  * "is-modal" : "true|false"
 
-"transition"
+*"transition"*
+
 The "transition" property indicates the behavior that will be used as the web viewer is resized. If "transition" is not specified in the properties object, a value of "default" is assumed.
 
 These transitions could be extended by the SDK
-transition values	description
-default	use the default transition defined by the SDK
-dissolve	the old view seems to dissolve into the new view
-fade	the old view seems to fade-out, then then new view fades-in
-roll	the new view rolls (up or down) on top of the the old view
-slide	the new view slides (left or right) on top of the old view
-zoom	the new view grows from single pixel to final size
-none	no transition effect
 
-"navigation"
+||*transition values*	||*description*||
+||default	||use the default transition defined by the SDK||
+||dissolve	||the old view seems to dissolve into the new view||
+||fade	||the old view seems to fade-out, then then new view fades-in||
+||roll	||the new view rolls (up or down) on top of the the old view||
+||slide	||the new view slides (left or right) on top of the old view||
+||zoom	||the new view grows from single pixel to final size||
+||none	||no transition effect||
+
+*"navigation"*
+
 The "navigation" property indicates the navigation options that should be available on the resized web viewer. If "navigation" is not specified in the properties object, a value of "none" is assumed.
 
 navigation values	description
