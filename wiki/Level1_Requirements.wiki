@@ -92,7 +92,7 @@ The "transition" property indicates the behavior that will be used as the web vi
 
 These transitions could be extended by the SDK
 
-||*transition values*	||*description*||
+|| *transition values* 	|| *description* ||
 ||default	||use the default transition defined by the SDK||
 ||dissolve	||the old view seems to dissolve into the new view||
 ||fade	||the old view seems to fade-out, then then new view fades-in||
@@ -105,15 +105,17 @@ These transitions could be extended by the SDK
 
 The "navigation" property indicates the navigation options that should be available on the resized web viewer. If "navigation" is not specified in the properties object, a value of "none" is assumed.
 
-navigation values	description
-none	no navigation options are displayed
-close	display a button to close the web viewer
-back	display a button that executes a browser-back action
-forward	display a button that executes a browser-forward action
-refresh	display a button that executes a browser-refresh action
+|| *navigation values* 	|| *description* ||
+||none	||no navigation options are displayed||
+||close	||display a button to close the web viewer||
+||back	||display a button that executes a browser-back action||
+||forward	||display a button that executes a browser-forward action||
+||refresh	||display a button that executes a browser-refresh action||
 
-"useBackground", "backgroundColor", "backgroundOpacity"
+*"useBackground", "backgroundColor", "backgroundOpacity"*
+
 These properties are used to control the behavior of the background of the resized web viewer. They identify whether a background should be displayed behind the resized web viewer which is useful when the web viewer size does not take over the entire device screen, but the end-user should interact only with the ad.
 
-"isModal"
+*"isModal"*
+
 The "isModal" property indicates whether the resized web viewer behaves modally - which is to say disables interaction with any part of the application screen outside of itself.
