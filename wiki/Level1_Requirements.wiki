@@ -36,12 +36,15 @@ Besides the initial display, the ad developer may have a number of reasons to co
   * Additional online libraries must be loaded for user interactions to work.
 
 *show method, “visibleChange” event*
+
 Request to show the Ad Container. A “visibleChange” event is broadcasted when completed.
 
 *hide method, “specification” event*
+
 Request to hide the Ad Container. A “visibleChange” event is broadcasted when completed.
 
 *isVisible getter*
+
 Get the current state of the Ad Container. isVisible is true when the container is actually visible to the end-user, not when it is loaded in the background.
 
 ===Resizing Display===
