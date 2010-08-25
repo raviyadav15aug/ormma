@@ -1,4 +1,5 @@
 #summary iOS Implementation Spec
+#sidebar SideBar
 
 =Specifications for iOS Reference Implementation =
 
