@@ -626,6 +626,7 @@ if (AdFrame.supports('location')) {
 ====Controlling display====
 The following example illustrates setting, getting, and listening for changes to the display state:
 
+{{{
 if (!AdFrame.isVisible()) {
 	AdFrame.show( function() {
 		alert('Now you see me...');
@@ -634,9 +635,11 @@ if (!AdFrame.isVisible()) {
 		});
 	});
 }
+}}}
 
 The following example illustrates setting, getting, and listening for changes to the display state:
 
+{{{
 if (!AdFrame.isVisible()) {
 	AdFrame.addEventListener('show', function() {
 		alert('Now you see me...');
@@ -649,10 +652,12 @@ if (!AdFrame.isVisible()) {
 	});
 	AdFrame.show();
 }
+}}}
 
-Resizing display
+====Resizing display====
 The following example illustrates resizing, evaluating dimensions and properties, and listening for resize events:
 
+{{{
 var resizeListener = function(d, p) {
 	alert('resized view to ' + (d.right-d.left) + 'x' + (d.bottom-d.top));
 	AdFrame.removeEventListener('resize', this);
@@ -664,9 +669,11 @@ d.bottom = d.bottom + 100;
 p.transition = 'slide';
 
 AdFrame.resize(d, p, resizeListener);
-
+}}}
 
 Sample calling code would then look like
+
+{{{
 function bannerOnclick() {
  AdFrame.resize(
  { 0, 0, MAX_HEIGHT, MAX_WIDTH },
@@ -689,9 +696,11 @@ function panelCloseOnclick() {
  );
  return (false); //do not allow click event to bubble up
 }
- 
+}}} 
+
 ...
  
+{{{
 <div id="interstialad" style="display:none">
  <a href="#" onclick="return(panelCloseOnclick())"><img src="http://advertiser.url/close_button.gif"/></a>
  <a href="http://m.advertiser.url"><img src="http://advertiser.url/fullpage.gif"/></a>
@@ -699,8 +708,9 @@ function panelCloseOnclick() {
 <div id="bannerad">
  <a href="#" onclick="return(bannerOnclick())"><img src="http://advertiser.url/banner.gif"/></a>
 </div>
+}}}
 
-Level 2
+===Level 2===
 native features
 supports
 The following example demonstrates feature inspection:
@@ -834,7 +844,7 @@ if (AdFrame.cacheRemaining() >= 50000) {
 </script>
 <img src="/logo.png">
 
-Complete code sample
+===Complete code sample===
 In a complex example, the Ad Creative uses the JavaScript AdController object to take control of the AdView and interact with features of the device and OS. The initial Ad is a small shim with a static background or a “Loading…” message, a JavaScript include that loads the SDK’s AdController implementation, and JavaScript that uses the AdController object.
 
 The first thing the Ad does is check to see if the local assets it needs are already downloaded. If they are not, it downloads a new base HTML page to the local file system as well as all of the JavaScript, CSS, image, and other files it needs to execute locally. It also registers an Event Listener function for downloads and keeps track of the files that successfully download. Once all of the necessary files are present locally, the Ad instructs the AdController to tell the AdView to load the local HTML file, which then takes over as the body of and business logic of the Ad. 
@@ -845,4 +855,4 @@ When the Ad is ready to display, it fills the Web view with a banner or other in
 When the Ad reaches full screen, its JavaScript registers Event Listeners for the accelerometer and shake gestures. The body of the expanded ad is a game where the user controls something by manipulating the device’s orientation. The Event Listeners for the accelerometer data get called with the devices 3D orientation vectors at the desired interval and the Ad’s JavaScript controls the game rendering.
 When the user is done with the expanded Ad, they click a close button that causes the Ad to unregister the Event Listeners, resize the Ad to its original size, display the Ad’s banner state, and notify the App that it can resume. If the device was off-line when the user interaction took place, any metrics called made by the Ad to the AdController object are cached by the SDK until the device is on-line again, and then the calls are made.
 
-Code TBD
+__Code TBD__
