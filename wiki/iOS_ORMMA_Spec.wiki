@@ -78,25 +78,32 @@ Use this method to subscribe a specific handler method to a specific event. In t
     * event – string, name of event to listen for
     * listener – function, function name (or anonymous function) to execute
   return values: none
+
   level: 1
 
 ====cacheRemaining====
-cacheRemaining() -> Number
+{{{cacheRemaining() -> Number}}}
+
 Use this method to get the available size of the local cache.
 
-parameters: none
-return values: integer, number of bytes available
-level: 3
+  parameters: none
 
-hide
-hide()
+  return values: integer, number of bytes available
+
+  level: 3
+
+====hide====
+{{{hide()}}}
+
 Use this method to hide the web viewer. The method has no return value and is executed asynchronously (so always listen for a result event before taking action instead of assuming the change has occurred).
 
-parameters: none
-return values: none
-level: 1
+  parameters: none
+
+  return values: none
+
+  level: 1
  
-isVisible
+====isVisible====
 isVisible() -> Boolean
 Use this method to get the current state of the web viewer. This method reflects the current actual state of the web viewer and may not reflect a requested change that has not yet occurred.
  
@@ -715,8 +722,6 @@ When the Ad reaches full screen, its JavaScript registers Event Listeners for th
 When the user is done with the expanded Ad, they click a close button that causes the Ad to unregister the Event Listeners, resize the Ad to its original size, display the Ad’s banner state, and notify the App that it can resume. If the device was off-line when the user interaction took place, any metrics called made by the Ad to the AdController object are cached by the SDK until the device is on-line again, and then the calls are made.
 
 Code TBD
-
-
 
 
 
