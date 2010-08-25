@@ -1,4 +1,5 @@
 #summary Level 2 Requirements
+#sidebar SideBar
 
 =Ad Controller Requirements: Level 2=
 
