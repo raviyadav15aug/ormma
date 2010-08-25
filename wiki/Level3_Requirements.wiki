@@ -62,20 +62,26 @@ To enable offline viewing and performance optimization, the Controller also prov
 
 However, since a finite amount of local cache is available, ad designers may need direct asset management control to optimize the ad experience. The local cache uses a "Least Recently Used" algorithm to retire old assets as new assets are added. If an object is requested from the cache that has been retired, the SDK will attempt to reacquire the asset if online (otherwise a error is thrown -- see error handling).
 
-addAsset method, “assetReady” event
+*addAsset method, “assetReady” event*
+
 Use this method to create a new alias in the local cache. The event is thrown when an asset has successfully been loaded.
 
-addAssets method
+*addAssets method*
+
 Use this method to create multiple aliases at once. Triggers multiple “assetReady” events.
 
-removeAsset method, “assetRemoved” event
+*removeAsset method, “assetRemoved” event*
+
 Use this method to remove an asset from the local cache. The event is thrown when an asset has successfully been removed.
 
-removeAllAssets method
+*removeAllAssets method*
+
 Use this method to clear the local cache of all aliases. Triggers multiple “assetRemoved” events.
 
-cacheRemaining method
+*cacheRemaining method*
+
 Use this method to get the number of remaining bytes available in the local cache.
 
-"assetRetired" event
+*"assetRetired" event*
+
 This event is thrown when an asset has been retired from the local cache to make room for new assets.
