@@ -1,6 +1,6 @@
 #summary Introduction to this project.
 #sidebar SideBar
-
+ 
 = Introduction =
 
 This project is an initiative to provide interoperability for mobile ad units within the mobile ad serving community. Ad units developed to adhere to the ORMMA specifications are based on HTML and JavaScript and can be served into mobile apps that support the ORMMA APIs.
