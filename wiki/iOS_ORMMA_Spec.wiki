@@ -104,60 +104,82 @@ Use this method to hide the web viewer. The method has no return value and is ex
   level: 1
  
 ====isVisible====
-isVisible() -> Boolean
+{{{isVisible() -> Boolean}}}
+
 Use this method to get the current state of the web viewer. This method reflects the current actual state of the web viewer and may not reflect a requested change that has not yet occurred.
  
-parameters: none
-return values: boolean: true = ad is visible, false = ad is not visible
-level: 1
+  parameters: none
 
-dimensions
-dimensions() -> JSON
+  return values: boolean: true = ad is visible, false = ad is not visible
 
-Best name? Sounds like a noun while other methods are verbs
+  level: 1
+
+====dimensions====
+{{{dimensions() -> JSON}}}
+
+_Best name? Sounds like a noun while other methods are verbs_
+
 Use this method to get the current dimensions of the web viewer. Since the resize action is asynchronous, this value does not update until the action has completed execution (when the "resizeChange" event fires).
 
-parameters: none
-return values: {top, left, bottom, right} - this JSON object contains point value dimensions of the current web viewer
-level: 1
+  parameters: none
 
-addAsset
-addAsset(alias, uri)
+  return values: {top, left, bottom, right} - this JSON object contains point value dimensions of the current web viewer
+
+  level: 1
+
+====addAsset====
+{{{addAsset(alias, uri)}}}
+
 This method returns no value and executes asynchronously, but the alias can be used immediately in ad content. If the alias is referenced before the asset has loaded, the object simply does not return to the web viewer until it has loaded.
 
-parameters:
-* alias – string, name that ad developer will use to refer to asset URI
-* uri – string, actual URI of the asset
-return values: none
-event triggered: assetReady
-level: 3
+  parameters:
+    * alias – string, name that ad developer will use to refer to asset URI
+    * uri – string, actual URI of the asset
 
-addAssets
-addAssets(assets)
+  return values: none
+
+  event triggered: assetReady
+
+  level: 3
+
+====addAssets====
+{{{addAssets(assets)}}}
+
 This method's parameter - "assets" - is an abstract array (aka standard JavaScript Object) of alias/uri key-value pairs. The method returns no value and executes asynchronously. Usage rules are the same as adding a single alias.
 
-parameters: assets – object, description of alias/uri key-value pairs
-return values: none
-event triggered: assetReady
-level: 3
+  parameters: assets – object, description of alias/uri key-value pairs
 
-getAlignment*
-getAlignment()
+  return values: none
+
+  event triggered: assetReady
+
+  level: 3
+
+====getAlignment'*'====
+{{{getAlignment()}}}
+
 This method returns no value, executes asynchronously, and triggers the error event "Compass alignment not supported" if compass alignment is not supported on this device. The SDK vendor may combine compass and gyroscope data to return the most accurate response.
 
-parameters: none
-return values: none
-event triggered: alignmentChange
-level: 2
+  parameters: none
 
-getLocation*
-getLocation()
+  return values: none
+
+  event triggered: alignmentChange
+
+  level: 2
+
+====getLocation'*'====
+{{{getLocation()}}}
+
 This method returns no value, executes asynchronously, and triggers the error event "location not supported" if geolocation is not supported on this device or denied by the end-user.
 
-parameters: none
-return values: none
-event triggered: locationChange
-level: 2
+  parameters: none
+
+  return values: none
+
+  event triggered: locationChange
+
+  level: 2
 
 getNetwork*
 getNetwork() -> String
@@ -722,8 +744,6 @@ When the Ad reaches full screen, its JavaScript registers Event Listeners for th
 When the user is done with the expanded Ad, they click a close button that causes the Ad to unregister the Event Listeners, resize the Ad to its original size, display the Ad’s banner state, and notify the App that it can resume. If the device was off-line when the user interaction took place, any metrics called made by the Ad to the AdController object are cached by the SDK until the device is on-line again, and then the calls are made.
 
 Code TBD
-
-
 
 
 
