@@ -1,0 +1,81 @@
+#summary Level 3 Requirements
+
+=Ad Controller Requirements: Level 3=
+
+===Offline Viewing===
+While rich media ads are built on web technologies for interoperability, Internet access is not always available in applications. For greatest reach, the SDK should provide a capability for off-line viewing of ads, including a mechanism to send tracking data once Internet access is restored.
+Although HTML5 defines a standard for offline assets using a manifest file, this specification does not currently require it. Many ad creatives are built (correctly) as HTML snippets, not complete HTML pages as required for manifests. However, the HTML5 specification for offline viewing is still in progress and this may affect future recommendations for cross-platform rich media ads on mobile devices.
+
+====Scenario for cached ads ====
+The SDK should cache at minimum the last ad received during the rendering of each placement. Then in an offline mode, the cached ad is shown again. 
+In addition, the SDK should provide a method to capture outgoing web traffic from the ad and send it again once the application is started with Internet access, namely a store-and-forward strategy. All web responses for these stored requests would be ignored.
+
+As an example 
+  # user starts application online 
+  # SDK requests ad from Internet 
+  # SDK stores the ad assets identified by the ad developer and renders the ad 
+  # the ad sends an outbound request for tracking impression data
+  # user quits application 
+
+  # user starts application offline 
+  # the SDK attempt to request ad from Internet fails 
+  # SDK renders ad from local storage 
+  # the ad sends an outbound request to track impression data 
+  # SDK captures the outbound request identified by the ad developer 
+
+  # user starts application online 
+  # SDK sends all stored outbound requests 
+  # SDK requests ad from Internet 
+  # SDK stores the new ad assets to repeat process 
+
+=====offline assets =====
+To fulfill the requirements of this scenario, the SDK must cache and then intercept all ad requests to assets identified by the ad designer using the Ad Controller. Requests to these URLs by the ad must be served by the SDK instead. 
+=====offline tracking =====
+The SDK must intercept all requests identified by the ad designer using the Ad Controller. The SDK should then implement a store-and-forward strategy to resend these requests the next time the device is online. 
+
+====Scenario for packaged ads ====
+For applications that are packaged with ads, the SDK should load all assets -- even the initial display -- from cache. The SDK must negotiate this protocol with the application developer. The ad designer must identify all assets to cache with the ad controller. 
+As with the previous scenario, the SDK should store all tracking requests identified by the ad designer and forward them when the device is next online. All web responses from these stored requests would be ignored. 
+
+As an example 
+  # application creates content package with ads 
+  # ad designer identifies assets to include when viewing ads offline 
+
+  # user goes online to download a content package 
+  # application displays content 
+  # SDK displays ad from content package 
+  # SDK renders the ad from local storage
+  # the ad sends an outbound request to track impression data 
+  # SDK captures the outbound request identified by ad designer and stores it 
+
+  # user goes online to download a new content package 
+  # SDK sends all stored outbound requests 
+  # application displays content to repeat process 
+
+=====offline assets =====
+To fulfill the requirements of this scenario, the application is responsible for providing local assets. The SDK is then responsible for mapping requests to local assets based on the manifest. Some assets, like streaming video, should not be identified as cache-able.
+=====offline tracking =====
+The SDK should store and forward all requests to URLs identified as trackers for when the device is next online.
+
+====Asset Management====
+To enable offline viewing and performance optimization, the Controller also provides precise control over local cache in the Container. This cache allows the ad designer to define additional aliases for any kind of remote content - images, videos, even other ads - that can then be referenced in the ad when needed.
+
+However, since a finite amount of local cache is available, ad designers may need direct asset management control to optimize the ad experience. The local cache uses a "Least Recently Used" algorithm to retire old assets as new assets are added. If an object is requested from the cache that has been retired, the SDK will attempt to reacquire the asset if online (otherwise a error is thrown -- see error handling).
+
+addAsset method, “assetReady” event
+Use this method to create a new alias in the local cache. The event is thrown when an asset has successfully been loaded.
+
+addAssets method
+Use this method to create multiple aliases at once. Triggers multiple “assetReady” events.
+
+removeAsset method, “assetRemoved” event
+Use this method to remove an asset from the local cache. The event is thrown when an asset has successfully been removed.
+
+removeAllAssets method
+Use this method to clear the local cache of all aliases. Triggers multiple “assetRemoved” events.
+
+cacheRemaining method
+Use this method to get the number of remaining bytes available in the local cache.
+
+"assetRetired" event
+This event is thrown when an asset has been retired from the local cache to make room for new assets.
