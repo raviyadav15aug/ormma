@@ -13,7 +13,8 @@ As an example, to implement an outbound endpoint, or event trigger for shaking, 
 This standard defines a native AdView container for Rich Media Ads to display in Apps and a JavaScript AdController for Ad Creatives to interact with the AdView and the device. The AdView encapsulates an XHTML and JavaScript enabled Web browser view, such as iOS’s UIWebView, and a bridge that can integrate Ads with the OS’s capabilities.
  
 Example: iOS Components
-[http://media.cw.s3.amazonaws.com/ormma/iOSComponents.png
+
+[http://media.cw.s3.amazonaws.com/ormma/iOSComponents.png]
 
 The reference SDK implements the Container on iOS 3+ devices using an Objective-C subclass of UIView called AdView. AdView instantiates a child UIWebView, sets itself as the Web view’s delegate, and implements the UIWebViewDelegate methods. 
 
@@ -42,43 +43,44 @@ It is necessary that the Container be at the highest Z-order of any part of the 
 
 When the developer wants the App to display an Ad, they generate a URL containing whatever targeting parameters are appropriate and pass it to the Container’s loadRequest (URL) method. The AdView then triggers the Web view to request the URL from the Ad Server and display the resulting HTML. If the Ad does not make use of the AdController object, it will behave as a normal, isolated HTML Ad and any links will open the OS’s default web browser. This fallback functionality allows fixed sized, non-interactive Web Creatives to be used without modification.
 
-AdController 
+==AdController ==
 The AdController JavaScript object is a singleton and self-initializes when the Ad HTML loads the JavaScript include containing that SDK’s AdController implementation.
-Registration Object for Synchronous Methods
+
+===Registration Object for Synchronous Methods===
 Nearly all interactions are asynchronous because of the requirements to communicate with the native layer with location.href commands. However, the AdController may use a registration object to retrieve initial/static values from the native layer. It is then the responsibility of the AdController to maintain this model for methods that have return values.
 
 Example properties to request during an initial registration include
-•	Methods with return values
-o	Size of local cache for cacheRemaining()
-o	Ad Viewer dimensions for dimensions()
-o	Ad Viewer properties for properties()
-o	Ad Viewer visibility for isVisible()
-o	Network status for getNetwork()
-o	Initial device orientation for getOrientation()
-o	Device screen size for getScreenSize()
-o	Supported device features for supports()
-•	SDK function names, so AdController provides a façade layer to existing code
-•	Commonly requested data, so AdController can optimize/minimize communications between layers
-o	Device location
-o	Device ID (this is no longer allowed per Apple privacy policies)
-o	Available transitions
-o	SDK version
+  # Methods with return values
+    # Size of local cache for cacheRemaining()
+    # Ad Viewer dimensions for dimensions()
+    # Ad Viewer properties for properties()
+    # Ad Viewer visibility for isVisible()
+    # Network status for getNetwork()
+    # Initial device orientation for getOrientation()
+    # Device screen size for getScreenSize()
+    # Supported device features for supports()
+  # SDK function names, so AdController provides a façade layer to existing code
+  # Commonly requested data, so AdController can optimize/minimize communications between layers
+    # Device location
+    # ~~Device ID~~ (this is no longer allowed per Apple privacy policies)
+    # Available transitions
+    # SDK version
 
-AdController Methods
-*methods marked with an asterisk are dependent on the device. Ad developers and SDK implementers must use the supports() method to identify what methods are available.
+===AdController Methods===
+'*'methods marked with an asterisk are dependent on the device. Ad developers and SDK implementers must use the supports() method to identify what methods are available.
 
-addEventListener
-addEventListener(event, listener)
+====addEventListener====
+{{{addEventListener(event, listener)}}}
 
 Use this method to subscribe a specific handler method to a specific event. In this way, multiple listeners can subscribe to a specific event, and a single listener can handle multiple events. 
 
-parameters:
-* event – string, name of event to listen for
-	* listener – function, function name (or anonymous function) to execute
-return values: none
-level: 1
+  parameters:
+    * event – string, name of event to listen for
+    * listener – function, function name (or anonymous function) to execute
+  return values: none
+  level: 1
 
-cacheRemaining
+====cacheRemaining====
 cacheRemaining() -> Number
 Use this method to get the available size of the local cache.
 
@@ -713,8 +715,6 @@ When the Ad reaches full screen, its JavaScript registers Event Listeners for th
 When the user is done with the expanded Ad, they click a close button that causes the Ad to unregister the Event Listeners, resize the Ad to its original size, display the Ad’s banner state, and notify the App that it can resume. If the device was off-line when the user interaction took place, any metrics called made by the Ad to the AdController object are cached by the SDK until the device is on-line again, and then the calls are made.
 
 Code TBD
-
-
 
 
 
