@@ -68,7 +68,7 @@ Use this method to get the current dimensions of the web viewer. This is express
 
 Use this illustration to better define the dimensions.
 
- 
+ [http://media.cw.s3.amazonaws.com/ormma/resizing1.png]
 
 properties method, properties object
 Confusion on a method and an object having the same name
