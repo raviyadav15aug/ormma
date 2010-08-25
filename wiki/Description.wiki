@@ -1,5 +1,6 @@
 #summary The problems this project is solving
 #labels Phase-Requirements
+#sidebar SideBar
 
 =Description of Issues And Solutions=
 
