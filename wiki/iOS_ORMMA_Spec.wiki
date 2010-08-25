@@ -155,7 +155,7 @@ This method's parameter - "assets" - is an abstract array (aka standard JavaScri
 
   level: 3
 
-====getAlignment'*'====
+====getAlignment*====
 {{{getAlignment()}}}
 
 This method returns no value, executes asynchronously, and triggers the error event "Compass alignment not supported" if compass alignment is not supported on this device. The SDK vendor may combine compass and gyroscope data to return the most accurate response.
@@ -168,7 +168,7 @@ This method returns no value, executes asynchronously, and triggers the error ev
 
   level: 2
 
-====getLocation'*'====
+====getLocation*====
 {{{getLocation()}}}
 
 This method returns no value, executes asynchronously, and triggers the error event "location not supported" if geolocation is not supported on this device or denied by the end-user.
@@ -744,8 +744,6 @@ When the Ad reaches full screen, its JavaScript registers Event Listeners for th
 When the user is done with the expanded Ad, they click a close button that causes the Ad to unregister the Event Listeners, resize the Ad to its original size, display the Ad’s banner state, and notify the App that it can resume. If the device was off-line when the user interaction took place, any metrics called made by the Ad to the AdController object are cached by the SDK until the device is on-line again, and then the calls are made.
 
 Code TBD
-
-
 
 
 
