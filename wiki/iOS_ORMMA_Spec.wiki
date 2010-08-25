@@ -181,310 +181,380 @@ This method returns no value, executes asynchronously, and triggers the error ev
 
   level: 2
 
-getNetwork*
-getNetwork() -> String
+====getNetwork`*`====
+{{{getNetwork() -> String}}}
 How to know which get-Feature methods are async and which ones have return values?
 Use this method to identify the current network status of the device. Possible results include:
 
-value	description
-offline	no network connection
-wifi	network using a wifi antennae
-cell	network using a cellular antennae (such as 3G)
+|| *value*	|| *description* ||
+||offline	||no network connection||
+||wifi	||network using a wifi antennae||
+||cell	||network using a cellular antennae (such as 3G)||
 
-parameters: none
-return values: String
-related event: networkChange
-level: 2
+  parameters: none
 
-getOrientation*
-getOrientation() -> Number
+  return values: String
+
+  related event: networkChange
+
+  level: 2
+
+====getOrientation`*`====
+{{{getOrientation() -> Number}}}
 Use this method to get the current orientation of the device. Possible results include:
 
-value	description
-0	0 degrees (portrait)
-90	90 degrees (tilted clockwise to landscape)
-180	180 degrees (portrait upside down)
-270	270 degrees (tilted counter-clockwise to landscape)
+|| *value*	|| *description* ||
+||0	||0 degrees (portrait)||
+||90	||90 degrees (tilted clockwise to landscape)||
+||180	||180 degrees (portrait upside down)||
+||270	||270 degrees (tilted counter-clockwise to landscape)||
 
 parameters: none
 return values: Number
 related event: orientationChange
 level: 2
 
-getScreenSize*
-getScreenSize() -> JSON
+====getScreenSize`*`====
+{{{getScreenSize() -> JSON}}}
 Use this method to get the current point width and height of the device.
 Point width (pt) is preferred over pixel width (px) because of device screens with different DPI specs.
 
-parameters: none
-return values: {width, height}
-related event: screenSizeChange
-level: 2
+  parameters: none
 
-getRotation*
+  return values: {width, height}
+
+  related event: screenSizeChange
+
+  level: 2
+
+====getRotation`*`====
 TBD
-getShake*
-getShake(threshold, time)
+
+====getShake`*`====
+{{{getShake(threshold, time)}}}
 A shake is defined as a period of acceleration that ends in the same orientation as it began. However, one developer’s shake is another developer’s jostle. Use this method to identify what a “shake” is for the current ad. This method returns no value, executes asynchronously, and triggers the error event “Accelerometer not supported” if not supported on this device.
 
 Note: “shake” is a helper feature for the ad developer who could also use getTilt and getOrientation for a similar effect.
 
-parameters: 
-* threshold – number, average acceleration value to identify a shake
-* time – integer, milliseconds for sustain the average acceleration
-return values: none
-event triggered: shakeChange
-level: 2
+  parameters: 
+    * threshold – number, average acceleration value to identify a shake
+    * time – integer, milliseconds for sustain the average acceleration
 
-getTilt*
-getTilt()
+  return values: none
+
+  event triggered: shakeChange
+
+  level: 2
+
+====getTilt`*`====
+{{{getTilt()}}}
 Use this method to attempt to access the accelerometer. This method returns no value, executes asynchronously, and triggers the error event "Accelerometer not supported" if not supported on this device.
 
-parameters: none
-return values: none
-event triggered: tiltChange
-level: 2
+  parameters: none
 
-properties
-properties() -> JSON
+  return values: none
+
+  event triggered: tiltChange
+
+  level: 2
+
+====properties====
+{{{properties() -> JSON}}}
 Best name? Sounds like a noun while others are verbs
 Use this method to get the current resize properties of the web viewer. Since the resize action is asynchronous, this value does not update until the action has completed execution (when the "resizeChange" event fires).
 
-parameters: none
-return values: { ... } - this object contains all the web viewer properties besides dimension that are supported by the SDK vendor, for more info see properties object
+  parameters: none
 
-properties object
-properties = {
+  return values: { ... } - this object contains all the web viewer properties besides dimension that are supported by thee SDK vendor, for more info see properties object
+
+*properties object*
+{{{properties = {
  "transition" : "default|dissolve|fade|roll|slide|zoom|none",
  "navigation" : "none|close|back|forward|refresh",
  "use-background" : "true|false",
  "background-color" : "#rrggbb",
  "background-opacity" : "n.n",
  "is-modal" : "true|false"
-} 
+} }}}
 
-"transition"
+*"transition"*
+
 If "transition" is not specified in the properties object, a value of "default" is assumed.
 
-"navigation"
+*"navigation"*
+
 If "navigation" is not specified in the properties object, a value of "none" is assumed.
 
-"useBackground"
+*"useBackground"*
+
 "useBackground" should contain a boolean value (true/false) indicating the presence of a background. If "useBackground" is not specified in the properties object, a value of false is assumed.
 
-"backgroundColor"
+*"backgroundColor"*
+
 "backgroundColor" is a standard numeric RGB value (most logically expressed in hexadecimal with two digits each for red, green, and blue).
 
-"backgroundOpacity"
+*"backgroundOpacity"*
+
 "backgroundOpacity" is a number between 0 and 1 inclusively (ranging from 0 equaling fully transparent to 1 equaling fully opaque). If either "backgroundColor" or "backgroundOpacity" is not specified in the properties object, values of 0xffffff and 1.0 respectively are assumed.
 
-"isModal"
+*"isModal"*
+
 The "isModal" property is a boolean value (true/false) and if it is not specified in the properties object a value of false is assumed.
-removeAllAssets
-removeAllAssets()
+
+====removeAllAssets====
+{{{removeAllAssets()}}}
 The method returns no value and executes asynchronously.
 
-parameters: none
-return values: none
-events triggered: assetRemoved
-level: 3
+  parameters: none
 
-removeAsset
-removeAsset(alias)
+  return values: none
+
+  events triggered: assetRemoved
+
+  level: 3
+
+====removeAsset====
+{{{removeAsset(alias)}}}
 The method returns no value and executes asynchronously.
 
-parameters: none
-return values: none
-events triggered: assetRemoved
-level: 3
+  parameters: none
 
-removeEventListener
-removeEventListener(event, [listener])
+  return values: none
+
+  events triggered: assetRemoved
+
+  level: 3
+
+====removeEventListener====
+{{{removeEventListener(event, [listener])}}}
 
 Use this method to unsubscribe a specific handler method from a specific event. Event listeners should always be removed when they are no longer useful to avoid errors. If no listener function is provided, then all functions listening to the event will be removed.
 
-parameters: 
-* event – String, name of event
-* listener – String, name of function to be removed 
-return values: none
-events triggered: none
-level: 1
+  parameters: 
+    * event – String, name of event
+    * listener – String, name of function to be removed 
 
-request
-request(uri, display) -> false
+  return values: none
+
+  events triggered: none
+
+  level: 1
+
+====request====
+{{{request(uri, display) -> false}}}
 The method executes asynchronously, but returns a Boolean value of false to facilitate use in anchor tags. There is also an option explicitly for metrics tracking that will cache requests offline and execute them whenever the device reconnects. The display parameter supports the following values:
  
-parameters: 
-* URL - string, the fully qualified URL of the page or call to action asset
-* display - string, the display style for the call to action
-event triggered: response
-return values: false
-level: 1
+  parameters: 
+    * URL - string, the fully qualified URL of the page or call to action asset
+    * display - string, the display style for the call to action
 
-resize
+  event triggered: response
+
+  return values: false
+
+  level: 1
+
+====resize====
 resize(dimensions, properties)
 In the resize function, the properties value is optional - if no value is given then default values will be assumed for all resize properties. The ad developer must listen for the “resizeChange” event and not assume success.
 
-parameters:
-* dimensions: JSON {top, left, bottom, right} - this object contains desired point value dimensions of the resized web viewer
-* properties: JSON { ... } - this object contains any number of properties, such as transition, that might be used by the SDK when resizing the web viewer, for more info see properties object
-return values: none
-event triggered: resizeChange
-level: 1
+  parameters:
+    * dimensions: JSON {top, left, bottom, right} - this object contains desired point value dimensions of the resized web viewer
+    * properties: JSON { ... } - this object contains any number of properties, such as transition, that might be used by the SDK when resizing the web viewer, for more info see properties object
 
-show
-show()
+  return values: none
+
+  event triggered: resizeChange
+
+  level: 1
+
+====show====
+{{{show()}}}
 This method has no return value and is executed asynchronously (so always listen for a result event before taking action instead of assuming the change has occurred).
  
-parameters: none
-return values: none
-event triggered: visibleChange
-level: 1
+  parameters: none
 
-supports
-supports(feature) -> Boolean
+  return values: none
+
+  event triggered: visibleChange
+
+  level: 1
+
+====supports====
+{{{supports(feature) -> Boolean}}}
 For SDKs that do not expose any of the native device features, this method should always return false.
 
-parameters: String, name of feature
-return values: Boolean – true, the feature is supported and getter and events are available; false, the feature is not supported
-level: 1
+  parameters: String, name of feature
+
+  return values: Boolean – true, the feature is supported and getter and events are available; false, the feature is not supported 
+
+  level: 1
 
 
-List of AdController Events
+===List of AdController Events===
 *events marked with an asterisk are dependent on the device. Ad developers and SDK implementers must use the supports() method to identify what events are available.
-alignmentChange*
-“alignmentChange” -> (degrees)
+
+====alignmentChange`*`====
+{{{“alignmentChange” -> (degrees)}}}
 This event is thrown when the device has successfully determined its compass alignment.
 
-parameters: Number, radians clockwise from magnetic North
-triggered by: getAlignment
-level: 2
+  parameters: Number, radians clockwise from magnetic North
 
-assetReady
-"assetReady" -> (alias)
+  triggered by: getAlignment
+
+  level: 2
+
+====assetReady====
+{{{"assetReady" -> (alias)}}}
 This event is thrown when an asset has successfully been loaded in the local cache. 
 
-parameters: String, alias name of asset that was loaded
-triggered by: addAsset, addAssets
-level: 3
+  parameters: String, alias name of asset that was loaded
 
-assetRemoved
-"assetRemoved" -> (alias)
+  triggered by: addAsset, addAssets
+
+  level: 3
+
+====assetRemoved====
+{{{"assetRemoved" -> (alias)}}}
 This event is thrown when an asset has successfully been removed from the local cache.
 
-parameters: String, alias name of asset that was removed
-triggered by: removeAsset, removeAllAssets
-level: 3
+  parameters: String, alias name of asset that was removed
 
-assetRetired
-"assetRetired" -> (alias)
+  triggered by: removeAsset, removeAllAssets
+
+  level: 3
+
+====assetRetired====
+{{{"assetRetired" -> (alias)}}}
 This event is thrown when an asset has been retired from the local cache to make room for new assets. 
 
-parameters: String, alias name of asset that was removed
-triggered by: addAsset, addAssets, or any application events that determine the cache is full and must be resized
-level: 3
+  parameters: String, alias name of asset that was removed
 
-error
-"error" -> (message, action)
+  triggered by: addAsset, addAssets, or any application events that determine the cache is full and must be resized
+
+  level: 3
+
+====error====
+{{{"error" -> (message, action)}}}
 This event is thrown whenever an error occurs. The event contains a description of the error that occurred and, if appropriate, the name of the action that resulted in the error (in the absence of an associated action, the action parameter is null).
 
-parameters: 
-* message: String, description of the type of error
-* action: String, name of AdController action that caused error
-triggered by: various
-level: 1
+  parameters: 
+    * message: String, description of the type of error
+    * action: String, name of AdController action that caused error
 
-locationChange*
-“locationChange” -> (lat, lng)
+  triggered by: various
+
+  level: 1
+
+====locationChange`*`====
+{{{“locationChange” -> (lat, lng)}}}
 This event is thrown when the device has successfully geolocated itself.
 
-parameters: 
-* lat: Number, latitude value of device
-* lng: Number, longitude value of device
-triggered by: getLocation
-level: 2
+  parameters: 
+    * lat: Number, latitude value of device
+    * lng: Number, longitude value of device
 
-networkChange*
-“networkChange” -> (online, connection)
+  triggered by: getLocation
+
+  level: 2
+
+====networkChange`*`====
+{{{“networkChange” -> (online, connection)}}}
 This event is thrown when the device network connection changes, such as loosing or acquiring an Internet connection. The connection type values will vary depending on the device and carrier.
 
-parameters: 
-* online: Boolean, true – device is connected to the Internet, false – device cannot access the Internet
-* connection: String, description of connection type such as none, wifi, or cell
-triggered by: getNetwork, device itself
-level: 2
+  parameters: 
+    * online: Boolean, true – device is connected to the Internet, false – device cannot access the Internet
+    * connection: String, description of connection type such as none, wifi, or cell
+
+  triggered by: getNetwork, device itself
+
+  level: 2
 
 
-orientationChange*
-“orientationChange” -> (orientation)
+====orientationChange`*`====
+{{{“orientationChange” -> (orientation)}}}
 This event is thrown when the application screen orientation changes.
 
-parameters: orientation - Integer, degrees from upright portrait view
-triggered by: getOrientation, device itself
-level: 2
+  parameters: orientation - Integer, degrees from upright portrait view
 
-resizeChange
-“resizeChange” -> (dimensions, properties)
+  triggered by: getOrientation, device itself
+
+  level: 2
+
+====resizeChange====
+{{{“resizeChange” -> (dimensions, properties)}}}
 This event is thrown when the display state of the web viewer changes.
 
-parameters: 
-* dimensions: JSON, {top, left, bottom, right} - this object contains point value dimensions of the resized web viewer
-* properties: JSON, { ... } - this object contains the state of all the web viewer properties besides dimension that are supported by the SDK
-triggered by: resize, device itself
-level: 1
+  parameters: 
+    * dimensions: JSON, {top, left, bottom, right} - this object contains point value dimensions of the resized web viewer
+    * properties: JSON, { ... } - this object contains the state of all the web viewer properties besides dimension that are supported by the SDK
+
+  triggered by: resize, device itself
+
+  level: 1
 
 
-response
-“response” -> (uri, response)
+====response====
+{{{“response” -> (uri, response)}}}
 This event is thrown when a request action with a display type of "proxy" returns a response. 
 
-parameters: 
-* uri: String, the URI of the original request action
-* response: String, the full body of the response
-triggered by: request
-level: 1
+  parameters: 
+    * uri: String, the URI of the original request action
+    * response: String, the full body of the response
 
-rotationChange*
+  triggered by: request
+
+  level: 1
+
+====rotationChange`*`====
 TBD
 
-screenSizeChange*
-“screenSizeChange” -> (height, width) 
+====screenSizeChange`*`====
+{{{“screenSizeChange” -> (height, width) }}}
 This event is thrown when the point size of the screen changes, including orientation changes.
 Inconsistent – listener gets independent attributes, but calling getScreenSize returns a JSON object
 
-parameters:
-* height: Integer, point height of the AdView screen area
-* width: Integer, point height of the AdView screen area
-triggered by: resize, device itself
-level: 1
+  parameters:
+    * height: Integer, point height of the AdView screen area
+    * width: Integer, point height of the AdView screen area
 
-shakeChange*
-“shakeChange” -> (threshold, time)
+  triggered by: resize, device itself
+
+  level: 1
+
+====shakeChange`*`====
+{{{“shakeChange” -> (threshold, time)}}}
 This event is thrown when the device accelerometer detects that the device has been "shaken" as defined by the getShake parameters. Because the ad developer may register one listener for a soft shake and another listener for a harder shake, this event provides threshold and time parameters
 
-parameters: 
-* threshold: Number, threshold value identified by getShake
-* time: Integer, time value identified by getShake
-triggered by: device itself after configuration by getShake
-level: 2
+  parameters: 
+    * threshold: Number, threshold value identified by getShake
+    * time: Integer, time value identified by getShake
 
-tiltChange*
-“tiltChange” -> (x, y, z)
+  triggered by: device itself after configuration by getShake
+
+  level: 2
+
+====tiltChange`*`====
+{{{“tiltChange” -> (x, y, z)}}}
 This event is thrown when the device has successfully determined its spacial orientation.
 
-parameters: x,y,z – Numbers, the x, y, and z axis values in radians
-triggered by: getTilt
-level: 2
+  parameters: x,y,z – Numbers, the x, y, and z axis values in radians 
 
-visibleChange
-visibleChange -> (state)
+  triggered by: getTilt
+
+  level: 2
+
+====visibleChange====
+{{{visibleChange -> (state)}}}
 This event is thrown when the AdView changes between a visible and hidden state from the point of view of the end-user.
 
-parameters: state – String, either “hidden” or “visible”
-triggered by: show, hide, device itself
-level: 1
+  parameters: state – String, either “hidden” or “visible”
 
-Sample Code for Ad Developers
+  triggered by: show, hide, device itself
+
+  level: 1
+
+==Sample Code for Ad Developers==
 This section still needs proof reading once the above specifications are finalized.
 Level 1
 Event handling
@@ -744,5 +814,3 @@ When the Ad reaches full screen, its JavaScript registers Event Listeners for th
 When the user is done with the expanded Ad, they click a close button that causes the Ad to unregister the Event Listeners, resize the Ad to its original size, display the Ad’s banner state, and notify the App that it can resume. If the device was off-line when the user interaction took place, any metrics called made by the Ad to the AdController object are cached by the SDK until the device is on-line again, and then the calls are made.
 
 Code TBD
-
-
