@@ -46,7 +46,7 @@ It is necessary that the Container be at the highest Z-order of any part of the 
 
 When the developer wants the App to display an Ad, they generate a URL containing whatever targeting parameters are appropriate and pass it to the Container’s loadRequest (URL) method. The AdView then triggers the Web view to request the URL from the Ad Server and display the resulting HTML. If the Ad does not make use of the AdController object, it will behave as a normal, isolated HTML Ad and any links will open the OS’s default web browser. This fallback functionality allows fixed sized, non-interactive Web Creatives to be used without modification.
 
-==AdController ==
+==AdController==
 The AdController JavaScript object is a singleton and self-initializes when the Ad HTML loads the JavaScript include containing that SDK’s AdController implementation.
 
 ===Registration Object for Synchronous Methods===
