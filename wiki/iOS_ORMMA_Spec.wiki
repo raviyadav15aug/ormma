@@ -711,10 +711,11 @@ function panelCloseOnclick() {
 }}}
 
 ===Level 2===
-native features
-supports
+====native features====
+=====supports=====
 The following example demonstrates feature inspection:
 
+{{{
 if (AdFrame.supports('location')) {
 	AdFrame.addEventListener('locate', function(lat, lng) {
 		alert('I\'m at ' + lat + ',' + lng);
@@ -722,19 +723,22 @@ if (AdFrame.supports('location')) {
 	});
 	AdFrame.locate();
 }
+}}}
 
-alignment
+=====alignment=====
 The following example demonstrates polling for a "alignmentChange" event:
 
+{{{
 AdFrame.addEventListener('alignmentChange', function(direction) {
 	alert('I\'m pointed ' + direction + ' degrees from North.');
 });
 AdFrame.getAlignment();
+}}}
 
-
-location
+=====location=====
 The following example demonstrates polling for a "locationChange" event:
 
+{{{
 AdFrame.addEventListener('locationChange', function(lat, lng) {
 	alert('I\'m at ' + lat + ',' + lng);
 });
@@ -744,22 +748,24 @@ AdFrame.addEventListener('error', function(action, error) {
 	}
 });
 AdFrame.getLocation();
+}}}
 
-
-orientation
+=====orientation=====
 The following example demonstrates receiving an "orientationChange" event:
 
+{{{
 AdFrame.addEventListener('orientationChange', function(orientation) {
 	if (orientation == 180) {
 		alert('Oh no - I flipped over!');
 	}
 	AdFrame.removeEventListener('orientationChange', this);
 });
- 
+}}}
 
-network
+=====network=====
 The following example demonstrates receiving a "networkChange" event:
 
+{{{
 AdFrame.addEventListener('networkChange', function(isOnline, connectionType) {
 	if (isOnline) {
 		alert('Watch streaming movies now');
@@ -767,37 +773,45 @@ AdFrame.addEventListener('networkChange', function(isOnline, connectionType) {
 		alert('Streaming movies are not available');
 	}
 });
+}}}
 
-screenSize
+=====screenSize=====
 The following example demonstrates receiving a "screenSizeChange" event:
 
+{{{
 AdFrame.addEventListener('screenSizeChange', function(width, height) {
 	alert('Wow - the screen is ' + width + 'x' + height);
 	AdFrame.removeEventListener('screenSizeChange', this);
 });
+}}}
 
-shake
+=====shake=====
 The following example demonstrates receiving a "shakeChange" event:
 
+{{{
 AdFrame.addEventListener('shakeChange', function(threshold, time) {
 	if (threshold >= 10 && time >= 30) {
 		alert('Kaboooom!');
 		AdFrame.removeEventListener('shakeChange', this);
 	}
 });
+}}}
 
-tilt
+=====tilt=====
 The following example demonstrates polling for a "tiltChange" event:
 
+{{{
 AdFrame.addEventListener('tiltChange', function(x, y, z) {
 	alert('I\'m pitching ' + y + ' degrees from straight up and down.');
 });
 setTimeout(AdFrame.getTilt(), 100);	
+}}}
 
-call-to-action
-request
+====call-to-action====
+=====request=====
 The following example demonstrates usage of the request action and response event:
 
+{{{
 <script type="text/javascript">
 AdFrame.addEventListener('response', function(uri, response) {
 	if (uri == 'http://a.com/some/uri.xml') {
@@ -809,17 +823,22 @@ AdFrame.request('http://a.com/some/uri.xml', 'proxy');
 </script>
 <a href="http://a.com/b.html" 
  onclick="AdFrame.request(this.href, 'external')">Open a web browser</a>
+}}}
 
-Level 3
-Asset management
+===Level 3===
+====Asset management====
+
+{{{
 AdFrame.addAssets({
 	'/tmp/one.png':'http://my.domain.com/image1.png',
 	'/tmp/two.mp4':'http://a.domain.org/someMovie.mp4',
 	'/tmp/three.js':'http://an.adserver.com/some/ad/request?to=execute'
 });
+}}}
 
 This code sample illustrates usage of the local asset cache:
 
+{{{
 <script type="text/javascript">
 AdFrame.addAlias('/logo.png', 'http://a.com/my/logo.png');
 AdFrame.addEventListener('assetReady', function(alias) {
@@ -843,6 +862,7 @@ if (AdFrame.cacheRemaining() >= 50000) {
 }
 </script>
 <img src="/logo.png">
+}}}
 
 ===Complete code sample===
 In a complex example, the Ad Creative uses the JavaScript AdController object to take control of the AdView and interact with features of the device and OS. The initial Ad is a small shim with a static background or a “Loading…” message, a JavaScript include that loads the SDK’s AdController implementation, and JavaScript that uses the AdController object.
