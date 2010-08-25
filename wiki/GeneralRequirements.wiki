@@ -64,34 +64,34 @@ So, the ad designer is in control of the ad display, but uses a Controller when 
 An ad that does not utilize any device features does not need to use the Controller at all. Some of the things an ad does use the Controller for are:
   * Query the SDK for supported features, such as:
     * Accelerometer
-o	Compass
-o	GPS
-o	Specific gestures
-o	Whether the device is currently on or off-line
-o	Etc.
-•	Register JavaScript Event Listener functions to be called by the Container for:
-o	Accelerometer readings
-o	Touch events
-o	Gestures
-o	Etc.
-•	Download assets to the local file system for:
-o	Caching large assets to improve performance
-o	Installing assets for off-line use
-•	Capturing user actions for:
-o	Opening an embedded Web browser
-o	Clicking within an Ad triggering an action
-o	Storing metrics when off-line for transmission when the device is back on-line
-•	Moving or resizing the Container and Web View for:
-o	Modal take-over of the entire display
-o	Modal or modeless “fly-out” of the Ad from the original Container bounds
+    * Compass
+    * GPS
+    * Specific gestures
+    * Whether the device is currently on or off-line
+    * Etc.
+  * Register JavaScript Event Listener functions to be called by the Container for:
+    * Accelerometer readings
+    * Touch events
+    * Gestures
+    * Etc.
+  * Download assets to the local file system for:
+    * Caching large assets to improve performance
+    * Installing assets for off-line use
+  * Capturing user actions for:
+    * Opening an embedded Web browser
+    * Clicking within an Ad triggering an action
+    * Storing metrics when off-line for transmission when the device is back on-line
+  * Moving or resizing the Container and Web View for:
+    * Modal take-over of the entire display
+    * Modal or modeless “fly-out” of the Ad from the original Container bounds
 
 ===Lifecycle Examples===
-Simple Ad Lifecycle Example
+====Simple Ad Lifecycle Example====
 In the simplest example, an application developer adds an Ad View container to their application UI either programmatically or with an interface builder.
 
 When the app developer wants their app to display an ad, they rely on the SDK to retrieve an HTML ad. The Ad View Container then displays the resulting HTML. If the ad does not make use of the Ad Controller, then it will behave as a normal, isolated HTML ad and any links will open in the device’s default web browser. This fallback functionality allows fixed sized, non-interactive web creatives to be used without modification.
 
-Rich Media Ad Lifecycle Example
+====Rich Media Ad Lifecycle Example====
 In a more complex example, the Ad Designer uses the JavaScript Controller object to take control of the native Ad View and interact with features of the device and OS. An initial ad displays first as a small shim with a static background or a “Loading…” message.
 
 The ad may use local assets if they are available or request that assets be downloaded and executed locally.
@@ -103,11 +103,14 @@ When the ad reaches full screen, JavaScript registers event listeners for the ac
 
 When the user is done with the expanded ad, they click a close button that causes the ad to unregister the event listeners, resize the ad to its original size, display the ad’s banner state, and notify the App (via the SDK) that it can resume. If the device was off-line when the user interaction took place, any metrics called are cached by the Container until the device is on-line again, and then the tracking calls are sent.
 
-Compliance Levels
+===Compliance Levels===
 For a variety of reasons, it is understood that SDK vendors may choose to support only some portions of this specification. To be effective as a standard, a minimum level of implementation is needed. For this reason, the document attempts to identify different levels of compliance so that SDK integrators can make informed decisions when choosing a vendor.
-Level 1
+
+====Level 1====
 This is a minimum level of compliance to meet the requirements of basic rich media ads, primarily to change the screen size. 
-Level 2
+
+====Level 2====
 This level exposes the native device properties with broadcast events.
-Level 3
+
+====Level 3====
 This level includes all aspects of the specification, including offline rendering and tracking.
