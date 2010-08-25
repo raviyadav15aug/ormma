@@ -54,13 +54,16 @@ Although the application developer devotes some space to an ad banner, the rich 
 
 While it is possible for an SDK vendor to implement this feature by simply displaying another full-size viewing window for expanded ads, this strategy creates a jarring experience. The rich media ad developer typically requires more nuanced sizing and control. And the experience for users should be that the original creative seamlessly evolves towards an expanded view. Regardless of implementation by the SDK vendor, the intended effect should always be that the initial display is resized, (not replaced or overlaid).
 
-resize method, “resizeChange” event
+*resize method, “resizeChange” event*
+
 Use this method to resize the web viewer. In addition, the ad designer can define the transition effect, style of view window, and what style of navigation bar to display, if any. 
 
 The SDK should provide protection from creatives that do not provide an exit for the user by always displaying a navigation bar with an "close" when the user double-clicks on the ad.
 
-dimensions method, dimensions object
-Confusion on a method and an object having the same name
+*dimensions method, dimensions object*
+
+_Confusion on a method and an object having the same name_
+
 Use this method to get the current dimensions of the web viewer. This is expressed as an object with the dimensions for top, left, bottom and right.
 
 Use this illustration to better define the dimensions.
