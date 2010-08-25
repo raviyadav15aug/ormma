@@ -1,4 +1,5 @@
 #summary General SDK Requirements for Ad Delivery
+#labels Phase-Design
 #sidebar SideBar
 
 =General SDK Requirements for ORMMA Ad Delivery=
