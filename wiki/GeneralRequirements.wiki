@@ -1,4 +1,5 @@
 #summary General SDK Requirements for Ad Delivery
+#sidebar SideBar
 
 =General SDK Requirements for ORMMA Ad Delivery=
 The following details specify the requirements on an in-app ad serving SDK to be compatible with the above described ad unit/ad server agnostic fashion of mobile rich media advertising. 
