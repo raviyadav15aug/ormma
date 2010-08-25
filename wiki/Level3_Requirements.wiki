@@ -1,4 +1,5 @@
 #summary Level 3 Requirements
+#sidebar SideBar
 
 =Ad Controller Requirements: Level 3=
 
