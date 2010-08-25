@@ -2,7 +2,7 @@
 
 =Specifications for iOS Reference Implementation =
 
-<wiki:toc max_depth="1" />
+<wiki:toc max_depth="3" />
 
 ==Audience==
 This section is intended for SDK developers responsible for implementing these guidelines for rich media interoperability on Apple’s iOS platform.
