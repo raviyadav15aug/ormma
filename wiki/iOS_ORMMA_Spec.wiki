@@ -1,4 +1,4 @@
-#summary iOS Implementation Spec
+#summary iOS Implementation Spec (Draft Aug. 25, 2010)
 #labels Phase-Implementation
 #sidebar SideBar
 
