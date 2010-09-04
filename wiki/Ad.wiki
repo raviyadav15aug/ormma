@@ -1,4 +1,4 @@
-#AdController JavaScript SDK that all ad developers can use.
+#!AdController !JavaScript SDK that all ad developers can use.
 
 = Introduction =
 
