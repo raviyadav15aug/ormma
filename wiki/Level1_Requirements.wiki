@@ -61,6 +61,10 @@ Use this method to resize the web viewer. In addition, the ad designer can defin
 
 The SDK should provide protection from creatives that do not provide an exit for the user by always displaying a navigation bar with an "close" when the user double-clicks on the ad.
 
+*reset method*
+
+Use this method to return an ad to its initial state, usually a banner. This may be called pro grammatically, but is also available to the application/sdk developer when exiting ads that have timed out.
+
 *getResizeDimensions method, dimensions object*
 
 Use this method to get the current dimensions of the web viewer. This is expressed as an object with the dimensions for top, left, bottom and right.
