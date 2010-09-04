@@ -1,0 +1,17 @@
+#summary !AdController !JavaScript API that all ad developers can use.
+#sidebar SideBar
+
+= Introduction =
+
+Ultimately, the adoption of the ORMMA standard allows all ad developers to use the same JavaScript methods and know that their ad will behave as expected on a variety of platforms.
+This page outlines all the methods that ad developers will have access to.
+
+= Details =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
+= Introduction =
+
+Add your content here.
