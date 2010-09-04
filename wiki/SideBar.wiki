@@ -6,6 +6,6 @@
     * [Level1_Requirements Level 1 requirements]
     * [Level2_Requirements Level 2 requirements]
     * [Level3_Requirements Level 3 requirements]
-  * [AdControllerJavaScriptApi Ad Developers Common API methods]
+  * [AdControllerJavaScriptAPI Ad Developers Common API methods]
   * [iOS_ORMMA_Spec iOS implementation spec]
   * [Android_ORMMA_spec Android implementation spec]
