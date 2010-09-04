@@ -4,14 +4,14 @@
 
 =General SDK Requirements for ORMMA Ad Delivery=
 The following details specify the requirements on an in-app ad serving SDK to be compatible with the above described ad unit/ad server agnostic fashion of mobile rich media advertising. 
-The part defines a native container for Rich Media Ads to display in Apps and a JavaScript controller for Ad Creatives to interact with. The container encapsulates an XHTML and JavaScript enabled Web browser view, such as iOS’s UIWebView, and the controller serves as a bridge that can integrate HTML-based ads with the native capabilities.
+The part defines a native container for Rich Media Ads to display in Apps and a !JavaScript controller for Ad Creatives to interact with. The container encapsulates an XHTML and !JavaScript enabled Web browser view, such as iOS’s UIWebView, and the controller serves as a bridge that can integrate HTML-based ads with the native capabilities.
 
 The key design considerations are:
   * Compatibility between Creatives on various Rich Media SDKs and Ad Servers
   * Compatibility between Devices and OSs (iPhone, iPad, Android Phone, Android Tablet, etc.)
   * Access to the device’s native features (orientation, location, acceleration, etc.)
   * On and off-line Ad viewing and metrics
-  * Industry standard Ad development (XHTML and JavaScript)
+  * Industry standard Ad development (XHTML and !JavaScript)
   * Progressive complexity (simple things are simple, complex things are possible but harder)
 
 ===Technical Audience===
@@ -44,22 +44,22 @@ Each SDK provides unique features sets to developers. This document outlines a m
 Of course, the SDK developer must implement the ability to render web content in the area intended for the ad unit. For most environments, this capability is already available as a web view component although the developer may have to develop additional functions to support the specifications below. 
 
 ===Standard Web Technologies ===
-For interoperability, only web compatible languages should be used for markup and scripting languages. This document assumes XHTML/JavaScript/CSS. The ad designer should be able to develop and test the ad unit in a web browser. If designers use tags, styles and functions which are compatible with only one browser (such as CSS3 on WebKit), then the ad should be targeted to compatible devices. 
+For interoperability, only web compatible languages should be used for markup and scripting languages. This document assumes XHTML/!JavaScript/CSS. The ad designer should be able to develop and test the ad unit in a web browser. If designers use tags, styles and functions which are compatible with only one browser (such as CSS3 on !WebKit), then the ad should be targeted to compatible devices. 
 
 ===Ad Server Requirements ===
-The ad server used to traffic rich media ads should support XHTML ads with JavaScript. 
+The ad server used to traffic rich media ads should support XHTML ads with !JavaScript. 
 
 ===Requirements for Ad Rendering===
 ====Display of HTML Ads – Ad View Container====
 It is expected that the SDK will display any HTML ad. Ad designers that are not concerned with rich media or accessing native features can simply provide simple HTML for display in the application.
 
-The SDK should invoke an XHTML with JavaScript rendering engine for rendering ads. In this document, that engine will be called the "web viewer". As possible, the web viewer should incorporate the capabilities of the device web browser. For example, iOS developers may use UIWeb. A given App view can have one or more Ad View Containers that will all act independently of one another.
+The SDK should invoke an XHTML with !JavaScript rendering engine for rendering ads. In this document, that engine will be called the "web viewer". As possible, the web viewer should incorporate the capabilities of the device web browser. For example, iOS developers may use UIWeb. A given App view can have one or more Ad View Containers that will all act independently of one another.
 
 ===Requirements for Ad Developer===
 Display Control for Rich Media Ads – Ad Controller
 Additional creative requirements will register to use the web layer API on an as-needed basis. This supports a concept of progressive complexity.
 
-Because the SDK implements both a native app API for application developers and a JavaScript API for ad developers, the SDK developer is responsible for providing the communication between these two layers, referred to in this document as the native layer and the web layer.
+Because the SDK implements both a native app API for application developers and a !JavaScript API for ad developers, the SDK developer is responsible for providing the communication between these two layers, referred to in this document as the native layer and the web layer.
 
 So, the ad designer is in control of the ad display, but uses a Controller when they need to communicate with the native Container. The internal interaction between the controller and the container is SDK/OS specific and is hidden from both the Ad developer and the App developer.
 
@@ -71,7 +71,7 @@ An ad that does not utilize any device features does not need to use the Control
     * Specific gestures
     * Whether the device is currently on or off-line
     * Etc.
-  * Register JavaScript Event Listener functions to be called by the Container for:
+  * Register !JavaScript Event Listener functions to be called by the Container for:
     * Accelerometer readings
     * Touch events
     * Gestures
@@ -94,14 +94,14 @@ In the simplest example, an application developer adds an Ad View container to t
 When the app developer wants their app to display an ad, they rely on the SDK to retrieve an HTML ad. The Ad View Container then displays the resulting HTML. If the ad does not make use of the Ad Controller, then it will behave as a normal, isolated HTML ad and any links will open in the device’s default web browser. This fallback functionality allows fixed sized, non-interactive web creatives to be used without modification.
 
 ====Rich Media Ad Lifecycle Example====
-In a more complex example, the Ad Designer uses the JavaScript Controller object to take control of the native Ad View and interact with features of the device and OS. An initial ad displays first as a small shim with a static background or a “Loading…” message.
+In a more complex example, the Ad Designer uses the !JavaScript Controller object to take control of the native Ad View and interact with features of the device and OS. An initial ad displays first as a small shim with a static background or a “Loading…” message.
 
 The ad may use local assets if they are available or request that assets be downloaded and executed locally.
 
-When the user touches the ad, JavaScript uses the Controller to notify the App (via the SDK) that the ad is expanding so that it can stop anything that the user will not be able to interact with. The ad then resizes the Container web view to take up the entire screen of the device using a transition of its choice.
+When the user touches the ad, !JavaScript uses the Controller to notify the App (via the SDK) that the ad is expanding so that it can stop anything that the user will not be able to interact with. The ad then resizes the Container web view to take up the entire screen of the device using a transition of its choice.
 Stopping the application infers that the native SDK throws events to the application developer…these are not documented, but should be?
 
-When the ad reaches full screen, JavaScript registers event listeners for the accelerometer and shake gestures. The body of the expanded ad is a game where the user controls something by manipulating the device’s orientation. The event listeners for the accelerometer data get called with the devices 3D orientation vectors at the desired interval and the ad’s JavaScript controls the game rendering.
+When the ad reaches full screen, !JavaScript registers event listeners for the accelerometer and shake gestures. The body of the expanded ad is a game where the user controls something by manipulating the device’s orientation. The event listeners for the accelerometer data get called with the devices 3D orientation vectors at the desired interval and the ad’s !JavaScript controls the game rendering.
 
 When the user is done with the expanded ad, they click a close button that causes the ad to unregister the event listeners, resize the ad to its original size, display the ad’s banner state, and notify the App (via the SDK) that it can resume. If the device was off-line when the user interaction took place, any metrics called are cached by the Container until the device is on-line again, and then the tracking calls are sent.
 
