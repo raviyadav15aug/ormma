@@ -5,6 +5,9 @@
 The adoption of the ORMMA standard allows all ad developers to use the same JavaScript methods and know that their ad will behave as expected on a variety of platforms.
 This page outlines all the methods and events that ad developers will have access to.
 
+<wiki:toc max_depth="3" />
+
+
 =Methods=
 _`*`methods marked with an asterisk are dependent on the device. Ad developers and SDK implementers must use the supports() method to identify what methods are available._
 
@@ -93,8 +96,8 @@ This method's parameter - "assets" - is an abstract array (aka standard !JavaScr
 
   level: 3
 
-==getAlignment`*`==
-{{{getAlignment()}}}
+==pokeAlignment`*`==
+{{{pokeAlignment()}}}
 
 This method returns no value, executes asynchronously, and triggers the error event "Compass alignment not supported" if compass alignment is not supported on this device. The SDK vendor may combine compass and gyroscope data to return the most accurate response.
 
@@ -106,8 +109,8 @@ This method returns no value, executes asynchronously, and triggers the error ev
 
   level: 2
 
-==getLocation`*`==
-{{{getLocation()}}}
+==pokeLocation`*`==
+{{{pokeLocation()}}}
 
 This method returns no value, executes asynchronously, and triggers the error event "location not supported" if geolocation is not supported on this device or denied by the end-user.
 
@@ -122,7 +125,6 @@ This method returns no value, executes asynchronously, and triggers the error ev
 ==getNetwork`*`==
 {{{getNetwork() -> String}}}
 
-How to know which get-Feature methods are async and which ones have return values?
 Use this method to identify the current network status of the device. Possible results include:
 
 || *value*	|| *description* ||
@@ -168,11 +170,11 @@ Point width (pt) is preferred over pixel width (px) because of device screens wi
 
   level: 2
 
-==getRotation`*`==
+==pokeRotation`*`==
 TBD
 
-==getShake`*`==
-{{{getShake(threshold, time)}}}
+==pokeShake`*`==
+{{{pokeShake(threshold, time)}}}
 
 A shake is defined as a period of acceleration that ends in the same orientation as it began. However, one developer’s shake is another developer’s jostle. Use this method to identify what a “shake” is for the current ad. This method returns no value, executes asynchronously, and triggers the error event “Accelerometer not supported” if not supported on this device.
 
@@ -188,8 +190,8 @@ Note: “shake” is a helper feature for the ad developer who could also use ge
 
   level: 2
 
-==getTilt`*`==
-{{{getTilt()}}}
+==pokeTilt`*`==
+{{{pokeTilt()}}}
 
 Use this method to attempt to access the accelerometer. This method returns no value, executes asynchronously, and triggers the error event "Accelerometer not supported" if not supported on this device.
 
@@ -350,7 +352,7 @@ This event is thrown when the device has successfully determined its compass ali
 
   parameters: Number, radians clockwise from magnetic North
 
-  triggered by: getAlignment
+  triggered by: pokeAlignment
 
   level: 2
 
@@ -409,7 +411,7 @@ This event is thrown when the device has successfully geolocated itself.
     * lat: Number, latitude value of device
     * lng: Number, longitude value of device
 
-  triggered by: getLocation
+  triggered by: pokeLocation
 
   level: 2
 
@@ -465,8 +467,10 @@ This event is thrown when a request action with a display type of "proxy" return
 
   level: 1
 
+
 ==rotationChange`*`==
 TBD
+
 
 ==screenSizeChange`*`==
 {{{“screenSizeChange” -> (height, width) }}}
@@ -488,10 +492,10 @@ Inconsistent – listener gets independent attributes, but calling getScreenSize
 This event is thrown when the device accelerometer detects that the device has been "shaken" as defined by the getShake parameters. Because the ad developer may register one listener for a soft shake and another listener for a harder shake, this event provides threshold and time parameters
 
   parameters: 
-    * threshold: Number, threshold value identified by getShake
-    * time: Integer, time value identified by getShake
+    * threshold: Number, threshold value identified by pokeShake
+    * time: Integer, time value identified by pokeShake
 
-  triggered by: device itself after configuration by getShake
+  triggered by: device itself after configuration by pokeShake
 
   level: 2
 
@@ -502,14 +506,14 @@ This event is thrown when the device has successfully determined its spacial ori
 
   parameters: x,y,z – Numbers, the x, y, and z axis values in radians 
 
-  triggered by: getTilt
+  triggered by: pokeTilt
 
   level: 2
 
 ==visibleChange==
 {{{visibleChange -> (state)}}}
 
-This event is thrown when the AdView changes between a visible and hidden state from the point of view of the end-user.
+This event is thrown when the Ad View changes between a visible and hidden state from the point of view of the end-user.
 
   parameters: state – String, either “hidden” or “visible”
 
