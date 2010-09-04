@@ -1,4 +1,5 @@
 #summary Flow Diagrams for iOS Implementation Spec
+#sidebar SideBar
 
 = Introduction =
 
