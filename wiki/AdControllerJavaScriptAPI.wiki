@@ -12,62 +12,6 @@ This page outlines all the methods and events that ad developers will have acces
 _`*`methods marked with an asterisk are dependent on the device. Ad developers and SDK implementers must use the supports() method to identify what methods are available._
 
 
-==addEventListener==
-{{{addEventListener(event, listener)}}}
-
-Use this method to subscribe a specific handler method to a specific event. In this way, multiple listeners can subscribe to a specific event, and a single listener can handle multiple events. 
-
-  parameters:
-    * event – string, name of event to listen for
-    * listener – function, function name (or anonymous function) to execute
-  return values: none
-
-  level: 1
-
-==cacheRemaining==
-{{{cacheRemaining() -> Number}}}
-
-Use this method to get the available size of the local cache.
-
-  parameters: none
-
-  return values: integer, number of bytes available
-
-  level: 3
-
-==hide==
-{{{hide()}}}
-
-Use this method to hide the web viewer. The method has no return value and is executed asynchronously (so always listen for a result event before taking action instead of assuming the change has occurred).
-
-  parameters: none
-
-  return values: none
-
-  level: 1
- 
-==isVisible==
-{{{isVisible() -> Boolean}}}
-
-Use this method to get the current state of the web viewer. This method reflects the current actual state of the web viewer and may not reflect a requested change that has not yet occurred.
- 
-  parameters: none
-
-  return values: boolean: true = ad is visible, false = ad is not visible
-
-  level: 1
-
-==getResizeDimensions==
-{{{dimensions() -> JSON}}}
-
-Use this method to get the current dimensions of the web viewer. Since the resize action is asynchronous, this value does not update until the action has completed execution (when the "resizeChange" event fires).
-
-  parameters: none
-
-  return values: {top, left, bottom, right} - this JSON object contains point value dimensions of the current web viewer
-
-  level: 1
-
 ==addAsset==
 {{{addAsset(alias, uri)}}}
 
@@ -96,31 +40,28 @@ This method's parameter - "assets" - is an abstract array (aka standard !JavaScr
 
   level: 3
 
-==pokeAlignment`*`==
-{{{pokeAlignment()}}}
+==addEventListener==
+{{{addEventListener(event, listener)}}}
 
-This method returns no value, executes asynchronously, and triggers the error event "Compass alignment not supported" if compass alignment is not supported on this device. The SDK vendor may combine compass and gyroscope data to return the most accurate response.
+Use this method to subscribe a specific handler method to a specific event. In this way, multiple listeners can subscribe to a specific event, and a single listener can handle multiple events. 
+
+  parameters:
+    * event – string, name of event to listen for
+    * listener – function, function name (or anonymous function) to execute
+  return values: none
+
+  level: 1
+
+==cacheRemaining==
+{{{cacheRemaining() -> Number}}}
+
+Use this method to get the available size of the local cache.
 
   parameters: none
 
-  return values: none
+  return values: integer, number of bytes available
 
-  event triggered: alignmentChange
-
-  level: 2
-
-==pokeLocation`*`==
-{{{pokeLocation()}}}
-
-This method returns no value, executes asynchronously, and triggers the error event "location not supported" if geolocation is not supported on this device or denied by the end-user.
-
-  parameters: none
-
-  return values: none
-
-  event triggered: locationChange
-
-  level: 2
+  level: 3
 
 ==getNetwork`*`==
 {{{getNetwork() -> String}}}
@@ -156,52 +97,16 @@ return values: Number
 related event: orientationChange
 level: 2
 
-==getScreenSize`*`==
-{{{getScreenSize() -> JSON}}}
+==getResizeDimensions==
+{{{dimensions() -> JSON}}}
 
-Use this method to get the current point width and height of the device.
-Point width (pt) is preferred over pixel width (px) because of device screens with different DPI specs.
-
-  parameters: none
-
-  return values: {width, height}
-
-  related event: screenSizeChange
-
-  level: 2
-
-==pokeRotation`*`==
-TBD
-
-==pokeShake`*`==
-{{{pokeShake(threshold, time)}}}
-
-A shake is defined as a period of acceleration that ends in the same orientation as it began. However, one developer’s shake is another developer’s jostle. Use this method to identify what a “shake” is for the current ad. This method returns no value, executes asynchronously, and triggers the error event “Accelerometer not supported” if not supported on this device.
-
-Note: “shake” is a helper feature for the ad developer who could also use getTilt and getOrientation for a similar effect.
-
-  parameters: 
-    * threshold – number, average acceleration value to identify a shake
-    * time – integer, milliseconds for sustain the average acceleration
-
-  return values: none
-
-  event triggered: shakeChange
-
-  level: 2
-
-==pokeTilt`*`==
-{{{pokeTilt()}}}
-
-Use this method to attempt to access the accelerometer. This method returns no value, executes asynchronously, and triggers the error event "Accelerometer not supported" if not supported on this device.
+Use this method to get the current dimensions of the web viewer. Since the resize action is asynchronous, this value does not update until the action has completed execution (when the "resizeChange" event fires).
 
   parameters: none
 
-  return values: none
+  return values: {top, left, bottom, right} - this JSON object contains point value dimensions of the current web viewer
 
-  event triggered: tiltChange
-
-  level: 2
+  level: 1
 
 ==getResizeProperties==
 {{{properties() -> JSON}}}
@@ -245,6 +150,101 @@ If "navigation" is not specified in the properties object, a value of "none" is 
 *"isModal"*
 
 The "isModal" property is a boolean value (true/false) and if it is not specified in the properties object a value of false is assumed.
+
+==getScreenSize`*`==
+{{{getScreenSize() -> JSON}}}
+
+Use this method to get the current point width and height of the device.
+Point width (pt) is preferred over pixel width (px) because of device screens with different DPI specs.
+
+  parameters: none
+
+  return values: {width, height}
+
+  related event: screenSizeChange
+
+  level: 2
+
+==hide==
+{{{hide()}}}
+
+Use this method to hide the web viewer. The method has no return value and is executed asynchronously (so always listen for a result event before taking action instead of assuming the change has occurred).
+
+  parameters: none
+
+  return values: none
+
+  level: 1
+ 
+==isVisible==
+{{{isVisible() -> Boolean}}}
+
+Use this method to get the current state of the web viewer. This method reflects the current actual state of the web viewer and may not reflect a requested change that has not yet occurred.
+ 
+  parameters: none
+
+  return values: boolean: true = ad is visible, false = ad is not visible
+
+  level: 1
+
+==pokeAlignment`*`==
+{{{pokeAlignment()}}}
+
+This method returns no value, executes asynchronously, and triggers the error event "Compass alignment not supported" if compass alignment is not supported on this device. The SDK vendor may combine compass and gyroscope data to return the most accurate response.
+
+  parameters: none
+
+  return values: none
+
+  event triggered: alignmentChange
+
+  level: 2
+
+==pokeLocation`*`==
+{{{pokeLocation()}}}
+
+This method returns no value, executes asynchronously, and triggers the error event "location not supported" if geolocation is not supported on this device or denied by the end-user.
+
+  parameters: none
+
+  return values: none
+
+  event triggered: locationChange
+
+  level: 2
+
+==pokeRotation`*`==
+TBD
+
+==pokeShake`*`==
+{{{pokeShake(threshold, time)}}}
+
+A shake is defined as a period of acceleration that ends in the same orientation as it began. However, one developer’s shake is another developer’s jostle. Use this method to identify what a “shake” is for the current ad. This method returns no value, executes asynchronously, and triggers the error event “Accelerometer not supported” if not supported on this device.
+
+Note: “shake” is a helper feature for the ad developer who could also use getTilt and getOrientation for a similar effect.
+
+  parameters: 
+    * threshold – number, average acceleration value to identify a shake
+    * time – integer, milliseconds for sustain the average acceleration
+
+  return values: none
+
+  event triggered: shakeChange
+
+  level: 2
+
+==pokeTilt`*`==
+{{{pokeTilt()}}}
+
+Use this method to attempt to access the accelerometer. This method returns no value, executes asynchronously, and triggers the error event "Accelerometer not supported" if not supported on this device.
+
+  parameters: none
+
+  return values: none
+
+  event triggered: tiltChange
+
+  level: 2
 
 ==removeAllAssets==
 {{{removeAllAssets()}}}
