@@ -1,4 +1,4 @@
-#summary !AdController !JavaScript API that all ad developers can use.
+#summary AdController JavaScript API that all ad developers can use.
 #sidebar SideBar
 
 =Introduction=
