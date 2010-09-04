@@ -8,7 +8,7 @@ Using standard web technologies in the ad design, and relying on a web viewer in
 
 Dynamic properties require an event listener strategy. Using just the addEventListener method allows the ad developer to access all native features the SDK supports.
 
-Knowing what features are available to listen for, and what the event names are requires a naming convention. For each feature a Controller supports, the polling (or getter) method is “get”+feature name and the event name is feature name+”Change”. For example, if a Controller supports the device’s native location capabilities, the supported feature is “location”, to get the location the ad developer would call “getLocation” and to listen for changes, the ad developer would listen for the event named “locationOnchange”.
+Knowing what features are available to listen for, and what the event names are requires a naming convention. For each feature a Controller supports, the polling method is “poke”+feature name, the getter method is “get”+feature name and the event name is feature name+”Change”. For example, if a Controller supports the device’s native location capabilities, the supported feature is “location”, to get the location the ad developer would call “getLocation”, and to listen for changes, the ad developer poll first with “pokeLocation” then listen for the event named “locationOnchange”.
 
 As devices differentiate, or hardware vendors innovate, additional native features can be added using the same naming convention.
 
