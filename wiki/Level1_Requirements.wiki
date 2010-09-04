@@ -4,11 +4,11 @@
 =Ad Controller Requirements: Level 1=
 
 ===Initialization===
-Simply by including the SDK’s JavaScript library, the Controller is available to the ad designer. The Controller encapsulates and abstracts all interactions between the web layer and the native layer and identifies this SDK as compatible with these specifications.
+Simply by including the SDK’s !JavaScript library, the Controller is available to the ad designer. The Controller encapsulates and abstracts all interactions between the web layer and the native layer and identifies this SDK as compatible with these specifications.
 Need identification methods? Vendor names, SDK versions, compliance levels?
 
 ===Preloading and Initial Display===
-It is up to the ad developer to provide a simple HTML, such as an <img> tag, for the initial display of their ad while other assets are loaded in the background. This HTML will be displayed in the Container while JavaScript uses the Controller to request and invoke additional capabilities. Ultimately, the initial HTML display may be completely replaced by a rich media ad once all assets are ready, depending on the creative requirements.
+It is up to the ad developer to provide a simple HTML, such as an <img> tag, for the initial display of their ad while other assets are loaded in the background. This HTML will be displayed in the Container while !JavaScript uses the Controller to request and invoke additional capabilities. Ultimately, the initial HTML display may be completely replaced by a rich media ad once all assets are ready, depending on the creative requirements.
 
 ===Event Handling===
 Event handling is a key concept of this recommendation. Communicating between the web layer and native layer is asynchronous by nature. Through event handling, the ad designer is able to listen for particular actions and respond to those actions on an as-needed basis. These specifications advocate broadcast-style events to support the broadest range of features/flexibility with the greatest consistency.
