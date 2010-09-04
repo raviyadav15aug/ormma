@@ -1,0 +1,14 @@
+#summary Flow Diagrams for iOS Implementation Spec
+
+= Introduction =
+
+These flow diagrams illustrate the steps that result from ad developer actions.
+
+==iOS Simple Ad Initialization Flow==
+[http://media.cw.s3.amazonaws.com/ormma/iOSFlow.png]
+ 
+==iOS Rich Media Initialization Flow==
+[http://media.cw.s3.amazonaws.com/ormma/iOSInit.png]
+
+==iOS Rich Media Resize Flow==
+[http://media.cw.s3.amazonaws.com/ormma/iOSMediaResize.png]
