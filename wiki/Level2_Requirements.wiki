@@ -42,7 +42,7 @@ Rich media designers need access to the minimum calls to action
   * click to iTunes
 
 ===Request Handling===
-As mentioned, each call to action may be called as standard anchor tag href attributes or as the result of JavaScript onclick events. For the SDK, instead of trying to discover every URL, it should support a request handling strategy. The ad developer should use the function wrapper for all click events so they can be processed by the SDK for native applications. A request wrapper allows the ad designer control over how the web viewer handles various click or other request events.
+As mentioned, each call to action may be called as standard anchor tag href attributes or as the result of !JavaScript onclick events. For the SDK, instead of trying to discover every URL, it should support a request handling strategy. The ad developer should use the function wrapper for all click events so they can be processed by the SDK for native applications. A request wrapper allows the ad designer control over how the web viewer handles various click or other request events.
 
 *request method*
 Use this method to trigger a request action. The method supports an option to identify the request type, which is especially important for capturing tracking requests offline and executing them whenever the device reconnects
