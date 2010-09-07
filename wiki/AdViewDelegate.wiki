@@ -1,14 +1,25 @@
-#summary iOS AdViewDelegate Class Reference
+#summary iOS AdViewDelegate Protocol Reference
 #sidebar SideBar
 
 = Introduction =
 
-Add your content here.
+The AdViewDelegate protocol should be adopted by any UIView that has one or more AdView subviews.
 
 
-= Details =
+= API =
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+==Methods==
+
+-(void)adWillExpand:(AdView)ad
+
+
+-(void)adDidClose:(AdView)ad
+
+
+-(void)appWillSuspendForAd:(AdView)ad
+
+
+-(void)appWillResumeFromAd:(AdView)ad
+
+
+
