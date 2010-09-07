@@ -63,6 +63,19 @@ Use this method to get the available size of the local cache.
 
   level: 3
 
+==close==
+{{{close()}}}
+
+Use this method to return an expanded ad to its default position within the UI. The SDK is responsible for the correct size of the ad within the app UI.
+
+  parameters: none
+
+  return values: none
+
+  event triggered: stateChange
+
+  level: 1
+
 ==getNetwork`*`==
 {{{getNetwork() -> String}}}
 
@@ -315,7 +328,7 @@ In the resize function, the properties value is optional - if no value is given 
 
   return values: none
 
-  event triggered: resizeChange
+  events triggered: resizeChange, stateChange
 
   level: 1
 
@@ -329,6 +342,17 @@ This method has no return value and is executed asynchronously (so always listen
   return values: none
 
   event triggered: visibleChange
+
+  level: 1
+
+==state==
+{{{state()}}}
+
+This method returns whether the ad is in its default, fixed position or is in an expanded, larger position.
+
+  parameters: none
+
+  Return values: string: "default" or "expanded"
 
   level: 1
 
@@ -500,6 +524,17 @@ This event is thrown when the device accelerometer detects that the device has b
   triggered by: device itself after configuration by pokeShake
 
   level: 2
+
+==stateChange==
+{{{"stateChange" -> (state)}}}
+
+This event is thrown when the Ad View changes between default and expanded states as the result of a resize() or a close(). The SDK may also close an ad as the result of a user or system action, such as resuming from background.
+
+  parameters: state - String, either "default" or "expanded"
+
+  triggered by: resize, close, app
+
+  level: 1
 
 ==tiltChange`*`==
 {{{“tiltChange” -> (x, y, z)}}}
