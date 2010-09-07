@@ -361,7 +361,20 @@ This method returns whether the ad is in its default, fixed position or is in an
 ==supports==
 {{{supports(feature) -> Boolean}}}
 
-For SDKs that do not expose any of the native device features, this method should always return false.
+For SDKs that do not expose any of the native device features, this method should always return false. The features are:
+
+||value             ||description ||
+||network        ||the device can report on its network connectivity and connectivity changes||
+||orientation   ||the device can report on its orientation and orientation changes||
+||size               ||the device can report on the screen size||
+||alignment     ||the device can report on the direction it is pointing||
+||location        ||the device can report on its location||
+||rotation        ||the device can report on its rotation and rotation changes||
+||shake            ||the device can report on being shaken||
+||tilt                  ||the device can report on its tilt and tilt changes||
+||phone           ||the device can make a phone call||
+||email            ||the device can compose an email||
+||calendar       ||the device can create a calendar entry||
 
   parameters: String, name of feature
 
