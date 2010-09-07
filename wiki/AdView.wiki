@@ -3,7 +3,7 @@
 
 = Introduction =
 
-The AdContainer object is a native class of the device OS. A given App view can have one or more Ad Containers that will all act independently of one another. The primary method call of the Container is loadRequest(URL), which causes the embedded Web view to retrieve HTML from the Ad Server.
+The AdView object is a native class of the device OS. A given App view can have one or more AdView objects that will all act independently of one another. The primary method call of the AdView is loadRequest(URL), which causes the embedded Web view to load the specified document.
 
 = Implementation Notes = 
 It is necessary that the Container be at the highest Z-order of any part of the UI that the Ad might cover and it is recommended that it be at the highest Z-order of all UI elements in the View.
