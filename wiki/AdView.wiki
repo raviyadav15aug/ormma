@@ -17,7 +17,7 @@ When the developer wants the App to display an Ad, they generate a URL containin
   * it may be a local (file:) URL to a stub HTML file that will then, based on parameters in the request, will make subsequent calls (most likely to the Internet for JavaScript Ad content)
   * it may be a data (data:) URL containing the the body of an HTML document retrieved by alternate means 
 
-If the Ad does not make use of the AdController object, it will behave as a normal, isolated HTML Ad and any links will open the OS’s default web browser. This fallback functionality allows fixed sized, non-interactive Web Creatives to be used without modification.
+If the Ad does not make use of the ORMMA JavaScript object, it will behave as a normal, isolated HTML Ad and any links will open the OS’s default web browser. This fallback functionality allows fixed sized, non-interactive Web Creatives to be used without modification.
 
 =API=
 
