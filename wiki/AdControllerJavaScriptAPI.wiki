@@ -133,14 +133,16 @@ Use this method to get the current resize properties of the web viewer. Since th
   return values: { ... } - this object contains all the web viewer properties besides dimension that are supported by the SDK vendor, for more info see properties object
 
 *properties object*
-{{{properties = {
+{{{
+properties = {
  "transition" : "default|dissolve|fade|roll|slide|zoom|none",
  "navigation" : "none|close|back|forward|refresh",
  "use-background" : "true|false",
  "background-color" : "#rrggbb",
  "background-opacity" : "n.n",
  "is-modal" : "true|false"
-} }}}
+}
+}}}
 
 *"transition"*
 
