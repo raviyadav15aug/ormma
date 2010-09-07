@@ -26,6 +26,6 @@ If the Ad does not make use of the AdController object, it will behave as a norm
 state
 
 ==Methods==
-loadRequest (URL)
+-(void)loadRequest:(NSString*)URL
 
-close()
+-(void)close:
