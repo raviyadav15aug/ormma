@@ -25,10 +25,8 @@ The reference SDK implements the Container on iOS 3+ devices using an Objective-
 
 The !JavaScript AdController class communicates with the Objective-C AdView using a custom URI scheme that is inspected and dispatched in the UIWebViewDelegate [shouldStartLoadWithRequest…] method. The URI scheme is:
 
-*oaa:command:parameter1:parameter2:…:parameterN*
+*ormma:command:parameter1:parameter2:…:parameterN*
 
-The first element is always the static string “oaa”. The second parameter is a sting representing a command name. Additional parameters, if present, are an ordered list of parameters specific to the command and defined by convention.
+The first element is always the static string “ormma”. The second parameter is a sting representing a command name. Additional parameters, if present, are an ordered list of parameters specific to the command and defined by convention.
 
 The Objective-C AdView class communicates with the !JavaScript AdController class by calling the UIWebView’s [stringByEvaluatingJavaScriptFromString…] method with a !JavaScript function call that modifies the state of the static AdController !JavaScript class. This interface is private and defined by convention.
-
-
