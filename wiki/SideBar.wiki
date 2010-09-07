@@ -10,6 +10,7 @@
     * [AdControllerSampleCallingCode Sample calling code]
   * [iOS_ORMMA_Spec iOS implementation spec]
     * [iOS_FlowDiagrams Flow Diagrams]
-    * [iOS_AdContainer AdContainer for iOS]
+    * [AdView AdView for iOS]
+    * [AdViewDelegate AdViewDelegate for iOS]
     * [iOS_AdController AdController for iOS]
   * [Android_ORMMA_spec Android implementation spec]
