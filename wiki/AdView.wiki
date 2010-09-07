@@ -1,13 +1,19 @@
 #iOS AdView Class Reference
+#sidebar SideBar
 
 = Introduction =
 
-Add your content here.
+The AdContainer object is a native class of the device OS. A given App view can have one or more Ad Containers that will all act independently of one another. The primary method call of the Container is loadRequest(URL), which causes the embedded Web view to retrieve HTML from the Ad Server.
 
+= Implementation Notes = 
+It is necessary that the Container be at the highest Z-order of any part of the UI that the Ad might cover and it is recommended that it be at the highest Z-order of all UI elements in the View.
 
-= Details =
+When the developer wants the App to display an Ad, they generate a URL containing whatever targeting parameters are appropriate and pass it to the Container’s loadRequest (URL) method. The AdContainer then triggers the Web view to request the URL from the Ad Server and display the resulting HTML. If the Ad does not make use of the AdController object, it will behave as a normal, isolated HTML Ad and any links will open the OS’s default web browser. This fallback functionality allows fixed sized, non-interactive Web Creatives to be used without modification.
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+= Methods =
+loadRequest (URL)
+
+= Events =
+"adTakesFocus"
+
+"adReadyForDisplay"
