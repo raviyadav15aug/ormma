@@ -2,7 +2,7 @@
 #sidebar SideBar
 
 =Introduction=
-The adoption of the ORMMA standard allows all ad developers to use the same JavaScript methods and know that their ad will behave as expected on a variety of platforms.
+The adoption of the ORMMA standard allows all ad developers to use the same !JavaScript methods and know that their ad will behave as expected on a variety of platforms.
 This page outlines all the methods and events that ad developers will have access to.
 
 <wiki:toc max_depth="3" />
