@@ -28,6 +28,8 @@ state
 ==Methods==
 - (void)loadRequest:(NSURLRequest `*`)request
 
+- (void)loadHTMLString:(NSString `*`)string baseURL:(NSURL `*`)baseURL
+
 - (NSString `*`)stringByEvaluatingJavaScriptFromString:(NSString `*`)script
 
 - (void)close:
