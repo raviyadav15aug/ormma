@@ -26,6 +26,8 @@ If the Ad does not make use of the ORMMA JavaScript object, it will behave as a 
 state
 
 ==Methods==
--(void)loadRequest:(NSString*)URL
+- (void)loadRequest:(NSURLRequest *)request
 
--(void)close:
+- (NSString *)stringByEvaluatingJavaScriptFromString:(NSString *)script
+
+- (void)close:
