@@ -1,4 +1,4 @@
-#iOS AdView Class Reference
+#summary iOS AdView Class Reference
 #sidebar SideBar
 
 = Introduction =
