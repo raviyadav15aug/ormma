@@ -72,6 +72,7 @@ Use this method to identify the current network status of the device. Possible r
 ||offline	||no network connection||
 ||wifi	||network using a wifi antennae||
 ||cell	||network using a cellular antennae (such as 3G)||
+||unknown||network connection in unknown state||
 
   parameters: none
 
@@ -87,6 +88,7 @@ Use this method to identify the current network status of the device. Possible r
 Use this method to get the current orientation of the device. Possible results include:
 
 || *value*	|| *description* ||
+||-1||device orientation unknown||
 ||0	||0 degrees (portrait)||
 ||90	||90 degrees (tilted clockwise to landscape)||
 ||180	||180 degrees (portrait upside down)||
