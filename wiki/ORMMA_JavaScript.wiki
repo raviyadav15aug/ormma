@@ -91,7 +91,7 @@ Use this method to return an expanded ad to its default position within the UI. 
 ==getNetwork`*`==
 {{{getNetwork() -> String}}}
 
-Use this method to identify the current network status of the device. Possible results include:
+Use this method to identify the most recent network status of the device. To receive events when a change occurs, register an event listener for "network" events. Possible results include:
 
 || *value*	|| *description* ||
 ||offline	||no network connection||
@@ -110,7 +110,7 @@ Use this method to identify the current network status of the device. Possible r
 ==getOrientation`*`==
 {{{getOrientation() -> Number}}}
 
-Use this method to get the current orientation of the device. Possible results include:
+Use this method to get the most recent orientation of the device. To receive events when a change occurs, register an event listener for "orientation" events. Possible results include:
 
 || *value*	|| *description* ||
 ||-1||device orientation unknown||
@@ -127,7 +127,7 @@ level: 2
 ==getResizeDimensions==
 {{{dimensions() -> JSON}}}
 
-Use this method to get the current dimensions of the web viewer. Since the resize action is asynchronous, this value does not update until the action has completed execution (when the "resizeChange" event fires).
+Use this method to get the dimensions of the web viewer that the last resize method requested. Since the resize action is asynchronous, this value does not update until the action has completed execution (when the "resizeChange" event fires). If no resize request has been made, this will return the same as getSize.
 
   parameters: none
 
@@ -180,7 +180,7 @@ If "navigation" is not specified in the properties object, a value of "none" is 
 
 The "isModal" property is a boolean value (true/false) and if it is not specified in the properties object a value of false is assumed.
 
-==getSize`*`==
+==getScreenSize`*`==
 {{{getScreenSize() -> JSON}}}
 
 Use this method to get the current point width and height of the device.
@@ -202,6 +202,8 @@ Use this method to hide the web viewer. The method has no return value and is ex
   parameters: none
 
   return values: none
+
+  side effects: changes state
 
   level: 1
  
@@ -261,7 +263,7 @@ The method executes asynchronously, but returns a Boolean value of false to faci
 
   level: 1
 
-==setSize==
+==resize==
 {{{
 resize(dimensions, properties)
 }}}
@@ -275,6 +277,8 @@ In the resize function, the properties value is optional - if no value is given 
   return values: none
 
   events triggered: resizeChange, stateChange
+
+  side effects: changes state
 
   level: 1
 
