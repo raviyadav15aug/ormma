@@ -46,15 +46,15 @@ This method's parameter - "assets" - is an abstract array (aka standard !JavaScr
 Use this method to subscribe a specific handler method to a specific event. In this way, multiple listeners can subscribe to a specific event, and a single listener can handle multiple events. The events are:
 
 || *value*             || *description* ||
-||ready             ||report on the initialize complete||
-||network        ||report on network connectivity changes||
+||ready             ||report initialize complete||
+||network        ||report network connectivity changes||
 ||orientation   ||report orientation changes||
-||alignment     ||report on direction changes||
-||location        ||report on its location||
-||rotation        ||report on its rotation and rotation changes||
-||shake            ||report on being shaken||
-||state              ||report on state changes||
-||tilt                  ||report on its tilt and tilt changes||
+||alignment     ||report direction changes||
+||location        ||report location changes||
+||rotation        ||report rotation changes||
+||shake            ||report device being shaken||
+||state              ||report state changes||
+||tilt                  ||report tilt changes||
 
   parameters:
     * event – string, name of event to listen for
@@ -180,7 +180,7 @@ If "navigation" is not specified in the properties object, a value of "none" is 
 
 The "isModal" property is a boolean value (true/false) and if it is not specified in the properties object a value of false is assumed.
 
-==getScreenSize`*`==
+==getSize`*`==
 {{{getScreenSize() -> JSON}}}
 
 Use this method to get the current point width and height of the device.
@@ -205,17 +205,6 @@ Use this method to hide the web viewer. The method has no return value and is ex
 
   level: 1
  
-==isVisible==
-{{{isVisible() -> Boolean}}}
-
-Use this method to get the current state of the web viewer. This method reflects the current actual state of the web viewer and may not reflect a requested change that has not yet occurred.
- 
-  parameters: none
-
-  return values: boolean: true = ad is visible, false = ad is not visible
-
-  level: 1
-
 ==removeAllAssets==
 {{{removeAllAssets()}}}
 
@@ -272,8 +261,10 @@ The method executes asynchronously, but returns a Boolean value of false to faci
 
   level: 1
 
-==resize==
-{{{resize(dimensions, properties)}}}
+==setSize==
+{{{
+resize(dimensions, properties)
+}}}
 
 In the resize function, the properties value is optional - if no value is given then default values will be assumed for all resize properties. The ad developer must listen for the “resizeChange” event and not assume success.
 
@@ -296,18 +287,20 @@ This method has no return value and is executed asynchronously (so always listen
 
   return values: none
 
+  side effects: changes the state value
+
   event triggered: visibleChange
 
   level: 1
 
 ==state==
-{{{state()}}}
+{{{getState()}}}
 
 This method returns whether the ad is in its default, fixed position or is in an expanded, larger position.
 
   parameters: none
 
-  Return values: string: "default" or "expanded"
+  Return values: string: "default", "expanded", or "hidden"
 
   level: 1
 
@@ -316,7 +309,7 @@ This method returns whether the ad is in its default, fixed position or is in an
 
 For SDKs that do not expose any of the native device features, this method should always return false. The features are:
 
-||value             ||description ||
+|| *value*             || *description* ||
 ||network        ||the device can report on its network connectivity and connectivity changes||
 ||orientation   ||the device can report on its orientation and orientation changes||
 ||size               ||the device can report on the screen size||
@@ -434,8 +427,8 @@ This event is thrown when the application screen orientation changes.
 
   level: 2
 
-==resizeChange==
-{{{“resizeChange” -> (dimensions, properties)}}}
+==sizeChange==
+{{{“sizeChange” -> (dimensions, properties)}}}
 
 This event is thrown when the display state of the web viewer changes.
 
