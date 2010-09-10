@@ -407,7 +407,7 @@ This event is thrown when the device has successfully geolocated itself.
     * lat: Number, latitude value of device
     * lng: Number, longitude value of device
 
-  triggered by: pokeLocation
+  triggered by: addEventListener("location", _function()_)
 
   level: 2
 
@@ -420,7 +420,7 @@ This event is thrown when the device network connection changes, such as loosing
     * online: Boolean, true – device is connected to the Internet, false – device cannot access the Internet
     * connection: String, description of connection type such as none, wifi, or cell
 
-  triggered by: getNetwork, device itself
+  triggered by: addEventListener("network", _function()_) or the device itself
 
   level: 2
 
@@ -432,7 +432,7 @@ This event is thrown when the application screen orientation changes.
 
   parameters: orientation - Integer, degrees from upright portrait view
 
-  triggered by: getOrientation, device itself
+  triggered by: addEventListener("orientation", _function()_)
 
   level: 2
 
@@ -445,7 +445,7 @@ This event is thrown when the display state of the web viewer changes.
     * dimensions: JSON, {top, left, bottom, right} - this object contains point value dimensions of the resized web viewer
     * properties: JSON, { ... } - this object contains the state of all the web viewer properties besides dimension that are supported by the SDK
 
-  triggered by: resize, device itself
+  triggered by: resize, close, or the device itself
 
   level: 1
 
@@ -478,20 +478,18 @@ Inconsistent – listener gets independent attributes, but calling getScreenSize
     * height: Integer, point height of the AdView screen area
     * width: Integer, point height of the AdView screen area
 
-  triggered by: resize, device itself
+  triggered by: resize, close, or the device itself
 
   level: 1
 
 ==shakeChange`*`==
-{{{“shakeChange” -> (threshold, time)}}}
+{{{“shakeChange” -> ()}}}
 
 This event is thrown when the device accelerometer detects that the device has been "shaken" as defined by the getShake parameters. Because the ad developer may register one listener for a soft shake and another listener for a harder shake, this event provides threshold and time parameters
 
-  parameters: 
-    * threshold: Number, threshold value identified by pokeShake
-    * time: Integer, time value identified by pokeShake
+  parameters: none
 
-  triggered by: device itself after configuration by pokeShake
+  triggered by: addEventListener("shake", _function()_)
 
   level: 2
 
@@ -502,7 +500,7 @@ This event is thrown when the Ad View changes between default and expanded state
 
   parameters: state - String, either "default", "expanded", "hidden", or "overlay"
 
-  triggered by: resize, close, app
+  triggered by: resize, close, hide, show, or the app
 
   level: 1
 
@@ -513,6 +511,6 @@ This event is thrown when the device has successfully determined its spacial ori
 
   parameters: x,y,z – Numbers, the x, y, and z axis values in radians 
 
-  triggered by: pokeTilt
+  triggered by: addEventListener("tilt", _function()_)
 
   level: 2
