@@ -45,7 +45,7 @@ This method's parameter - "assets" - is an abstract array (aka standard !JavaScr
 
 Use this method to subscribe a specific handler method to a specific event. In this way, multiple listeners can subscribe to a specific event, and a single listener can handle multiple events. The events are:
 
-||*value*             ||*description* ||
+|| *value*             || *description* ||
 ||ready             ||report on the initialize complete||
 ||network        ||report on network connectivity changes||
 ||orientation   ||report orientation changes||
