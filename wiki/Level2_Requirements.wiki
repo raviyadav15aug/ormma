@@ -39,6 +39,7 @@ Rich media designers need access to the minimum calls to action
   * click to send form data
   * click to Google maps
   * click to email
+  * click to calendar
   * click to iTunes
 
 ===Request Handling===
