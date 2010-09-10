@@ -64,20 +64,6 @@ Use this method to get the available size of the local cache.
 
   level: 3
 
-==calendar`*`==
-{{{calendar(date, title, detail)}}}
-
-Use this method to create a calendar entry in the phone's default calendar.
-
-  parameters:
-    * date - date: the date and time of the event
-    * title - string: text to appear in the title of the event
-    * detail - string: text to appear in the detail of the event
- 
-  return values: none
-
-  level: 1
-
 ==close==
 {{{close()}}}
 
@@ -88,20 +74,6 @@ Use this method to return an expanded ad to its default position within the UI. 
   return values: none
 
   event triggered: stateChange
-
-  level: 1
-
-==email`*`==
-{{{email(address, subject, body)}}}
-
-Use this method to create an email message to one or more email addresses and set the subject and body fields to the desired text.
-
-  parameters:
-    * address - string: one or more email addresses
-    * subject - string: text to appear in the subject line of the email
-    * body - string: text to appear in the body of the email
- 
-  return values: none
 
   level: 1
 
@@ -232,76 +204,6 @@ Use this method to get the current state of the web viewer. This method reflects
   return values: boolean: true = ad is visible, false = ad is not visible
 
   level: 1
-
-==phone`*`==
-{{{phone(number)}}}
-
-Use this method to make a phone call to the provided number.
-
-  parameters: string - the phone number to call 
- 
-  return values: none
-
-  level: 1
-
-==pokeAlignment`*`==
-{{{pokeAlignment()}}}
-
-This method returns no value, executes asynchronously, and triggers the error event "Compass alignment not supported" if compass alignment is not supported on this device. The SDK vendor may combine compass and gyroscope data to return the most accurate response.
-
-  parameters: none
-
-  return values: none
-
-  event triggered: alignmentChange
-
-  level: 2
-
-==pokeLocation`*`==
-{{{pokeLocation()}}}
-
-This method returns no value, executes asynchronously, and triggers the error event "location not supported" if geolocation is not supported on this device or denied by the end-user.
-
-  parameters: none
-
-  return values: none
-
-  event triggered: locationChange
-
-  level: 2
-
-==pokeRotation`*`==
-TBD
-
-==pokeShake`*`==
-{{{pokeShake(threshold, time)}}}
-
-A shake is defined as a period of acceleration that ends in the same orientation as it began. However, one developer’s shake is another developer’s jostle. Use this method to identify what a “shake” is for the current ad. This method returns no value, executes asynchronously, and triggers the error event “Accelerometer not supported” if not supported on this device.
-
-Note: “shake” is a helper feature for the ad developer who could also use getTilt and getOrientation for a similar effect.
-
-  parameters: 
-    * threshold – number, average acceleration value to identify a shake
-    * time – integer, milliseconds for sustain the average acceleration
-
-  return values: none
-
-  event triggered: shakeChange
-
-  level: 2
-
-==pokeTilt`*`==
-{{{pokeTilt()}}}
-
-Use this method to attempt to access the accelerometer. This method returns no value, executes asynchronously, and triggers the error event "Accelerometer not supported" if not supported on this device.
-
-  parameters: none
-
-  return values: none
-
-  event triggered: tiltChange
-
-  level: 2
 
 ==removeAllAssets==
 {{{removeAllAssets()}}}
@@ -585,7 +487,7 @@ This event is thrown when the device accelerometer detects that the device has b
 
 This event is thrown when the Ad View changes between default and expanded states as the result of a resize() or a close(). The SDK may also close an ad as the result of a user or system action, such as resuming from background.
 
-  parameters: state - String, either "default" or "expanded"
+  parameters: state - String, either "default", "expanded", "hidden", or "overlay"
 
   triggered by: resize, close, app
 
@@ -601,14 +503,3 @@ This event is thrown when the device has successfully determined its spacial ori
   triggered by: pokeTilt
 
   level: 2
-
-==visibleChange==
-{{{visibleChange -> (state)}}}
-
-This event is thrown when the Ad View changes between a visible and hidden state from the point of view of the end-user.
-
-  parameters: state – String, either “hidden” or “visible”
-
-  triggered by: show, hide, device itself
-
-  level: 1
