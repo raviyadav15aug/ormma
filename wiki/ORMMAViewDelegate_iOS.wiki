@@ -1,0 +1,22 @@
+#summary iOS ORMMAViewDelegate Protocol Reference
+#sidebar SideBar
+
+= Introduction =
+
+The ORMMAViewDelegate protocol should be adopted by any UIView that has one or more ORMMAView subviews.
+
+
+= API =
+
+==Methods==
+
+-(void)adWillExpand:(ORMMAView)ad
+
+
+-(void)adDidClose:(ORMMAView)ad
+
+
+-(void)appWillSuspendForAd:(ORMMAView)ad
+
+
+-(void)appWillResumeFromAd:(ORMMAView)ad
