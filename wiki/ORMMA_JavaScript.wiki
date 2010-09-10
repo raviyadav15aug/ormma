@@ -43,7 +43,18 @@ This method's parameter - "assets" - is an abstract array (aka standard !JavaScr
 ==addEventListener==
 {{{addEventListener(event, listener)}}}
 
-Use this method to subscribe a specific handler method to a specific event. In this way, multiple listeners can subscribe to a specific event, and a single listener can handle multiple events. 
+Use this method to subscribe a specific handler method to a specific event. In this way, multiple listeners can subscribe to a specific event, and a single listener can handle multiple events. The events are:
+
+||value             ||description ||
+||ready             ||report on the initialize complete||
+||network        ||report on network connectivity changes||
+||orientation   ||report orientation changes||
+||alignment     ||report on direction changes||
+||location        ||report on its location||
+||rotation        ||report on its rotation and rotation changes||
+||shake            ||report on being shaken||
+||state              ||report on state changes||
+||tilt                  ||report on its tilt and tilt changes||
 
   parameters:
     * event – string, name of event to listen for
