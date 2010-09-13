@@ -18,35 +18,34 @@ The following example code illustrates adding a listener:
 var locateHandler = function(lat, lng) {
 	alert('got ' + lat + ',' + lng);
 };
-AdFrame.addEventListener('locate', locateHandler);
+ORMMA.addEventListener('location', locateHandler);
 }}}
 
 The following example code illustrates removing the listener that was added in the previous example:
 
 {{{
-AdFrame.removeEventListener('locate', locateHandler);
+ORMMA.removeEventListener('locate', locateHandler);
  }}}
 
 ==Error handling==
 The following code expands upon the "locate" example to illustrate listening for an error event:
 
 {{{
-if (AdFrame.supports('location')) {
+if (ORMMAe.supports('location')) {
 	var onLocate = function(lat, lng) {
 		alert('I\'m at ' + lat + ',' + lng);
-		AdFrame.removeEventListener('locate', this);
-		AdFrame.removeEventListener('error', onLocateError);
+		ORMMA.removeEventListener('location', this);
+		ORMMA.removeEventListener('error', onLocateError);
 	};
 	var onLocateError = function(message, action) {
 		if (action == 'locate') {
 			alert('Geolocation is not available: ' + message);
-			AdFrame.removeEventListener('error', this);
-			AdFrame.removeEventListener('locate', onLocate);
+			ORMMA.removeEventListener('error', this);
+			ORMMA.removeEventListener('location', onLocate);
 		}
 	};
-	AdFrame.addEventListener('locate', onLocate);
-	AdFrame.addEventListener('error', onLocateError);
-	AdFrame.locate();
+	ORMMA.addEventListener('location', onLocate);
+	ORMMA.addEventListener('error', onLocateError);
 }
 }}}
 
@@ -54,9 +53,9 @@ if (AdFrame.supports('location')) {
 The following example illustrates setting, getting, and listening for changes to the display state:
 
 {{{
-if (!AdFrame.isVisible()) {
-	AdFrame.show( function() {
-		alert('Now you see me...');
+if (ORMMA.getState() != 'visible') {
+	ORMMA.addEventListened('state', function() {
+		if(alert('Now you see me...');
 		AdFrame.hide( function() {
 			alert('Now you don\'t!');
 		});
