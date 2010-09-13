@@ -226,6 +226,19 @@ Point width (pt) is preferred over pixel width (px) because of device screens wi
 
   level: 2
 
+==getShakeProperties`*`==
+{{{getShakeProperties() -> JSON}}}
+
+Use this method to retrieve the current shake properties.
+
+  parameters: none
+
+  return values: {interval, intensity}
+
+  related events: shake
+
+  level: 2
+
 ==getState==
 {{{getState()}}}
 
@@ -308,7 +321,7 @@ The method executes asynchronously, but returns a Boolean value of false to faci
 
 ==resize==
 {{{
-resize(dimensions, properties)
+resize(dimensions)
 }}}
 
 In the resize function, the properties value is optional - if no value is given then default values will be assumed for all resize properties. The ad developer must listen for the “resizeChange” event and not assume success.
@@ -322,6 +335,38 @@ In the resize function, the properties value is optional - if no value is given 
   events triggered: resizeChange, stateChange
 
   side effects: changes state
+
+  level: 1
+
+==setResizeProperties==
+{{{setResizeProperties(properties)}}}
+
+Use this method to set the ads resize properties.
+
+  parameters:
+    * properties: JSON { ... } - this object contains any number of properties, such as transition, that might be used by the SDK when resizing the web viewer, for more info see properties object
+
+  return values: none
+
+  events triggered: none
+
+  side effects: none
+
+  level: 1
+
+==setShakeProperties==
+{{{setShakeProperties(properties)}}}
+
+Use this method to set the shake properties of the ORMMA object.
+
+  parameters:
+    * properties: JSON { intensity, interval } 
+
+  return values: none
+
+  events triggered: none
+
+  side effects: none
 
   level: 1
 
@@ -492,7 +537,6 @@ This event is thrown when a request action with a display type of "proxy" return
 
   level: 1
 
-
 ==rotationChange`*`==
 TBD
 
@@ -511,8 +555,8 @@ Inconsistent – listener gets independent attributes, but calling getScreenSize
 
   level: 1
 
-==shakeChange`*`==
-{{{“shakeChange” -> ()}}}
+==shake`*`==
+{{{“shake” -> ()}}}
 
 This event is thrown when the device accelerometer detects that the device has been "shaken" as defined by the getShake parameters. Because the ad developer may register one listener for a soft shake and another listener for a harder shake, this event provides threshold and time parameters
 
@@ -527,7 +571,7 @@ This event is thrown when the device accelerometer detects that the device has b
 
 This event is thrown when the Ad View changes between default and expanded states as the result of a resize() or a close(). The SDK may also close an ad as the result of a user or system action, such as resuming from background.
 
-  parameters: state - String, either "default", "expanded", "hidden", or "overlay"
+  parameters: state - String, either "default", "expanded", or "hidden"
 
   triggered by: resize, close, hide, show, or the app
 
