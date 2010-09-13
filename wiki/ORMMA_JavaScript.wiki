@@ -354,7 +354,7 @@ Use this method to set the ads resize properties.
 
   level: 1
 
-==setShakeProperties==
+==setShakeProperties`*`==
 {{{setShakeProperties(properties)}}}
 
 Use this method to set the shake properties of the ORMMA object.
