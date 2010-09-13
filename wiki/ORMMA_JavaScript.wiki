@@ -48,6 +48,7 @@ Use this method to subscribe a specific handler method to a specific event. In t
 || *value*             || *description* ||
 ||ready             ||report initialize complete||
 ||network        ||report network connectivity changes||
+||keyboard      ||report soft keyboard changes||
 ||orientation   ||report orientation changes||
 ||heading        ||report heading changes||
 ||location        ||report location changes||
@@ -471,6 +472,16 @@ This event is thrown when the devices compass direction changes.
 
   level: 2
 
+==keyboardChange`*`==
+{{{"keyboardChange" -> (open)}}}
+
+This event is thrown when the software keyboard is opened or closed for text entry in an ad.
+
+  parameters: boolean, open - whether the keyboard is open
+
+  triggered by: addEventListener("keyboard", _function()_)
+
+  level: 1
 
 ==locationChange`*`==
 {{{“locationChange” -> (lat, lng)}}}
