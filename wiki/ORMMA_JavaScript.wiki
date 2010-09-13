@@ -226,6 +226,17 @@ Point width (pt) is preferred over pixel width (px) because of device screens wi
 
   level: 2
 
+==getState==
+{{{getState()}}}
+
+This method returns whether the ad is in its default, fixed position or is in an expanded, larger position.
+
+  parameters: none
+
+  Return values: string: "default", "expanded", or "hidden"
+
+  level: 1
+
 ==hide==
 {{{hide()}}}
 
@@ -326,17 +337,6 @@ This method has no return value and is executed asynchronously (so always listen
   side effects: changes the state value
 
   event triggered: visibleChange
-
-  level: 1
-
-==getState==
-{{{getState()}}}
-
-This method returns whether the ad is in its default, fixed position or is in an expanded, larger position.
-
-  parameters: none
-
-  Return values: string: "default", "expanded", or "hidden"
 
   level: 1
 
