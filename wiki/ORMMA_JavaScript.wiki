@@ -81,13 +81,45 @@ Use this method to get the available size of the local cache.
 ==close==
 {{{close()}}}
 
-Use this method to return an expanded ad to its default position within the UI. The SDK is responsible for the correct size of the ad within the app UI.
+Use this method to return a resized ad to the default position or an expanded ad to its pre-expanded position within the UI. The SDK is responsible for the correct size of the ad within the app UI.
 
   parameters: none
 
   return values: none
 
   event triggered: stateChange
+
+  level: 1
+
+==expand==
+{{{expand(background, initialDimensions, finalDimensions, URL)}}}
+
+Use this method to open a separate overlay ad container view at the highest z-order of the window's view.
+
+dimensions: JSON {top, left, bottom, right} - this object contains desired point value dimensions of the resized web viewer
+
+  parameters:
+    * background: an object describing the background color and transparency for the overlay view
+    * initialDimensions: an object describing the initial position of the overlay view before the expand transition occurs
+    * finalDimensions: the final position of the overlay view after the expand transition occurs
+    * URL: The URL for the document to be displayed in the overlay view. If null, the body of the current ad will be used.
+
+  return values: none
+
+  events triggered: stateChange, sizeChange
+
+  level 1
+
+==getExpandProperties==
+{{{getExpandProperties() -> JSON}}}
+
+Use this method to get the properties for expanding an ad.
+
+  parameters: none
+
+  return value: JSON object {}
+
+  events triggered: none
 
   level: 1
 
@@ -152,21 +184,13 @@ Use this method to get the most recent orientation of the device. To receive eve
 ||180	||180 degrees (portrait upside down)||
 ||270	||270 degrees (tilted counter-clockwise to landscape)||
 
-parameters: none
-return values: Number
-related event: orientationChange
-level: 2
-
-==getResizeDimensions==
-{{{dimensions() -> JSON}}}
-
-Use this method to get the dimensions of the web viewer that the last resize method requested. Since the resize action is asynchronous, this value does not update until the action has completed execution (when the "resizeChange" event fires). If no resize request has been made, this will return the same as getSize.
-
   parameters: none
 
-  return values: {top, left, bottom, right} - this JSON object contains point value dimensions of the current web viewer
+  return values: Number
 
-  level: 1
+  related event: orientationChange
+
+  level: 2
 
 ==getResizeProperties==
 {{{properties() -> JSON}}}
@@ -322,20 +346,33 @@ The method executes asynchronously, but returns a Boolean value of false to faci
 
 ==resize==
 {{{
-resize(dimensions)
+resize(height, width)
 }}}
 
-In the resize function, the properties value is optional - if no value is given then default values will be assumed for all resize properties. The ad developer must listen for the “resizeChange” event and not assume success.
+Use this method to resize the main ad view to the desired size. The views place in the view hierarch will not change, so the effect on other views is up to the app developer.
 
   parameters:
-    * dimensions: JSON {top, left, bottom, right} - this object contains desired point value dimensions of the resized web viewer
-    * properties: JSON { ... } - this object contains any number of properties, such as transition, that might be used by the SDK when resizing the web viewer, for more info see properties object
+    * height: Number: the height in pixels
+    * width: Number: the width in pixels
 
   return values: none
 
   events triggered: resizeChange, stateChange
 
   side effects: changes state
+
+  level: 1
+
+==setExpandProperties==
+{{{setExpandProperties(properties)}}}
+
+Use this method to set the ad's expand properties.
+
+  parameters: JSON {}
+
+  return values: none
+
+  events triggered: none
 
   level: 1
 
