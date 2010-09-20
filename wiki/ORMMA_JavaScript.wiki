@@ -188,6 +188,19 @@ Use this method to get the most recent location reading from the device.  To rec
 
   level: 2
 
+==getMaxSize==
+{{{getMaxSize() -> JSON}}}
+
+Use this method to return the maximum size an ad can grow to using the resize() method. This may be set by the developer, or be the size of the parent view.
+
+  parameters: none
+
+  return value: JSON, {height, width} - the maximum height and width the view can grow to
+
+  related events: none
+
+  level: 1
+
 ==getNetwork`*`==
 {{{getNetwork() -> String}}}
 
