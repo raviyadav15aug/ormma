@@ -234,6 +234,17 @@ Use this method to get the current resize properties of the web viewer. Since th
 
   parameters: none
 
+*properties object*
+{{{
+properties = {
+ "transition" : "default|dissolve|zoom|none",
+}
+}}}
+
+*"transition"*
+
+If "transition" is not specified in the properties object, a value of "default" is assumed.
+
   level: 1
 
 ==getScreenSize`*`==
