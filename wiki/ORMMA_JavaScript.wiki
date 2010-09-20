@@ -92,14 +92,13 @@ Use this method to return a resized ad to the default position or an expanded ad
   level: 1
 
 ==expand==
-{{{expand(background, initialDimensions, finalDimensions, URL)}}}
+{{{expand(initialDimensions, finalDimensions, URL)}}}
 
 Use this method to open a separate overlay ad container view at the highest z-order of the window's view.
 
 dimensions: JSON {top, left, bottom, right} - this object contains desired point value dimensions of the resized web viewer
 
   parameters:
-    * background: an object describing the background color and transparency for the overlay view
     * initialDimensions: an object describing the initial position of the overlay view before the expand transition occurs
     * finalDimensions: the final position of the overlay view after the expand transition occurs
     * URL: The URL for the document to be displayed in the overlay view. If null, the body of the current ad will be used.
@@ -117,7 +116,43 @@ Use this method to get the properties for expanding an ad.
 
   parameters: none
 
-  return value: JSON object {}
+  return values: { ... } - this object contains all the web viewer properties besides dimension that are supported by the SDK vendor, for more info see properties object
+
+*properties object*
+{{{
+properties = {
+ "transition" : "default|dissolve|fade|roll|slide|zoom|none",
+ "navigation" : "none|close|back|forward|refresh",
+ "use-background" : "true|false",
+ "background-color" : "#rrggbb",
+ "background-opacity" : "n.n",
+ "is-modal" : "true|false"
+}
+}}}
+
+*"transition"*
+
+If "transition" is not specified in the properties object, a value of "default" is assumed.
+
+*"navigation"*
+
+If "navigation" is not specified in the properties object, a value of "none" is assumed.
+
+*"useBackground"*
+
+"useBackground" should contain a boolean value (true/false) indicating the presence of a background. If "useBackground" is not specified in the properties object, a value of false is assumed.
+
+*"backgroundColor"*
+
+"backgroundColor" is a standard numeric RGB value (most logically expressed in hexadecimal with two digits each for red, green, and blue).
+
+*"backgroundOpacity"*
+
+"backgroundOpacity" is a number between 0 and 1 inclusively (ranging from 0 equaling fully transparent to 1 equaling fully opaque). If either "backgroundColor" or "backgroundOpacity" is not specified in the properties object, values of 0xffffff and 1.0 respectively are assumed.
+
+*"isModal"*
+
+The "isModal" property is a boolean value (true/false) and if it is not specified in the properties object a value of false is assumed.
 
   events triggered: none
 
@@ -199,43 +234,7 @@ Use this method to get the current resize properties of the web viewer. Since th
 
   parameters: none
 
-  return values: { ... } - this object contains all the web viewer properties besides dimension that are supported by the SDK vendor, for more info see properties object
-
-*properties object*
-{{{
-properties = {
- "transition" : "default|dissolve|fade|roll|slide|zoom|none",
- "navigation" : "none|close|back|forward|refresh",
- "use-background" : "true|false",
- "background-color" : "#rrggbb",
- "background-opacity" : "n.n",
- "is-modal" : "true|false"
-}
-}}}
-
-*"transition"*
-
-If "transition" is not specified in the properties object, a value of "default" is assumed.
-
-*"navigation"*
-
-If "navigation" is not specified in the properties object, a value of "none" is assumed.
-
-*"useBackground"*
-
-"useBackground" should contain a boolean value (true/false) indicating the presence of a background. If "useBackground" is not specified in the properties object, a value of false is assumed.
-
-*"backgroundColor"*
-
-"backgroundColor" is a standard numeric RGB value (most logically expressed in hexadecimal with two digits each for red, green, and blue).
-
-*"backgroundOpacity"*
-
-"backgroundOpacity" is a number between 0 and 1 inclusively (ranging from 0 equaling fully transparent to 1 equaling fully opaque). If either "backgroundColor" or "backgroundOpacity" is not specified in the properties object, values of 0xffffff and 1.0 respectively are assumed.
-
-*"isModal"*
-
-The "isModal" property is a boolean value (true/false) and if it is not specified in the properties object a value of false is assumed.
+  level: 1
 
 ==getScreenSize`*`==
 {{{getScreenSize() -> JSON}}}
