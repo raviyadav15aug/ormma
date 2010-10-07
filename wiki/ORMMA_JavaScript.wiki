@@ -13,7 +13,9 @@ _`*`methods marked with an asterisk are dependent on the device. Ad developers a
 
 
 ==addAsset==
-{{{addAsset(URL, alias)}}}
+{{{
+addAsset(URL, alias)
+}}}
 
 This method returns no value and executes asynchronously, but the alias can be used immediately in ad content. If the alias is referenced before the asset has loaded, the object simply does not return to the web viewer until it has loaded. The addAsset call also supports special keywords for assets that come from the native device.
 
@@ -34,7 +36,9 @@ _`*`Requires device support_
   level: 3
 
 ==addAssets==
-{{{addAssets(assets)}}}
+{{{
+addAssets(assets)
+}}}
 
 This method's parameter - "assets" - is an abstract array (aka standard !JavaScript Object) of alias/uri key-value pairs. The method returns no value and executes asynchronously. Usage rules are the same as adding a single alias.
 
@@ -47,7 +51,9 @@ This method's parameter - "assets" - is an abstract array (aka standard !JavaScr
   level: 3
 
 ==addEventListener==
-{{{addEventListener(event, listener)}}}
+{{{
+addEventListener(event, listener)
+}}}
 
 Use this method to subscribe a specific handler method to a specific event. In this way, multiple listeners can subscribe to a specific event, and a single listener can handle multiple events. The events are:
 
@@ -74,7 +80,9 @@ Use this method to subscribe a specific handler method to a specific event. In t
   level: 1
 
 ==close==
-{{{close()}}}
+{{{
+close()
+}}}
 
 Use this method to return a resized ad to the default position or an expanded ad to its pre-expanded position within the UI. The SDK is responsible for the correct size of the ad within the app UI.
 
@@ -87,7 +95,9 @@ Use this method to return a resized ad to the default position or an expanded ad
   level: 1
 
 ==createEvent==
-{{{createEvent(date, title, body)}}}
+{{{
+createEvent(date, title, body)
+}}}
 
 Use this method to create a new event in the devices calendar.
 
@@ -101,7 +111,9 @@ Use this method to create a new event in the devices calendar.
   level: 1
 
 ==expand==
-{{{expand(initialDimensions, finalDimensions, URL)}}}
+{{{
+expand(initialDimensions, finalDimensions, URL)
+}}}
 
 Use this method to open a separate overlay ad container view at the highest z-order of the window's view.
 
@@ -119,7 +131,9 @@ dimensions: JSON {x, y, width, height} - this object contains desired point valu
   level 1
 
 ==getAssetURL==
-{{{getAssetURL() -> String}}}
+{{{
+getAssetURL() -> String
+}}}
 
 Use this method to get the URL for local assets once the assetReady event has fired. The URL will begin with the "file:///" protocol.
 
@@ -130,7 +144,9 @@ Use this method to get the URL for local assets once the assetReady event has fi
   level: 3
 
 ==getCacheRemaining==
-{{{getCacheRemaining() -> Number}}}
+{{{
+getCacheRemaining() -> Number
+}}}
 
 Use this method to get the available size of the local cache.
 
@@ -141,7 +157,9 @@ Use this method to get the available size of the local cache.
   level: 3
 
 ==getExpandProperties==
-{{{getExpandProperties() -> JSON}}}
+{{{
+getExpandProperties() -> JSON
+}}}
 
 Use this method to get the properties for expanding an ad.
 
@@ -190,7 +208,9 @@ The "isModal" property is a boolean value (true/false) and if it is not specifie
   level: 1
 
 ==getHeading`*`==
-{{{getAlignment() -> Number}}}
+{{{
+getAlignment() -> Number
+}}}
 
 Use this method to get the most recent compass direction of the current vertical axis of the device. To receive events when the a change occurs, register an event listener for "heading" events. Values are:
 
@@ -207,7 +227,9 @@ Use this method to get the most recent compass direction of the current vertical
   level: 2
 
 ==getLocation`*`==
-{{{getLocation() -> JSON}}}
+{{{
+getLocation() -> JSON
+}}}
 
 Use this method to get the most recent location reading from the device.  To receive events when the a change occurs, register an event listener for "location" events.
 
@@ -220,7 +242,9 @@ Use this method to get the most recent location reading from the device.  To rec
   level: 2
 
 ==getMaxSize==
-{{{getMaxSize() -> JSON}}}
+{{{
+getMaxSize() -> JSON
+}}}
 
 Use this method to return the maximum size an ad can grow to using the resize() method. This may be set by the developer, or be the size of the parent view.
 
@@ -233,7 +257,9 @@ Use this method to return the maximum size an ad can grow to using the resize() 
   level: 1
 
 ==getNetwork`*`==
-{{{getNetwork() -> String}}}
+{{{
+getNetwork() -> String
+}}}
 
 Use this method to identify the most recent network status of the device. To receive events when a change occurs, register an event listener for "network" events. Possible results include:
 
@@ -252,7 +278,9 @@ Use this method to identify the most recent network status of the device. To rec
   level: 2
 
 ==getOrientation`*`==
-{{{getOrientation() -> Number}}}
+{{{
+getOrientation() -> Number
+}}}
 
 Use this method to get the most recent orientation of the device. To receive events when a change occurs, register an event listener for "orientation" events. Possible results include:
 
@@ -272,7 +300,9 @@ Use this method to get the most recent orientation of the device. To receive eve
   level: 2
 
 ==getResizeProperties==
-{{{properties() -> JSON}}}
+{{{
+properties() -> JSON
+}}}
 
 Use this method to get the current resize properties of the web viewer. Since the resize action is asynchronous, this value does not update until the action has completed execution (when the "resizeChange" event fires).
 
@@ -292,7 +322,9 @@ If "transition" is not specified in the properties object, a value of "default" 
   level: 1
 
 ==getScreenSize`*`==
-{{{getScreenSize() -> JSON}}}
+{{{
+getScreenSize() -> JSON
+}}}
 
 Use this method to get the current point width and height of the device.
 Point width (pt) is preferred over pixel width (px) because of device screens with different DPI specs.
@@ -306,7 +338,9 @@ Point width (pt) is preferred over pixel width (px) because of device screens wi
   level: 2
 
 ==getShakeProperties`*`==
-{{{getShakeProperties() -> JSON}}}
+{{{
+getShakeProperties() -> JSON
+}}}
 
 Use this method to retrieve the current shake properties.
 
@@ -319,7 +353,9 @@ Use this method to retrieve the current shake properties.
   level: 2
 
 ==getSize==
-{{{getSize() -> JSON}}}
+{{{
+getSize() -> JSON
+}}}
 
 Use this method to get the current size of the ad.
 
@@ -330,7 +366,9 @@ Use this method to get the current size of the ad.
   level: 1
 
 ==getState==
-{{{getState()}}}
+{{{
+getState()
+}}}
 
 This method returns whether the ad is in its default, fixed position or is in an expanded, larger position.
 
@@ -341,7 +379,9 @@ This method returns whether the ad is in its default, fixed position or is in an
   level: 1
 
 ==hide==
-{{{hide()}}}
+{{{
+hide()
+}}}
 
 Use this method to hide the web viewer. The method has no return value and is executed asynchronously (so always listen for a result event before taking action instead of assuming the change has occurred).
 
@@ -354,7 +394,9 @@ Use this method to hide the web viewer. The method has no return value and is ex
   level: 1
  
 ==makeCall==
-{{{makeCall(number)}}}
+{{{
+makeCall(number)
+}}}
 
 Use this method to make a phone call on from the device to the number provided. This is equivalent to the tel:// protocol.
 
@@ -365,7 +407,9 @@ Use this method to make a phone call on from the device to the number provided. 
   level: 1
 
 ==open==
-{{{open(URL)}}}
+{{{
+open(URL)
+}}}
 
 Use this method to open an HTML browser to an external web page. This may launch an external browser, depending on the SDK implementation. To place the ad over content use the expand() method.
 
@@ -376,7 +420,9 @@ Use this method to open an HTML browser to an external web page. This may launch
   level: 1
 
 ==removeAllAssets==
-{{{removeAllAssets()}}}
+{{{
+removeAllAssets()
+}}}
 
 The method returns no value and executes asynchronously.
 
@@ -389,7 +435,9 @@ The method returns no value and executes asynchronously.
   level: 3
 
 ==removeAsset==
-{{{removeAsset(alias)}}}
+{{{
+removeAsset(alias)
+}}}
 
 The method returns no value and executes asynchronously.
 
@@ -402,7 +450,9 @@ The method returns no value and executes asynchronously.
   level: 3
 
 ==removeEventListener==
-{{{removeEventListener(event, [listener])}}}
+{{{
+removeEventListener(event, listener)
+}}}
 
 Use this method to unsubscribe a specific handler method from a specific event. Event listeners should always be removed when they are no longer useful to avoid errors. If no listener function is provided, then all functions listening to the event will be removed.
 
@@ -457,7 +507,9 @@ Use this method to resize the main ad view to the desired size. The views place 
   level: 1
 
 ==sendMail==
-{{{sendMail(recipient, subject, body)}}}
+{{{
+sendMail(recipient, subject, body)
+}}}
 
 Use this method to compose an email message on the device. This is equivalent to the mailto:// protocol.
 
@@ -471,7 +523,9 @@ Use this method to compose an email message on the device. This is equivalent to
   level: 1
 
 ==sendSMS==
-{{{sendSMS(recipient, body)}}}
+{{{
+sendSMS(recipient, body)
+}}}
 
 Use this method to compose a SMS message on the device. This is equivalent to the sms:// protocol.
 
@@ -484,7 +538,9 @@ Use this method to compose a SMS message on the device. This is equivalent to th
   level: 1
 
 ==setExpandProperties==
-{{{setExpandProperties(properties)}}}
+{{{
+setExpandProperties(properties)
+}}}
 
 Use this method to set the ad's expand properties.
 
@@ -497,7 +553,9 @@ Use this method to set the ad's expand properties.
   level: 1
 
 ==setResizeProperties==
-{{{setResizeProperties(properties)}}}
+{{{
+setResizeProperties(properties)
+}}}
 
 Use this method to set the ads resize properties.
 
@@ -513,7 +571,9 @@ Use this method to set the ads resize properties.
   level: 1
 
 ==setShakeProperties`*`==
-{{{setShakeProperties(properties)}}}
+{{{
+setShakeProperties(properties)
+}}}
 
 Use this method to set the shake properties of the ORMMA object.
 
@@ -529,7 +589,9 @@ Use this method to set the shake properties of the ORMMA object.
   level: 1
 
 ==show==
-{{{show()}}}
+{{{
+show()
+}}}
 
 This method has no return value and is executed asynchronously (so always listen for a result event before taking action instead of assuming the change has occurred).
  
@@ -544,7 +606,9 @@ This method has no return value and is executed asynchronously (so always listen
   level: 1
 
 ==supports==
-{{{supports(feature) -> Boolean}}}
+{{{
+supports(feature) -> Boolean
+}}}
 
 For SDKs that do not expose any of the native device features, this method should always return false. The features are:
 
@@ -579,7 +643,9 @@ _`*`One and only one 'level' value will be returned_
 _`*`events marked with an asterisk are dependent on the device. Ad developers and SDK implementers must use the supports() method to identify what events are available._
 
 ==assetReady==
-{{{"assetReady" -> (alias)}}}
+{{{
+"assetReady" -> (alias)
+}}}
 
 This event is thrown when an asset has successfully been loaded in the local cache. 
 
@@ -590,7 +656,9 @@ This event is thrown when an asset has successfully been loaded in the local cac
   level: 3
 
 ==assetRemoved==
-{{{"assetRemoved" -> (alias)}}}
+{{{
+"assetRemoved" -> (alias)
+}}}
 
 This event is thrown when an asset has successfully been removed from the local cache.
 
@@ -601,7 +669,9 @@ This event is thrown when an asset has successfully been removed from the local 
   level: 3
 
 ==assetRetired==
-{{{"assetRetired" -> (alias)}}}
+{{{
+"assetRetired" -> (alias)
+}}}
 
 This event is thrown when an asset has been retired from the local cache to make room for new assets. 
 
@@ -612,7 +682,9 @@ This event is thrown when an asset has been retired from the local cache to make
   level: 3
 
 ==error==
-{{{"error" -> (message, action)}}}
+{{{
+"error" -> (message, action)
+}}}
 
 This event is thrown whenever an error occurs. The event contains a description of the error that occurred and, if appropriate, the name of the action that resulted in the error (in the absence of an associated action, the action parameter is null).
 
@@ -625,7 +697,9 @@ This event is thrown whenever an error occurs. The event contains a description 
   level: 1
 
 ==headingChange`*`==
-{{{"headingChange" -> heading}}}
+{{{
+"headingChange" -> (heading)
+}}}
 
 This event is thrown when the devices compass direction changes.
 
@@ -637,7 +711,9 @@ This event is thrown when the devices compass direction changes.
   level: 2
 
 ==keyboardChange`*`==
-{{{"keyboardChange" -> (open)}}}
+{{{
+"keyboardChange" -> (open)
+}}}
 
 This event is thrown when the software keyboard is opened or closed for text entry in an ad.
 
@@ -648,7 +724,9 @@ This event is thrown when the software keyboard is opened or closed for text ent
   level: 1
 
 ==locationChange`*`==
-{{{“locationChange” -> (lat, lng, acc)}}}
+{{{
+“locationChange” -> (lat, lng, acc)
+}}}
 
 This event is thrown when the device has successfully geolocated itself.
 
@@ -662,7 +740,9 @@ This event is thrown when the device has successfully geolocated itself.
   level: 2
 
 ==networkChange`*`==
-{{{“networkChange” -> (online, connection)}}}
+{{{
+“networkChange” -> (online, connection)
+}}}
 
 This event is thrown when the device network connection changes, such as loosing or acquiring an Internet connection. The connection type values will vary depending on the device and carrier.
 
@@ -676,7 +756,9 @@ This event is thrown when the device network connection changes, such as loosing
 
 
 ==orientationChange`*`==
-{{{“orientationChange” -> (orientation)}}}
+{{{
+“orientationChange” -> (orientation)
+}}}
 
 This event is thrown when the application screen orientation changes.
 
@@ -687,7 +769,9 @@ This event is thrown when the application screen orientation changes.
   level: 2
 
 ==sizeChange==
-{{{“sizeChange” -> (dimensions, properties)}}}
+{{{
+“sizeChange” -> (dimensions, properties)
+}}}
 
 This event is thrown when the display state of the web viewer changes.
 
@@ -700,7 +784,9 @@ This event is thrown when the display state of the web viewer changes.
   level: 1
 
 ==ready==
-{{{"ready"}}}
+{{{
+"ready"
+}}}
 
 This event indicates that the ORMMA object has established communication with the SDK and has successfully initialized.
 
@@ -711,7 +797,9 @@ This event indicates that the ORMMA object has established communication with th
   level: 1
 
 ==response==
-{{{“response” -> (uri, response)}}}
+{{{
+“response” -> (uri, response)
+}}}
 
 This event is thrown when a request action with a display type of "proxy" returns a response. 
 
@@ -726,9 +814,10 @@ This event is thrown when a request action with a display type of "proxy" return
 ==rotationChange`*`==
 TBD
 
-
 ==screenSizeChange`*`==
-{{{“screenSizeChange” -> (width, height) }}}
+{{{
+“screenSizeChange” -> (width, height)
+}}}
 
 This event is thrown when the point size of the screen changes, including orientation changes.
 Inconsistent – listener gets independent attributes, but calling getScreenSize returns a JSON object
@@ -742,7 +831,9 @@ Inconsistent – listener gets independent attributes, but calling getScreenSize
   level: 1
 
 ==shake`*`==
-{{{“shake” -> ()}}}
+{{{
+“shake”
+}}}
 
 This event is thrown when the device accelerometer detects that the device has been "shaken" as defined by the getShake parameters. Because the ad developer may register one listener for a soft shake and another listener for a harder shake, this event provides threshold and time parameters
 
@@ -753,7 +844,9 @@ This event is thrown when the device accelerometer detects that the device has b
   level: 2
 
 ==stateChange==
-{{{"stateChange" -> (state)}}}
+{{{
+"stateChange" -> (state)
+}}}
 
 This event is thrown when the Ad View changes between default and expanded states as the result of a resize() or a close(). The SDK may also close an ad as the result of a user or system action, such as resuming from background.
 
@@ -764,7 +857,9 @@ This event is thrown when the Ad View changes between default and expanded state
   level: 1
 
 ==tiltChange`*`==
-{{{“tiltChange” -> (x, y, z)}}}
+{{{
+“tiltChange” -> (x, y, z)
+}}}
 
 This event is thrown when the device has successfully determined its spacial orientation.
 
