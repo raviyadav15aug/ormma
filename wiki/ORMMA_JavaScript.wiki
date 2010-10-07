@@ -98,6 +98,17 @@ dimensions: JSON {x, y, width, height} - this object contains desired point valu
 
   level 1
 
+==getAssetURL==
+{{{getAssetURL() -> String}}}
+
+Use this method to get the URL for local assets once the assetReady event has fired. The URL will begin with the "file:///" protocol.
+
+  return values: String, the URL to the asset
+
+  events triggered: none
+
+  level: 3
+
 ==getCacheRemaining==
 {{{getCacheRemaining() -> Number}}}
 
