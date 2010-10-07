@@ -13,13 +13,13 @@ _`*`methods marked with an asterisk are dependent on the device. Ad developers a
 
 
 ==addAsset==
-{{{addAsset(alias, uri)}}}
+{{{addAsset(URL, alias)}}}
 
 This method returns no value and executes asynchronously, but the alias can be used immediately in ad content. If the alias is referenced before the asset has loaded, the object simply does not return to the web viewer until it has loaded.
 
   parameters:
-    * alias – string, name that ad developer will use to refer to asset URI
-    * uri – string, actual URI of the asset
+    * URL – string, actual URL of the asset
+    * alias – string, name that ad developer will use to refer to asset URL
 
   return values: none
 
