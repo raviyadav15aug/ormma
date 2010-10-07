@@ -482,6 +482,7 @@ For SDKs that do not expose any of the native device features, this method shoul
 ||location        ||the device can report on its location||
 ||rotation        ||the device can report on its rotation and rotation changes||
 ||shake            ||the device can report on being shaken||
+||sms               ||the device can send an sms message||
 ||tilt                  ||the device can report on its tilt and tilt changes||
 ||phone           ||the device can make a phone call||
 ||email            ||the device can compose an email||
