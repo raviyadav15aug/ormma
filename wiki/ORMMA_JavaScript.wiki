@@ -67,17 +67,6 @@ Use this method to subscribe a specific handler method to a specific event. In t
 
   level: 1
 
-==cacheRemaining==
-{{{cacheRemaining() -> Number}}}
-
-Use this method to get the available size of the local cache.
-
-  parameters: none
-
-  return values: integer, number of bytes available
-
-  level: 3
-
 ==close==
 {{{close()}}}
 
@@ -108,6 +97,17 @@ dimensions: JSON {top, left, bottom, right} - this object contains desired point
   events triggered: stateChange, sizeChange
 
   level 1
+
+==getCacheRemaining==
+{{{getCacheRemaining() -> Number}}}
+
+Use this method to get the available size of the local cache.
+
+  parameters: none
+
+  return values: integer, number of bytes available
+
+  level: 3
 
 ==getExpandProperties==
 {{{getExpandProperties() -> JSON}}}
