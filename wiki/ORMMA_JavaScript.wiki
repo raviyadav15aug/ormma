@@ -17,9 +17,9 @@ _`*`methods marked with an asterisk are dependent on the device. Ad developers a
 
 This method returns no value and executes asynchronously, but the alias can be used immediately in ad content. If the alias is referenced before the asset has loaded, the object simply does not return to the web viewer until it has loaded. The addAsset call also supports special keywords for assets that come from the native device.
 
-|| *value*             || *description* ||
-||screenshot        ||capture a screenshot of the application and save as an asset||
-||photo                ||capture a photo using the devices camera and save as an asset`*`||
+|| *value*                              || *description* ||
+||ormma://screenshot        ||capture a screenshot of the application and save as an asset||
+||ormma://photo                ||capture a photo using the devices camera and save as an asset`*`||
 
 _`*`Requires device support_
 
