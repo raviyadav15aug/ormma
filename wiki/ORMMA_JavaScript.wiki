@@ -85,7 +85,7 @@ Use this method to return a resized ad to the default position or an expanded ad
 
 Use this method to open a separate overlay ad container view at the highest z-order of the window's view.
 
-dimensions: JSON {top, left, width, height} - this object contains desired point value dimensions of the resized web viewer
+dimensions: JSON {x, y, width, height} - this object contains desired point value dimensions of the resized web viewer
 
   parameters:
     * initialDimensions: an object describing the initial position of the overlay view before the expand transition occurs
@@ -353,10 +353,16 @@ Use this method to unsubscribe a specific handler method from a specific event. 
   level: 1
 
 ==request==
-{{{request(uri, display) -> false}}}
+{{{
+request(uri, display) -> false
+}}}
 
 The method executes asynchronously, but returns a Boolean value of false to facilitate use in anchor tags. There is also an option explicitly for metrics tracking that will cache requests offline and execute them whenever the device reconnects. The display parameter supports the following values:
  
+|| *value*	|| *description* ||
+||ignore          ||the response is ignored||
+||proxy           ||the response is cahced if the device is off-line and proxied when connectivity returns||
+
   parameters: 
     * URL - string, the fully qualified URL of the page or call to action asset
     * display - string, the display style for the call to action
@@ -467,7 +473,7 @@ For SDKs that do not expose any of the native device features, this method shoul
 ||level-2         ||the SDK supports ORMMA level 2 functionality*||
 ||level-3         ||the SDK supports ORMMA level 3 functionality*||
 
-`*`One and only one 'level' value will be returned
+_`*`One and only one 'level' value will be returned_
  
   parameters: String, name of feature
 
@@ -526,7 +532,7 @@ This event is thrown whenever an error occurs. The event contains a description 
   level: 1
 
 ==headingChange`*`==
-{{{"headingChange" -> heading
+{{{"headingChange" -> heading}}}
 
 This event is thrown when the devices compass direction changes.
 
@@ -593,7 +599,7 @@ This event is thrown when the application screen orientation changes.
 This event is thrown when the display state of the web viewer changes.
 
   parameters: 
-    * dimensions: JSON, {top, left, bottom, right} - this object contains point value dimensions of the resized web viewer
+    * dimensions: JSON, {x, y, width, height} - this object contains point value dimensions of the resized web viewer
     * properties: JSON, { ... } - this object contains the state of all the web viewer properties besides dimension that are supported by the SDK
 
   triggered by: resize, close, or the device itself
