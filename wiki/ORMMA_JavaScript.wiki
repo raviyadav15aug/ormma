@@ -94,7 +94,7 @@ Use this method to open a separate overlay ad container view at the highest z-or
 dimensions: JSON {x, y, width, height} - this object contains desired point value dimensions of the resized web viewer
 
   parameters:
-    * initialDimensions: an object describing the initial position of the overlay view before the expand transition occurs
+    * initialDimensions: an object describing the initial position of the overlay view before the expand transition occurs. If null, the position and size of the default view will be used.
     * finalDimensions: the final position of the overlay view after the expand transition occurs
     * URL: The URL for the document to be displayed in the overlay view. If null, the body of the current ad will be used.
 
