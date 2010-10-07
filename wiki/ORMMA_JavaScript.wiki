@@ -356,7 +356,7 @@ Use this method to make a phone call on from the device to the number provided. 
 ==open==
 {{{open(URL)}}}
 
-Use this method to open an HTML browser to an external web page. This may launch an external browser, depending on the SDK implementation.
+Use this method to open an HTML browser to an external web page. This may launch an external browser, depending on the SDK implementation. To place the ad over content use the expand() method.
 
   parameters: URL - String: the URL of the web page
 
