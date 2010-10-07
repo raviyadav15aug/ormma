@@ -629,15 +629,12 @@ For SDKs that do not expose any of the native device features, this method shoul
 ||level-1         ||the SDK supports ORMMA level 1 functionality*||
 ||level-2         ||the SDK supports ORMMA level 2 functionality*||
 ||level-3         ||the SDK supports ORMMA level 3 functionality*||
-
-_`*`One and only one 'level' value will be returned_
  
   parameters: String, name of feature
 
   return values: Boolean – true, the feature is supported and getter and events are available; false, the feature is not supported 
 
   level: 1
-
 
 =Events=
 _`*`events marked with an asterisk are dependent on the device. Ad developers and SDK implementers must use the supports() method to identify what events are available._
