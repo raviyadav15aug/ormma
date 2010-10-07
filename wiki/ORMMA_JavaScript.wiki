@@ -195,7 +195,7 @@ Use this method to return the maximum size an ad can grow to using the resize() 
 
   parameters: none
 
-  return value: JSON, {height, width} - the maximum height and width the view can grow to
+  return value: JSON, {width, height} - the maximum width and height the view can grow to
 
   related events: none
 
@@ -375,14 +375,14 @@ The method executes asynchronously, but returns a Boolean value of false to faci
 
 ==resize==
 {{{
-resize(height, width)
+resize(width, height)
 }}}
 
 Use this method to resize the main ad view to the desired size. The views place in the view hierarch will not change, so the effect on other views is up to the app developer.
 
   parameters:
-    * height: Number: the height in pixels
     * width: Number: the width in pixels
+    * height: Number: the height in pixels
 
   return values: none
 
@@ -635,14 +635,14 @@ TBD
 
 
 ==screenSizeChange`*`==
-{{{“screenSizeChange” -> (height, width) }}}
+{{{“screenSizeChange” -> (width, height) }}}
 
 This event is thrown when the point size of the screen changes, including orientation changes.
 Inconsistent – listener gets independent attributes, but calling getScreenSize returns a JSON object
 
   parameters:
+    * width: Integer, point width of the AdView screen area
     * height: Integer, point height of the AdView screen area
-    * width: Integer, point height of the AdView screen area
 
   triggered by: resize, close, or the device itself
 
