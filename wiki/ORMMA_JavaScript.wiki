@@ -85,7 +85,7 @@ Use this method to return a resized ad to the default position or an expanded ad
 
 Use this method to open a separate overlay ad container view at the highest z-order of the window's view.
 
-dimensions: JSON {top, left, bottom, right} - this object contains desired point value dimensions of the resized web viewer
+dimensions: JSON {top, left, width, height} - this object contains desired point value dimensions of the resized web viewer
 
   parameters:
     * initialDimensions: an object describing the initial position of the overlay view before the expand transition occurs
@@ -182,7 +182,7 @@ Use this method to get the most recent location reading from the device.  To rec
 
   parameters: none
 
-  return value: JSON, {lat, lon} - the latitude and longitude or null
+  return value: JSON, {lat, lon, acc} - the latitude, longitude, and accuracy of the reading or null
 
   related event: locationChange
 
@@ -463,7 +463,12 @@ For SDKs that do not expose any of the native device features, this method shoul
 ||phone           ||the device can make a phone call||
 ||email            ||the device can compose an email||
 ||calendar       ||the device can create a calendar entry||
+||level-1         ||the SDK supports ORMMA level 1 functionality*||
+||level-2         ||the SDK supports ORMMA level 2 functionality*||
+||level-3         ||the SDK supports ORMMA level 3 functionality*||
 
+'* One and only one 'level' value will be returned
+ 
   parameters: String, name of feature
 
   return values: Boolean – true, the feature is supported and getter and events are available; false, the feature is not supported 
@@ -544,13 +549,14 @@ This event is thrown when the software keyboard is opened or closed for text ent
   level: 1
 
 ==locationChange`*`==
-{{{“locationChange” -> (lat, lng)}}}
+{{{“locationChange” -> (lat, lng, acc)}}}
 
 This event is thrown when the device has successfully geolocated itself.
 
   parameters: 
     * lat: Number, latitude value of device
     * lng: Number, longitude value of device
+    * acc: Number, accuracy of the reading
 
   triggered by: addEventListener("location", _function()_)
 
