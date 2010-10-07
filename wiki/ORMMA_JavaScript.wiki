@@ -467,7 +467,7 @@ For SDKs that do not expose any of the native device features, this method shoul
 ||level-2         ||the SDK supports ORMMA level 2 functionality*||
 ||level-3         ||the SDK supports ORMMA level 3 functionality*||
 
-'* One and only one 'level' value will be returned
+'*' One and only one 'level' value will be returned
  
   parameters: String, name of feature
 
