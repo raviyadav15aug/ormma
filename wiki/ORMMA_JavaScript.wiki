@@ -345,7 +345,7 @@ Use this method to hide the web viewer. The method has no return value and is ex
 ==makeCall==
 {{{makeCall(number)}}}
 
-Use this method to make a phone call on from the device to the number provided.
+Use this method to make a phone call on from the device to the number provided. This is equivalent to the tel:// protocol.
 
   parameters: number - String: the phone number
 
@@ -448,7 +448,7 @@ Use this method to resize the main ad view to the desired size. The views place 
 ==sendMail==
 {{{sendMail(recipient, subject, body)}}}
 
-Use this method to compose an email message on the device.
+Use this method to compose an email message on the device. This is equivalent to the mailto:// protocol.
 
   parameters:
     * recipient - String: the email address for the message
@@ -462,7 +462,7 @@ Use this method to compose an email message on the device.
 ==sendSMS==
 {{{sendSMS(recipient, body)}}}
 
-Use this method to compose a SMS message on the device.
+Use this method to compose a SMS message on the device. This is equivalent to the sms:// protocol.
 
   parameters:
     * recipient - String: the email address for the message
