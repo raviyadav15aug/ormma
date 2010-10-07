@@ -64,7 +64,6 @@ Use this method to subscribe a specific handler method to a specific event. In t
 ||orientation   ||report orientation changes||
 ||heading        ||report heading changes||
 ||location        ||report location changes||
-||rotation        ||report rotation changes||
 ||shake            ||report device being shaken||
 ||state              ||report state changes||
 ||tilt                  ||report tilt changes||
@@ -618,7 +617,6 @@ For SDKs that do not expose any of the native device features, this method shoul
 ||size               ||the device can report on the screen size||
 ||heading        ||the device can report on the compass direction it is pointing||
 ||location        ||the device can report on its location||
-||rotation        ||the device can report on its rotation and rotation changes||
 ||shake            ||the device can report on being shaken||
 ||sms               ||the device can send an sms message||
 ||tilt                  ||the device can report on its tilt and tilt changes||
@@ -807,9 +805,6 @@ This event is thrown when a request action with a display type of "proxy" return
   triggered by: request
 
   level: 1
-
-==rotationChange`*`==
-TBD
 
 ==screenSizeChange`*`==
 {{{
