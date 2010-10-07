@@ -305,6 +305,17 @@ Point width (pt) is preferred over pixel width (px) because of device screens wi
 
   level: 2
 
+==getSize==
+{{{getSize() -> JSON}}}
+
+Use this method to get the current size of the ad.
+
+  parameters: none
+
+  return value: JSON - {width, height}
+
+  level: 1
+
 ==getShakeProperties`*`==
 {{{getShakeProperties() -> JSON}}}
 
