@@ -328,6 +328,17 @@ Use this method to hide the web viewer. The method has no return value and is ex
 
   level: 1
  
+==open==
+{{{open(URL)}}}
+
+Use this method to open an HTML browser to an external web page. This may launch an external browser, depending on the SDK implementation.
+
+  parameters: URL - String: the URL of the web page
+
+  return values: none
+
+  level: 1
+
 ==removeAllAssets==
 {{{removeAllAssets()}}}
 
