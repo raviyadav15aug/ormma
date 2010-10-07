@@ -86,6 +86,20 @@ Use this method to return a resized ad to the default position or an expanded ad
 
   level: 1
 
+==createEvent==
+{{{createEvent(date, title, body)}}}
+
+Use this method to create a new event in the devices calendar.
+
+  parameters:
+    * date - Date: the date and time of the event
+    * title - String: the title of the event
+    * body - String: the body of the event
+
+  return value: none
+
+  level: 1
+
 ==expand==
 {{{expand(initialDimensions, finalDimensions, URL)}}}
 
@@ -328,6 +342,17 @@ Use this method to hide the web viewer. The method has no return value and is ex
 
   level: 1
  
+==makeCall==
+{{{makeCall(number)}}}
+
+Use this method to make a phone call on from the device to the number provided.
+
+  parameters: number - String: the phone number
+
+  return values: none
+
+  level: 1
+
 ==open==
 {{{open(URL)}}}
 
@@ -417,6 +442,33 @@ Use this method to resize the main ad view to the desired size. The views place 
   events triggered: resizeChange, stateChange
 
   side effects: changes state
+
+  level: 1
+
+==sendMail==
+{{{sendMail(recipient, subject, body)}}}
+
+Use this method to compose an email message on the device.
+
+  parameters:
+    * recipient - String: the email address for the message
+    * subject - String: the subject line of the message
+    * body - String: the body of the message
+
+  return value: none
+
+  level: 1
+
+==sendSMS==
+{{{sendSMS(recipient, body)}}}
+
+Use this method to compose a SMS message on the device.
+
+  parameters:
+    * recipient - String: the email address for the message
+    * body - String: the body of the message
+
+  return value: none
 
   level: 1
 
