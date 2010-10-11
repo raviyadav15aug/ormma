@@ -86,6 +86,10 @@ The close method will cause either expanded or resized ads to return to their pr
 
 The close method will move the state from "expanded" to "resized" if expand was called from a resized view and from "expanded" to "default" if expand was called from a default view. It will also move the state from "resized" to "default" and, in both cases, fire the stateChange event. If the state is not "expanded" or "resized" there is no effect.
 
+*getSize* method
+
+The getSize method will return the current size of the ad.
+
 *hide* method
 
 The hide method will cause ads in their default state to hide themselves from the view they are in.
