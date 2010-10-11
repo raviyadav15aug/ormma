@@ -77,6 +77,10 @@ The resize method will move the state from "default" to "resized" and fire the s
 
 _Note: In most cases, expand is the correct behavior for rich media ads. The resize method should only be used in views where application content can be moved around within the existing view hierarchy, for example an ad cell in a table view that can grow and push the cells above and below apart._
 
+*getMaxSize*
+
+The getMaxSize method returns the maximum size an ad can resize to. This value defaults to the size of the screen but can be overridden by the app developer in native code. If an ad tries to resize larger than maxSize, an error is thrown.
+
 *close* method
 
 The close method will cause either expanded or resized ads to return to their prior state. 
