@@ -403,7 +403,7 @@ Use this method to make a phone call on from the device to the number provided. 
 
   return values: none
 
-  level: 1
+  level: 2
 
 ==open==
 {{{
@@ -484,7 +484,7 @@ The method executes asynchronously, but returns a Boolean value of false to faci
 
   return values: false
 
-  level: 1
+  level: 3
 
 ==resize==
 {{{
@@ -519,7 +519,7 @@ Use this method to compose an email message on the device. This is equivalent to
 
   return value: none
 
-  level: 1
+  level: 2
 
 ==sendSMS==
 {{{
@@ -534,7 +534,7 @@ Use this method to compose a SMS message on the device. This is equivalent to th
 
   return value: none
 
-  level: 1
+  level: 2
 
 ==setExpandProperties==
 {{{
@@ -585,7 +585,7 @@ Use this method to set the shake properties of the ORMMA object.
 
   side effects: none
 
-  level: 1
+  level: 2
 
 ==show==
 {{{
@@ -789,7 +789,7 @@ This event indicates that the ORMMA object has established communication with th
 
   triggered by: internal
 
-  level: 1
+  level: 3
 
 ==response==
 {{{
