@@ -33,20 +33,39 @@ This event is thrown whenever an error occurs. The event contains a description 
 ===Controlling Display===
 Besides the initial display, the ad developer may have a number of reasons to control the display. 
   * An application may load views in the background to help with latency issues so that an ad is requested, but not visible to the user.
-  * The ad may expand beyond the initial size, but only if native features are available such as a compass or http live streaming video.
-  * Additional online libraries must be loaded for user interactions to work.
+  * The ad may expand beyond the default size over the application content.
+  * The ad may resize within the application content.
+  * The ad may return to the default size once user interaction is complete.
 
-*show method, “visibleChange” event*
+*getState method, “StateChange” event*
 
-Request to show the Ad Container. A “visibleChange” event is broadcasted when completed.
+Each ad has a state that is one of the following:
 
-*hide method, “specification” event*
+||*value*||*description*||
+||default||the initial position and size of the ad as placed by the developer||
+||expanded||the ad has expanded to cover the application content at the top of the view hierarchy||
+||resized||the ad has expanded within the view hierarchy, possibly moving application content||
+||hidden||the ad is in its default position, but is not visible||
 
-Request to hide the Ad Container. A “visibleChange” event is broadcasted when completed.
+*show method*
 
-*isVisible getter*
+The show method will move the state from "hidden" to "default" and fire the "stateChange" event. If the state is not "hidden" there is no effect.
 
-Get the current state of the Ad Container. isVisible is true when the container is actually visible to the end-user, not when it is loaded in the background.
+*expand method*
+
+The expand method will move state from "default" or "resized" to "expanded" and fire the "stateChange" event. If the state is not in "default" or "resized" there is no effect.
+
+_Note: In most cases, expand is the correct behavior for rich media ads. The resize method should only be used in views where application content can be moved around within the existing view hierarchy, for example an ad cell in a table view that can grow and push the cells above and below apart._
+
+*resize method*
+
+The resize method will move the state from "default" to "resized" and fire the "stateChanged" event. If the state is not "default" then there is no effect.
+
+_Note: In most cases, expand is the correct behavior for rich media ads. The resize method should only be used in views where application content can be moved around within the existing view hierarchy, for example an ad cell in a table view that can grow and push the cells above and below apart._
+
+*hide method*
+
+The hide method will move the state from "default" to "hidden" and fire the "stateChanged" event. If the state is not "default" then there is no effect.
 
 ===Resizing Display===
 The ability to resize and/or reposition the web viewer is the most desired feature for any in-app rich media library and is the most important function to implement for interoperability among rich media ads. This document outlines an approach with very granular control of these actions to the ad designer.
