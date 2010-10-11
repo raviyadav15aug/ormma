@@ -5,10 +5,13 @@
 
 ===Initialization===
 Simply by including the SDK’s !JavaScript library, the Controller is available to the ad designer. The Controller encapsulates and abstracts all interactions between the web layer and the native layer and identifies this SDK as compatible with these specifications.
-Need identification methods? Vendor names, SDK versions, compliance levels?
+
+*ready* event
+
+The ready event will fire when the SDK is fully loaded and attached to the underlying native code.
 
 ===Preloading and Initial Display===
-It is up to the ad developer to provide a simple HTML, such as an <img> tag, for the initial display of their ad while other assets are loaded in the background. This HTML will be displayed in the Container while !JavaScript uses the Controller to request and invoke additional capabilities. Ultimately, the initial HTML display may be completely replaced by a rich media ad once all assets are ready, depending on the creative requirements.
+It is up to the ad developer to provide a simple HTML, such as an <img> tag, for the initial display of their ad while other assets are loaded in the background. This HTML will be displayed in the Container while JavaScript uses the Controller to request and invoke additional capabilities. Ultimately, the initial HTML display may be completely replaced by a rich media ad once all assets are ready, depending on the creative requirements.
 
 ===Event Handling===
 Event handling is a key concept of this recommendation. Communicating between the web layer and native layer is asynchronous by nature. Through event handling, the ad designer is able to listen for particular actions and respond to those actions on an as-needed basis. These specifications advocate broadcast-style events to support the broadest range of features/flexibility with the greatest consistency.
@@ -30,12 +33,13 @@ Error handling is very straightforward in this specification. When an error occu
 
 This event is thrown whenever an error occurs. The event contains a description of the error that occurred and, if appropriate, the name of the action that resulted in the error.
 
-===Controlling Display===
+===Controlling Ad Display===
 Besides the initial display, the ad developer may have a number of reasons to control the display. 
   * An application may load views in the background to help with latency issues so that an ad is requested, but not visible to the user.
   * The ad may expand beyond the default size over the application content.
   * The ad may resize within the application content.
   * The ad may return to the default size once user interaction is complete.
+  * The ad may, in certain circumstances, hide itself.
 
 *getState method, “StateChange” event*
 
@@ -49,94 +53,46 @@ Each ad has a state that is one of the following:
 
 *show method*
 
+The show method will cause a hidden ad to become visible in the default position.
+
 The show method will move the state from "hidden" to "default" and fire the "stateChange" event. If the state is not "hidden" there is no effect.
 
 *expand method*
 
+The expand method will cause a new Web View to open at the highest z-order in the view hierarchy at the desired position and size. The new view can either contain a new HTML document or a copy of the same document that was in the default position. While an ad is expanded, the default position's HTML is suspended. The transition is controlled by the expandProperties.
+
 The expand method will move state from "default" or "resized" to "expanded" and fire the "stateChange" event. If the state is not in "default" or "resized" there is no effect.
 
-_Note: In most cases, expand is the correct behavior for rich media ads. The resize method should only be used in views where application content can be moved around within the existing view hierarchy, for example an ad cell in a table view that can grow and push the cells above and below apart._
-
 *resize method*
+
+The resize method will cause the existing Web View to resize itself within the current view hierarchy using the existing HTML document. The transition is controlled by the resizeProperties.
 
 The resize method will move the state from "default" to "resized" and fire the "stateChanged" event. If the state is not "default" then there is no effect.
 
 _Note: In most cases, expand is the correct behavior for rich media ads. The resize method should only be used in views where application content can be moved around within the existing view hierarchy, for example an ad cell in a table view that can grow and push the cells above and below apart._
 
+*close method*
+
+The close method will cause either expanded or resized ads to return to their prior state. 
+  * In the case where an ad went from default to resized to expanded, close will return the ad to its resized size.
+  * In the case where an ad went from default to expanded, close will return it to its default size.
+  * In the case where an ad went from default to resized, close will return it to its default state.
+
+The close method will move the state from "expanded" to "resized" if expand was called from a resized view and from "expanded" to "default" if expand was called from a default view. It will also move the state from "resized" to "default" and, in both cases, fire the "stateChange" event. If the state is not "expanded" or "resized" there is no effect.
+
 *hide method*
+
+The hide method will cause ads in their default state to hide themselves from the view they are in.
 
 The hide method will move the state from "default" to "hidden" and fire the "stateChanged" event. If the state is not "default" then there is no effect.
 
-===Resizing Display===
-The ability to resize and/or reposition the web viewer is the most desired feature for any in-app rich media library and is the most important function to implement for interoperability among rich media ads. This document outlines an approach with very granular control of these actions to the ad designer.
+===Controlling expandProperties===
 
-Although the application developer devotes some space to an ad banner, the rich media ad often needs to expand into more space as the result of user interaction. A standard method for resizing the ad area greatly simplifies cross-device support.
 
-While it is possible for an SDK vendor to implement this feature by simply displaying another full-size viewing window for expanded ads, this strategy creates a jarring experience. The rich media ad developer typically requires more nuanced sizing and control. And the experience for users should be that the original creative seamlessly evolves towards an expanded view. Regardless of implementation by the SDK vendor, the intended effect should always be that the initial display is resized, (not replaced or overlaid).
 
-*resize method, “resizeChange” event*
+===Controlling resizeProperties===
 
-Use this method to resize the web viewer. In addition, the ad designer can define the transition effect, style of view window, and what style of navigation bar to display, if any. 
 
-The SDK should provide protection from creatives that do not provide an exit for the user by always displaying a navigation bar with an "close" when the user double-clicks on the ad.
 
-*resetSize method*
+===Opening an embedded Browser===
 
-Use this method to return an ad to its initial state, usually a banner. This may be called programmatically, but is also available to the application/sdk developer when exiting ads that have timed out.
-
-*getResizeDimensions method, dimensions object*
-
-Use this method to get the current dimensions of the web viewer. This is expressed as an object with the dimensions for top, left, bottom and right.
-
-Use this illustration to better define the dimensions.
-
- [http://media.cw.s3.amazonaws.com/ormma/resizing1.png]
-
-*getResizeProperties method, properties object*
-
-Use this method to get the current resize properties of the web viewer. 
-
-To reduce clutter, a properties object contains all web viewer configurations. The properties object describes various aspects of how the web viewer will behave during and after it is resized.
-
-These documented view properties could be extended by the SDK. At a minimum, the following properties should be supported.
-
-  * "transition" : "default|dissolve|fade|roll|slide|zoom|none",
-  * "navigation" : "none|close|back|forward|refresh",
-  * "use-background" : "true|false",
-  * "background-color" : "#rrggbb",
-  * "background-opacity" : "n.n",
-  * "is-modal" : "true|false"
-
-*"transition"*
-
-The "transition" property indicates the behavior that will be used as the web viewer is resized. If "transition" is not specified in the properties object, a value of "default" is assumed.
-
-These transitions could be extended by the SDK
-
-|| *transition values* 	|| *description* ||
-||default	||use the default transition defined by the SDK||
-||dissolve	||the old view seems to dissolve into the new view||
-||fade	||the old view seems to fade-out, then then new view fades-in||
-||roll	||the new view rolls (up or down) on top of the the old view||
-||slide	||the new view slides (left or right) on top of the old view||
-||zoom	||the new view grows from single pixel to final size||
-||none	||no transition effect||
-
-*"navigation"*
-
-The "navigation" property indicates the navigation options that should be available on the resized web viewer. If "navigation" is not specified in the properties object, a value of "none" is assumed.
-
-|| *navigation values* 	|| *description* ||
-||none	||no navigation options are displayed||
-||close	||display a button to close the web viewer||
-||back	||display a button that executes a browser-back action||
-||forward	||display a button that executes a browser-forward action||
-||refresh	||display a button that executes a browser-refresh action||
-
-*"useBackground", "backgroundColor", "backgroundOpacity"*
-
-These properties are used to control the behavior of the background of the resized web viewer. They identify whether a background should be displayed behind the resized web viewer which is useful when the web viewer size does not take over the entire device screen, but the end-user should interact only with the ad.
-
-*"isModal"*
-
-The "isModal" property indicates whether the resized web viewer behaves modally - which is to say disables interaction with any part of the application screen outside of itself.
