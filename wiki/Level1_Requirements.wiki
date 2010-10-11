@@ -10,6 +10,10 @@ Simply by including the SDK’s !JavaScript library, the Controller is available
 
 The ready event will fire when the SDK is fully loaded and attached to the underlying native code.
 
+*supports* method
+
+The supports method allows the ad to interrogate the SDK to both baseline functionality and specific device features.
+
 ===Preloading and Initial Display===
 It is up to the ad developer to provide a simple HTML, such as an <img> tag, for the initial display of their ad while other assets are loaded in the background. This HTML will be displayed in the Container while JavaScript uses the Controller to request and invoke additional capabilities. Ultimately, the initial HTML display may be completely replaced by a rich media ad once all assets are ready, depending on the creative requirements.
 
@@ -90,10 +94,49 @@ The hide method will move the state from "default" to "hidden" and fire the stat
 
 ===Controlling expandProperties===
 
+When an ad calls the expand method, the way the ad expands depends on the expandProperties. The expandProperties are held in a JSON object that can be written and read by the ad.
 
+At a minimum, the following properties should be supported.
+
+  * "transition" : "default|dissolve|fade|roll|slide|zoom|none",
+  * "navigation" : "none|close|back|forward|refresh",
+  * "use-background" : "true|false",
+  * "background-color" : "#rrggbb",
+  * "background-opacity" : "n.n",
+  * "is-modal" : "true|false"
+
+*getExpandProperties* method
+
+The getExpandProperties method returns the whole JSON object.
+
+*setExpandProperties* method
+
+The setExpandProperties method sets the whole JSON object.
 
 ===Controlling resizeProperties===
 
+When an ad calls the resize method, the way the ad resizes depends on the resizeProperties. The resizeProperties are held in a JSON object that can be written and read by the ad.
 
+At a minimum, the following properties should be supported.
+
+  * "transition" : "default|dissolve|zoom|none"
+
+_Note: In most cases, expand is the correct behavior for rich media ads. The resize method should only be used in views where application content can be moved around within the existing view hierarchy, for example an ad cell in a table view that can grow and push the cells above and below apart._
+
+*getResizeProperties* method
+
+The getResizeProperties method returns the whole JSON object.
+
+*setResizeProperties* method
+
+The setResizeProperties method sets the whole JSON object.
 
 ===Opening an Embedded Browser===
+
+If the ad wants to open an external mobile web site from an ORMMA ad, it can call the open method which will open an embedded browser window in the application.
+
+*open* method
+
+The open method will display an embedded browser window in the application that loads an external URL.
+
+_Note: This should only be used for external web pages that are not ORMMA ads. The displayed page will not load the ORMMA SDK and the close method will not have any affect on the embedded browser. It can only be closed by the user selecting the close control for the window, which is implementation specific._
