@@ -64,7 +64,9 @@ Use this method to subscribe a specific handler method to a specific event. In t
 ||orientation   ||report orientation changes||
 ||heading        ||report heading changes||
 ||location        ||report location changes||
+||screen           ||report screen size changes||
 ||shake            ||report device being shaken||
+||size                ||report ad size changes||
 ||state              ||report state changes||
 ||tilt                  ||report tilt changes||
 
@@ -614,7 +616,7 @@ For SDKs that do not expose any of the native device features, this method shoul
 || *value*             || *description* ||
 ||network        ||the device can report on its network connectivity and connectivity changes||
 ||orientation   ||the device can report on its orientation and orientation changes||
-||size               ||the device can report on the screen size||
+||screen           ||the device can report on the screen size||
 ||heading        ||the device can report on the compass direction it is pointing||
 ||location        ||the device can report on its location||
 ||shake            ||the device can report on being shaken||
@@ -763,20 +765,6 @@ This event is thrown when the application screen orientation changes.
 
   level: 2
 
-==sizeChange==
-{{{
-“sizeChange” -> (dimensions, properties)
-}}}
-
-This event is thrown when the display state of the web viewer changes.
-
-  parameters: 
-    * dimensions: JSON, {x, y, width, height} - this object contains point value dimensions of the resized web viewer
-    * properties: JSON, { ... } - this object contains the state of all the web viewer properties besides dimension that are supported by the SDK
-
-  triggered by: resize, close, or the device itself
-
-  level: 1
 
 ==ready==
 {{{
@@ -806,21 +794,20 @@ This event is thrown when a request action with a display type of "proxy" return
 
   level: 1
 
-==screenSizeChange`*`==
+==screenChange`*`==
 {{{
-“screenSizeChange” -> (width, height)
+"screenChange" -> (dimensions)
 }}}
 
-This event is thrown when the point size of the screen changes, including orientation changes.
-Inconsistent – listener gets independent attributes, but calling getScreenSize returns a JSON object
+This event is thrown when the device screen size changes.
 
-  parameters:
-    * width: Integer, point width of the AdView screen area
-    * height: Integer, point height of the AdView screen area
+  parameters: dimensions - JSON, {width, height}
 
-  triggered by: resize, close, or the device itself
+  triggered by: 
+  * addEventListener("screen", _function()_)
+  * device orientation change
 
-  level: 1
+  level: 2
 
 ==shake`*`==
 {{{
@@ -834,6 +821,24 @@ This event is thrown when the device accelerometer detects that the device has b
   triggered by: addEventListener("shake", _function()_)
 
   level: 2
+
+==sizeChange==
+{{{
+“sizeChange” -> (dimensions, properties)
+}}}
+
+This event is thrown when the display state of the web viewer changes.
+
+  parameters: 
+    * dimensions: JSON, {width, height} - this object contains point value dimensions of the resized web viewer
+    * properties: JSON, { ... } - this object contains the state of all the web viewer properties besides dimension that are supported by the SDK _(not sure what this is)_
+
+  triggered by: 
+  * addEventListener("size", _function()_)
+  * ad expand, resize, close
+  * the device itself
+
+  level: 1
 
 ==stateChange==
 {{{
