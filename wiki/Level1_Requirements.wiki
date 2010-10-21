@@ -100,6 +100,18 @@ The hide method will cause ads in their default state to hide themselves from th
 
 The hide method will move the state from "default" to "hidden" and fire the stateChanged event. If the state is not "default" then there is no effect.
 
+*orientationChange* event
+
+The orientationChange event fires when the device is rotated or tilted to a new orientation.
+
+*sizeChange* event
+
+The sizeChange event fires when the ads size within the app UI changes. This can be the result of an orientation change of the device or calls to the resize or expand methods.
+
+*screenSizeChange* event
+
+the screenSizeChange event fires when the devices screen size changes, usually as the result of an orientation change.
+
 ===Controlling expandProperties===
 
 When an ad calls the expand method, the way the ad expands depends on the expandProperties. The expandProperties are held in a JSON object that can be written and read by the ad.
@@ -139,7 +151,16 @@ The getResizeProperties method returns the whole JSON object.
 
 The setResizeProperties method sets the whole JSON object.
 
+===Working with a Virtual Keyboard===
+
+On devices that have a virtual keyboard, the display of the keyboard can affect the ad display.
+
+*keyboardChange* event
+
+The keyboardChange event fires when the virtual keyboard opens or closes.
+
 ===Hyperlinks===
+
 Rich media ads can have HTML hyperlinks in them, but the ad developer needs to be careful about using them. Loading a new web page in the ad view that is not written to the ORMMA spec can leave the ad, and possibly the app, in an unusable state. Additionally, some devices override or implement certain URLs in their own applications, such as mail, maps, calendar, SMS, and phone calls. ORMMA provides methods for those functions in the Level-2 specification.
 
 ===Opening an Embedded Browser===
