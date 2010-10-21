@@ -368,16 +368,31 @@ Use this method to get the current size of the ad.
 
 ==getState==
 {{{
-getState()
+getState() -> String
 }}}
 
 This method returns whether the ad is in its default, fixed position or is in an expanded, larger position.
 
   parameters: none
 
-  Return values: string: "default", "expanded", or "hidden"
+  return values: String: "default", "expanded", or "hidden"
 
   level: 1
+
+==getTilt==
+{{{
+getTilt() -> JSON
+}}}
+
+This method returns the last reading of the devices 3 dimensional tilt.
+
+  parameters: none
+
+  return values: JSON - {x, y, z}
+
+  related events: tiltChange
+
+  level: 2
 
 ==hide==
 {{{
