@@ -15,7 +15,7 @@ The ready event will fire when the SDK is fully loaded and attached to the under
 The supports method allows the ad to interrogate the SDK to both baseline functionality and specific device features.
 
 ===Preloading and Initial Display===
-It is up to the ad developer to provide a simple HTML, such as an <img> tag, for the initial display of their ad while other assets are loaded in the background. This HTML will be displayed in the Container while JavaScript uses the Controller to request and invoke additional capabilities. Ultimately, the initial HTML display may be completely replaced by a rich media ad once all assets are ready, depending on the creative requirements.
+It is up to the ad developer to provide a simple HTML, such as an <img> tag, for the initial display of their ad while other assets are loaded in the background. This HTML will be displayed in the Container while !JavaScript uses the Controller to request and invoke additional capabilities. Ultimately, the initial HTML display may be completely replaced by a rich media ad once all assets are ready, depending on the creative requirements.
 
 ===Event Handling===
 Event handling is a key concept of this recommendation. Communicating between the web layer and native layer is asynchronous by nature. Through event handling, the ad designer is able to listen for particular actions and respond to those actions on an as-needed basis. These specifications advocate broadcast-style events to support the broadest range of features/flexibility with the greatest consistency.
@@ -138,6 +138,9 @@ The getResizeProperties method returns the whole JSON object.
 *setResizeProperties* method
 
 The setResizeProperties method sets the whole JSON object.
+
+===Hyperlinks===
+Rich media ads can have HTML hyperlinks in them, but the ad developer needs to be careful about using them. Loading a new web page in the ad view that is not written to the ORMMA spec can leave the ad, and possibly the app, in an unusable state. Additionally, some devices override or implement certain URLs in their own applications, such as mail, maps, calendar, SMS, and phone calls. ORMMA provides methods for those functions in the Level-2 specification.
 
 ===Opening an Embedded Browser===
 
