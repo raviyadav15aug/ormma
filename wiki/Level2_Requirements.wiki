@@ -6,7 +6,7 @@
 ===Access to Native Features===
 Using standard web technologies in the ad design, and relying on a web viewer in the app to render ads supports many of the presentation needs. For truly rich media advertising, there must also be support for device features that are normally only available to application developers. Devices offer a wide array of functionality beyond simple display of ad content for rich media ads. The Controller provides a layer of abstraction between the ad designer and the device to greater enable cross-device media creation.
 
-Dynamic properties require an event listener strategy. Using just the addEventListener method allows the ad developer to access all native features the SDK supports.
+Dynamic properties require an event listener strategy. Using the addEventListener method allows the ad developer to access all native features the SDK supports.
 
 Knowing what features are available to listen for, and what the event names are requires a naming convention. For each feature a Controller supports, the getter method is “get”+feature name and the event name is feature name+”Change”. For example, if a Controller supports the device’s native location capabilities, the supported feature is “location”, to get the location the ad developer would call “getLocation”, and to listen for changes the ad developer  would addEventListener for "location".
 
@@ -35,9 +35,9 @@ The controller should support as many of the following features as is possible f
 ||level-2         ||the SDK supports ORMMA level 2 functionality*||
 ||level-3         ||the SDK supports ORMMA level 3 functionality*||
 
-*createEvent* method
+===Working with the Device's Physical Characteristics===
 
-The createEvent method opens the device UI to create a new calendar event with default values provided. The ad is suspended while the UI is open.
+Most devices have several different kins of sensors that can report on various physical characteristics of the device, such as its location, the direction it is pointing, its orientation, and its motion.
 
 *getHeading* method
 
@@ -47,21 +47,51 @@ The getHeading method returns the last compass heading of the device. The headin
 
 The getLocation method returns the last location reading and accuracy of the device. The location may be unknown or out-of-date. To activate the location system and receive updates use addEventListener for "location" events.
 
-*getNetwork* method
+*locationChange* event
 
-The getNetwork method returns the current network connection type for the device. To receive updates on network changes use addEventListener for "network" events.
+The locationChange event fires when the devices location changes.
 
 *getOrientation* method
 
 The getOrientation method returns the current device orientation. To receive updates on orientation changes use addEventListener for "orientation" events.
 
-*getScreenSize* method
+*orientationChange* event
 
-The getScreenSize method returns the current size of the device screen. To receive updates on screen size changes use addEventListener for "screen" events.
+The orientationChange event fires when the device is rotated or tilted to a new orientation.
+
+*getTilt* method
+
+The getTilt method returns the last reported device tilt readings in 3 dimensions. To receive updates on tilt changes use addEventListened for "tilt" events.
+
+*tiltChange* event
+
+The tiltChange event fires when the devices 3 dimensional tilt values change.
 
 *getShakeProperties* method
 
 The getShakeProperties method returns the current thresholds that define a shake gesture. The defaults should be sufficient in most cases.
+
+*shake* event
+
+The shake event fires when the device is shaken within the thresholds of the current shake properties.
+
+*setShakeProperties* method
+
+The setShakeProperties will set ad specific thresholds for what is interpreted by the SDK as a shake gesture.
+
+===Working with Device Connectivity and Applications===
+
+*createEvent* method
+
+The createEvent method opens the device UI to create a new calendar event with default values provided. The ad is suspended while the UI is open.
+
+*getNetwork* method
+
+The getNetwork method returns the current network connection type for the device. To receive updates on network changes use addEventListener for "network" events.
+
+*networkChange* event
+
+The networkChange event fires when the devices network connectivity changes.
 
 *makeCall* method
 
@@ -75,10 +105,5 @@ The sendMail method opens the device UI for sending an email message with the co
 
 The sendSMS method opens the device UI for sending an SMS message with the content provided. The ad is suspended while the UI is open. 
 
-*setShakeProperties* method
-
-The setShakeProperties will set ad specific thresholds for what is interpreted by the SDK as a shake gesture.
-
 ===Handling Call-to-Action Events===
 A rich media ad implements multiple call-to-action events beyond the click to microsite. These events may be executed as anchor links or scripted functions. This means an SDK cannot just listen for clicks in the browser. It must support programmatic clicks as well.
-
