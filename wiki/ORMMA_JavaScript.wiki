@@ -379,7 +379,7 @@ This method returns whether the ad is in its default, fixed position or is in an
 
   level: 1
 
-==getTilt==
+==getTilt`*`==
 {{{
 getTilt() -> JSON
 }}}
