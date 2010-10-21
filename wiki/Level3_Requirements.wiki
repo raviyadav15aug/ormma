@@ -52,6 +52,8 @@ This event is thrown when an asset has been retired from the local cache to make
 
 ===Offline Requests and Metrics===
 
+Rich Media Ads that can work while the device is without network connectivity need the ability to store and latter forward metrics about how and when users interact with the ad.
+
 *request* method
 
 The request method makes an HTTP request when the device has network connectivity and caches the request for later transmission when the device is off line.
