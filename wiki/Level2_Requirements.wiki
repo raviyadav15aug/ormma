@@ -92,17 +92,4 @@ Rich media designers need access to the minimum calls to action
   * click to Google maps
   * click to email
   * click to calendar
-  * click to iTunes
-
-===Request Handling===
-As mentioned, each call to action may be called as standard anchor tag href attributes or as the result of !JavaScript onclick events. For the SDK, instead of trying to discover every URL, it should support a request handling strategy. The ad developer should use the function wrapper for all click events so they can be processed by the SDK for native applications. A request wrapper allows the ad designer control over how the web viewer handles various click or other request events.
-
-*request* method
-Use this method to trigger a request action. The method supports an option to identify the request type, which is especially important for capturing tracking requests offline and executing them whenever the device reconnects (level 3).
-
-|| *display value*	|| *description* ||
-||ignore	||no display, reporting URL only -- OK to ignore response||
-||proxy	||no display, response managed by script -- used for ajax calls||
-
-*response* event
-This event is thrown when a request action with a display type of "proxy" returns a response. The event contains the URI of the original request action and the full body of the response.
+  * click to device specific URL, like iTunes
