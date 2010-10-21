@@ -82,14 +82,3 @@ The setShakeProperties will set ad specific thresholds for what is interpreted b
 ===Handling Call-to-Action Events===
 A rich media ad implements multiple call-to-action events beyond the click to microsite. These events may be executed as anchor links or scripted functions. This means an SDK cannot just listen for clicks in the browser. It must support programmatic clicks as well.
 
-===Hyperlinks===
-Rich media designers need access to the minimum calls to action
-  * click to visit microsite in-app
-  * click to visit microsite with device browser
-  * click to play video in-app
-  * click to play audio in-app
-  * click to send form data
-  * click to Google maps
-  * click to email
-  * click to calendar
-  * click to device specific URL, like iTunes
