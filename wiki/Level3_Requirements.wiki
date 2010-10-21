@@ -12,9 +12,11 @@ To enable offline viewing and performance optimization, the Controller also prov
 
 However, since a finite amount of local cache is available, ad designers may need direct asset management control to optimize the ad experience. The local cache uses a "Least Recently Used" algorithm to retire old assets as new assets are added. If an object is requested from the cache that has been retired, the SDK will attempt to reacquire the asset if online (otherwise a error is thrown -- see error handling).
 
+_Note: Because of security restrictions in the OS Web browser control, only local base HTML documents can access locally stored objets. Therefor, a network served ad must first download a local copy of the same or a different HTML document to load into the ad as part of an expand call._
+
 *addAsset* method
 
-Use this method to create a new alias in the local cache. The event is thrown when an asset has successfully been loaded.
+The addAsset method downloads, stores, and creates a new alias for an object in the local cache.
 
 *addAssets method*
 
@@ -22,27 +24,38 @@ Use this method to create multiple aliases at once. Triggers multiple “assetRe
 
 *assetReady* event
 
+The assetReady event fires once an asset has been successfully downloaded. Once the event fires, use getAssetURL to get the local path to the object.
 
 *getAssetURL* method
 
-
+The getAssetURL method translates the asset alias into a local file path that a local ad can access.
 
 *removeAsset* method
 
-Use this method to remove an asset from the local cache. The event is thrown when an asset has successfully been removed.
+The removeAsset method removes an asset from the local cache. 
 
-*removeAllAssets method*
+*removeAllAssets* method
 
 Use this method to clear the local cache of all aliases. Triggers multiple “assetRemoved” events.
 
-
 *assetRemoved* event
 
+The assetRemoved event is thrown when an asset has successfully been removed.
 
 *getCacheRemaining* method
 
-Use this method to get the number of remaining bytes available in the local cache.
+The getCacheRemaining method returns the number of remaining bytes available in the local cache.
 
 *assetRetired* event
 
 This event is thrown when an asset has been retired from the local cache to make room for new assets.
+
+===Offline Requests and Metrics===
+
+*request* method
+
+The request method makes an HTTP request when the device has network connectivity and caches the request for later transmission when the device is off line.
+
+*response* event
+
+The response event is fired when a request method completes and provides the response if desired.
