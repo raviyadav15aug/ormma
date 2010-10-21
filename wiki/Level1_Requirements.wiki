@@ -100,14 +100,6 @@ The hide method will cause ads in their default state to hide themselves from th
 
 The hide method will move the state from "default" to "hidden" and fire the stateChanged event. If the state is not "default" then there is no effect.
 
-*orientationChange* event
-
-The orientationChange event fires when the device is rotated or tilted to a new orientation.
-
-*sizeChange* event
-
-The sizeChange event fires when the ads size within the app UI changes. This can be the result of an orientation change of the device or calls to the resize or expand methods.
-
 *screenSizeChange* event
 
 the screenSizeChange event fires when the devices screen size changes, usually as the result of an orientation change.
