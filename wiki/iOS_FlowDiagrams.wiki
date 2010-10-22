@@ -1,6 +1,8 @@
 #summary Flow Diagrams for iOS Implementation Spec
 #sidebar SideBar
 
+_Note: This page is out of date and will be brought back into line with the spec as development proceeds._
+
 = Introduction =
 
 These flow diagrams illustrate the steps that result from ad developer actions.
