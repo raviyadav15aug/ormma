@@ -1,6 +1,8 @@
 #summary iOS AdView Class Reference
 #sidebar SideBar
 
+_Note: This page is out of date and will be brought back into line with the spec as development proceeds._
+
 = Introduction =
 
 The AdView object is a native iOS class that provides an ORMMA compliant ad container. A given App view can have one or more AdView subviews that will all act independently of one another. The visible UI of the AdView is a UIWebView control that the AdView wraps and manages. The parent App view should implement the AdViewDelegate protocol and set itself as the AdView's delegate to implement important methods necessary for the Ad lifecycle.
