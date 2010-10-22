@@ -2,6 +2,8 @@
 #labels Phase-Implementation
 #sidebar SideBar
 
+_Note: This page is out of date and will be brought back into line with the spec as development proceeds._
+
 =Specifications for iOS Reference Implementation =
 
 <wiki:toc max_depth="3" />
