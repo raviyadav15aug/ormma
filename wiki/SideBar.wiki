@@ -6,5 +6,5 @@
     * [Level1_Requirements Level 1 requirements]
     * [Level2_Requirements Level 2 requirements]
     * [Level3_Requirements Level 3 requirements]
-  * [ORMMA_JavaScript ORMMA JavaScript Reference]
+  * [ORMMA_JavaScript ORMMA JavaScript API Reference]
     * [AdControllerSampleCallingCode Sample calling code]
