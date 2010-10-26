@@ -82,6 +82,14 @@ The getCacheRemaining method returns the number of remaining bytes available in 
 
 This event is thrown when an asset has been retired from the local cache to make room for new assets.
 
+===Special Media Assets===
+
+Rich Media Ads can access two special asset types that allow them to take a screenshot of the device's screen and take a picture with the device's camera. Calling the addAsset method with a URL of "ormma://screenshot" will take a screenshot and save it to the specified alias. Calling the addAsset method with a URL of "ormma://photo" will open the devices camera interface and save a photo it to the specified alias.
+
+*storePicture* method
+
+The storePicture method will place a picture in the device's photo album. The picture may be local or retrieved from the Internet.
+
 ===Offline Requests and Metrics===
 
 Rich Media Ads that can work while the device is without network connectivity need the ability to store and later forward metrics about how and when users interact with the ad.
