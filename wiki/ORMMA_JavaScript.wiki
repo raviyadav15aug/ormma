@@ -627,6 +627,17 @@ This method has no return value and is executed asynchronously (so always listen
 
   level: 1
 
+==storePicture`*`==
+{{{
+storePicture(URL)
+}}}
+
+This method will store the image or other media type specified by the URL.
+
+  parameter: URL -String:  the URL to the image or other media asset
+
+  level: 2
+
 ==supports==
 {{{
 supports(feature) -> Boolean
