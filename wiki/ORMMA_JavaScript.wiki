@@ -3,6 +3,7 @@
 
 =Introduction=
 The adoption of the ORMMA standard allows all ad developers to use the same !JavaScript methods and know that their ad will behave as expected on a variety of platforms.
+
 This page outlines all the methods and events that ad developers will have access to.
 
 <wiki:toc max_depth="3" />
@@ -17,10 +18,10 @@ _`*`methods marked with an asterisk are dependent on the device. Ad developers a
 addAsset(URL, alias)
 }}}
 
-This method returns no value and executes asynchronously, but the alias can be used immediately in ad content. If the alias is referenced before the asset has loaded, the object simply does not return to the web viewer until it has loaded. The addAsset call also supports special keywords for assets that come from the native device.
+This method returns no value and executes asynchronously, but the alias can be used immediately in ad content. If the alias is referenced before the asset has loaded, the object simply does not return to the web viewer until it has loaded. The addAsset call can also support the following special keywords for assets that come from the native device.
 
 || *value*                              || *description* ||
-||ormma://screenshot        ||capture a screenshot of the application and save as an asset||
+||ormma://screenshot        ||capture a screenshot of the application and save as an asset`*`||
 ||ormma://photo                ||capture a photo using the devices camera and save as an asset`*`||
 
 _`*`Requires device support_
@@ -103,13 +104,13 @@ createEvent(date, title, body)
 Use this method to create a new event in the devices calendar.
 
   parameters:
-    * date - Date: the date and time of the event
-    * title - String: the title of the event
-    * body - String: the body of the event
+    * date - Date, the date and time of the event
+    * title - String, the title of the event
+    * body - String, the body of the event
 
   return value: none
 
-  level: 1
+  level: 2
 
 ==expand==
 {{{
@@ -136,7 +137,7 @@ dimensions: JSON {x, y, width, height} - this object contains desired point valu
 getAssetURL() -> String
 }}}
 
-Use this method to get the URL for local assets once the assetReady event has fired. The URL will begin with the "file:///" protocol.
+Use this method to get the URL for local assets once the assetReady event has fired. 
 
   return values: String, the URL to the asset
 
@@ -213,7 +214,7 @@ The "isModal" property is a boolean value (true/false) and if it is not specifie
 getAlignment() -> Number
 }}}
 
-Use this method to get the most recent compass direction of the current vertical axis of the device. To receive events when the a change occurs, register an event listener for "heading" events. Values are:
+Use this method to get the most recent compass direction of the current vertical axis of the device. To receive events when the a change occurs, register an event listener for "headingChange" events. Values are:
 
 || *value*	|| *description* ||
 ||-1	||no heading known||
@@ -232,7 +233,7 @@ Use this method to get the most recent compass direction of the current vertical
 getLocation() -> JSON
 }}}
 
-Use this method to get the most recent location reading from the device.  To receive events when the a change occurs, register an event listener for "location" events.
+Use this method to get the most recent location reading from the device.  To receive events when the a change occurs, register an event listener for "locationChange" events.
 
   parameters: none
 
@@ -262,7 +263,7 @@ Use this method to return the maximum size an ad can grow to using the resize() 
 getNetwork() -> String
 }}}
 
-Use this method to identify the most recent network status of the device. To receive events when a change occurs, register an event listener for "network" events. Possible results include:
+Use this method to identify the most recent network status of the device. To receive events when a change occurs, register an event listener for "networkChange" events. Possible results include:
 
 || *value*	|| *description* ||
 ||offline	||no network connection||
@@ -283,7 +284,7 @@ Use this method to identify the most recent network status of the device. To rec
 getOrientation() -> Number
 }}}
 
-Use this method to get the most recent orientation of the device. To receive events when a change occurs, register an event listener for "orientation" events. Possible results include:
+Use this method to get the most recent orientation of the device. To receive events when a change occurs, register an event listener for "orientationChange" events. Possible results include:
 
 || *value*	|| *description* ||
 ||-1||device orientation unknown||
@@ -302,7 +303,7 @@ Use this method to get the most recent orientation of the device. To receive eve
 
 ==getResizeProperties==
 {{{
-properties() -> JSON
+getResizeProperties() -> JSON
 }}}
 
 Use this method to get the current resize properties of the web viewer. Since the resize action is asynchronous, this value does not update until the action has completed execution (when the "resizeChange" event fires).
@@ -336,7 +337,7 @@ Point width (pt) is preferred over pixel width (px) because of device screens wi
 
   related event: screenSizeChange
 
-  level: 2
+  level: 1
 
 ==getShakeProperties`*`==
 {{{
@@ -363,6 +364,8 @@ Use this method to get the current size of the ad.
   parameters: none
 
   return value: JSON - {width, height}
+  
+  related events: none
 
   level: 1
 
@@ -376,6 +379,8 @@ This method returns whether the ad is in its default, fixed position or is in an
   parameters: none
 
   return values: String: "default", "expanded", or "hidden"
+  
+  related events: none
 
   level: 1
 
@@ -414,7 +419,7 @@ Use this method to hide the web viewer. The method has no return value and is ex
 makeCall(number)
 }}}
 
-Use this method to make a phone call on from the device to the number provided. This is equivalent to the tel:// protocol.
+Use this method to make a phone call on from the device to the number provided. This is similar to a tel:// protocol, but the SDK will attempt to suspend the application.
 
   parameters: number - String: the phone number
 
@@ -427,9 +432,9 @@ Use this method to make a phone call on from the device to the number provided. 
 open(URL)
 }}}
 
-Use this method to open an HTML browser to an external web page. This may launch an external browser, depending on the SDK implementation. To place the ad over content use the expand() method.
+Use this method to open an HTML browser to an external web page. This may launch an external browser, depending on the SDK implementation. To place the ad over content, use the expand() method instead.
 
-  parameters: URL - String: the URL of the web page
+  parameters: URL - String, the URL of the web page
 
   return values: none
 
@@ -491,7 +496,7 @@ The method executes asynchronously, but returns a Boolean value of false to faci
  
 || *value*	|| *description* ||
 ||ignore          ||the response is ignored||
-||proxy           ||the response is cahced if the device is off-line and proxied when connectivity returns||
+||proxy           ||the response is cached if the device is off-line and proxied when connectivity returns||
 
   parameters: 
     * URL - string, the fully qualified URL of the page or call to action asset
@@ -508,7 +513,7 @@ The method executes asynchronously, but returns a Boolean value of false to faci
 resize(width, height)
 }}}
 
-Use this method to resize the main ad view to the desired size. The views place in the view hierarch will not change, so the effect on other views is up to the app developer. To place the ad over content use the expand() method.
+Use this method to resize the main ad view to the desired size. The views place in the view hierarch will not change, so the effect on other views is up to the app developer. To place the ad over content, use the expand() method instead.
 
   parameters:
     * width: Number: the width in pixels
@@ -527,12 +532,12 @@ Use this method to resize the main ad view to the desired size. The views place 
 sendMail(recipient, subject, body)
 }}}
 
-Use this method to compose an email message on the device. This is equivalent to the mailto:// protocol.
+Use this method to compose an email message on the device. This is similar to the mailto:// protocol, but the SDK will attempt to suspend the application.
 
   parameters:
-    * recipient - String: the email address for the message
-    * subject - String: the subject line of the message
-    * body - String: the body of the message
+    * recipient - String, the email address for the message
+    * subject - String, the subject line of the message
+    * body - String, the body of the message
 
   return value: none
 
@@ -543,11 +548,11 @@ Use this method to compose an email message on the device. This is equivalent to
 sendSMS(recipient, body)
 }}}
 
-Use this method to compose a SMS message on the device. This is equivalent to the sms:// protocol.
+Use this method to compose a SMS message on the device. This is similar to the sms:// protocol, but the SDK will attempt to suspend the application.
 
   parameters:
-    * recipient - String: the email address for the message
-    * body - String: the body of the message
+    * recipient - String, the email address for the message
+    * body - String, the body of the message
 
   return value: none
 
@@ -560,7 +565,8 @@ setExpandProperties(properties)
 
 Use this method to set the ad's expand properties.
 
-  parameters: JSON {}
+  parameters: 
+    * properties: JSON { ... } - this object contains any number of properties, such as transition, that might be used by the SDK when presenting the full screen web viewer. For more info see properties object.
 
   return values: none
 
@@ -576,7 +582,7 @@ setResizeProperties(properties)
 Use this method to set the ads resize properties.
 
   parameters:
-    * properties: JSON { ... } - this object contains any number of properties, such as transition, that might be used by the SDK when resizing the web viewer, for more info see properties object
+    * properties: JSON { ... } - this object contains any number of properties, such as transition, that might be used by the SDK when resizing the web viewer. For more info see properties object.
 
   return values: none
 
@@ -591,7 +597,7 @@ Use this method to set the ads resize properties.
 setShakeProperties(properties)
 }}}
 
-Use this method to set the shake properties of the ORMMA object.
+Use this method to set the shake properties. This method rarely needs to be called as supported devices have default settings.
 
   parameters:
     * properties: JSON { intensity, interval } 
@@ -629,21 +635,21 @@ supports(feature) -> Boolean
 For SDKs that do not expose any of the native device features, this method should always return false. The features are:
 
 || *value*             || *description* ||
-||network        ||the device can report on its network connectivity and connectivity changes||
-||orientation   ||the device can report on its orientation and orientation changes||
 ||screen           ||the device can report on the screen size||
+||orientation   ||the device can report on its orientation and orientation changes||
 ||heading        ||the device can report on the compass direction it is pointing||
 ||location        ||the device can report on its location||
 ||shake            ||the device can report on being shaken||
-||sms               ||the device can send an sms message||
 ||tilt                  ||the device can report on its tilt and tilt changes||
+||network        ||the device can report on its network connectivity and connectivity changes||
+||sms               ||the device can send an sms message||
 ||phone           ||the device can make a phone call||
 ||email            ||the device can compose an email||
 ||calendar       ||the device can create a calendar entry||
-||photo           ||the device can take a picture||
-||level-1         ||the SDK supports ORMMA level 1 functionality*||
-||level-2         ||the SDK supports ORMMA level 2 functionality*||
-||level-3         ||the SDK supports ORMMA level 3 functionality*||
+||camera           ||the device can take a still picture image||
+||level-1         ||the SDK supports ORMMA level 1 functionality||
+||level-2         ||the SDK supports ORMMA level 2 functionality||
+||level-3         ||the SDK supports ORMMA level 3 functionality||
  
   parameters: String, name of feature
 
@@ -718,7 +724,7 @@ This event is thrown when the devices compass direction changes.
   parameters:
     * heading: Number, compass heading in degrees or -1
 
-  triggered by: addEventListener("heading", _function()_)
+  triggered by: addEventListener("headingChange", _function()_)
 
   level: 2
 
@@ -731,7 +737,7 @@ This event is thrown when the software keyboard is opened or closed for text ent
 
   parameters: boolean, open - whether the keyboard is open
 
-  triggered by: addEventListener("keyboard", _function()_)
+  triggered by: addEventListener("keyboardChange", _function()_)
 
   level: 1
 
@@ -747,7 +753,7 @@ This event is thrown when the device has successfully geolocated itself.
     * lng: Number, longitude value of device
     * acc: Number, accuracy of the reading
 
-  triggered by: addEventListener("location", _function()_)
+  triggered by: addEventListener("locationChange", _function()_)
 
   level: 2
 
@@ -762,7 +768,7 @@ This event is thrown when the device network connection changes, such as loosing
     * online: Boolean, true – device is connected to the Internet, false – device cannot access the Internet
     * connection: String, description of connection type such as none, wifi, or cell
 
-  triggered by: addEventListener("network", _function()_) or the device itself
+  triggered by: addEventListener("networkChange", _function()_) or the device itself
 
   level: 2
 
@@ -776,7 +782,7 @@ This event is thrown when the application screen orientation changes.
 
   parameters: orientation - Integer, degrees from upright portrait view
 
-  triggered by: addEventListener("orientation", _function()_)
+  triggered by: addEventListener("orientationChange", _function()_)
 
   level: 2
 
@@ -819,7 +825,7 @@ This event is thrown when the device screen size changes.
   parameters: dimensions - JSON, {width, height}
 
   triggered by: 
-  * addEventListener("screen", _function()_)
+  * addEventListener("screenChange", _function()_)
   * device orientation change
 
   level: 2
@@ -849,7 +855,7 @@ This event is thrown when the display state of the web viewer changes.
     * properties: JSON, { ... } - this object contains the state of all the web viewer properties besides dimension that are supported by the SDK _(not sure what this is)_
 
   triggered by: 
-  * addEventListener("size", _function()_)
+  * addEventListener("sizeChange", _function()_)
   * ad expand, resize, close
   * the device itself
 
@@ -877,6 +883,6 @@ This event is thrown when the device has successfully determined its spacial ori
 
   parameters: x,y,z – Numbers, the x, y, and z axis values in radians 
 
-  triggered by: addEventListener("tilt", _function()_)
+  triggered by: addEventListener("tiltChange", _function()_)
 
   level: 2
