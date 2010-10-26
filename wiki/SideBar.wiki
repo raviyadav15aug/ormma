@@ -8,8 +8,3 @@
     * [Level3_Requirements Level 3 requirements]
   * [ORMMA_JavaScript ORMMA JavaScript Reference]
     * [AdControllerSampleCallingCode Sample calling code]
-  * [iOS_ORMMA_Spec iOS implementation]
-    * [iOS_FlowDiagrams Flow Diagrams]
-    * [ORMMAView_iOS ORMMAView iOS Reference]
-    * [ORMMAViewDelegate_iOS ORMMAViewDelegate iOS Reference]
-  * [Android_ORMMA_spec Android implementation]
