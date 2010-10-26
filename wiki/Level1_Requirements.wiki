@@ -4,7 +4,7 @@
 =Ad Controller Requirements: Level 1=
 
 ===Initialization===
-Simply by including the SDK’s !JavaScript library, the Controller is available to the ad designer. The Controller encapsulates and abstracts all interactions between the web layer and the native layer and identifies this SDK as compatible with these specifications.
+Simply by including the SDK’s !JavaScript library, the Controller and its !JavaScript API is available to the ad designer. The Controller encapsulates and abstracts all interactions between the web layer and the native layer and identifies the SDK as compatible with these specifications.
 
 *ready* event
 
@@ -15,7 +15,7 @@ The ready event will fire when the SDK is fully loaded and attached to the under
 The supports method allows the ad to interrogate the SDK to both baseline functionality and specific device features.
 
 ===Preloading and Initial Display===
-It is up to the ad developer to provide a simple HTML, such as an <img> tag, for the initial display of their ad while other assets are loaded in the background. This HTML will be displayed in the Container while !JavaScript uses the Controller to request and invoke additional capabilities. Ultimately, the initial HTML display may be completely replaced by a rich media ad once all assets are ready, depending on the creative requirements.
+It is up to the ad developer to provide simple HTML, such as an &lt;img&gt; tag, for the initial display of their ad while other assets are loaded in the background. This HTML will be displayed in the Container while !JavaScript uses the Controller to request and invoke additional capabilities. Ultimately, the initial HTML display may be completely replaced by a rich media ad once all assets are ready, depending on the creative requirements.
 
 ===Event Handling===
 Event handling is a key concept of this recommendation. Communicating between the web layer and native layer is asynchronous by nature. Through event handling, the ad designer is able to listen for particular actions and respond to those actions on an as-needed basis. These specifications advocate broadcast-style events to support the broadest range of features/flexibility with the greatest consistency.
@@ -31,11 +31,11 @@ Use this method to subscribe a specific handler method to a specific event. In t
 Use this method to unsubscribe a specific handler method from a specific event.
 
 ===Error Handling===
-Error handling is very straightforward in this specification. When an error occurs, the "error" event is thrown with diagnostic information about the event. Any number of listeners can monitor for errors of different types and respond as needed.
+When an error occurs, the "error" event is thrown with diagnostic information about the event. Any number of listeners can monitor for errors of different types and respond as needed.
 
 *error* event
 
-This event is thrown whenever an error occurs. The event contains a description of the error that occurred and, if appropriate, the name of the action that resulted in the error.
+This event is thrown whenever an error occurs. The event contains a description of the error that occurred and, when appropriate, the name of the action that resulted in the error.
 
 ===Controlling Ad Display===
 Besides the initial display, the ad developer may have a number of reasons to control the display. 
@@ -55,7 +55,7 @@ Each ad has a state that is one of the following:
 ||resized||the ad has expanded within the view hierarchy, possibly moving application content||
 ||hidden||the ad is in its default position, but is not visible||
 
-The getState method returens the current state of the ad and the stateChange event fires when the state is changed programmatically by the ad or by the environment.
+The getState method returns the current state of the ad and the stateChange event fires when the state is changed programmatically by the ad or by the environment.
 
 *show* method
 
@@ -75,11 +75,11 @@ The resize method will cause the existing Web View to resize itself within the c
 
 The resize method will move the state from "default" to "resized" and fire the stateChanged event. If the state is not "default" then there is no effect.
 
-_Note: In most cases, expand is the correct behavior for rich media ads. The resize method should only be used in views where application content can be moved around within the existing view hierarchy, for example an ad cell in a table view that can grow and push the cells above and below apart._
+_Note: In most cases, expand is the correct behavior for rich media ads. The resize method should only be used in views where application content can be moved around within the existing view hierarchy, for example an ad cell in a table view that can grow and push the cells above and below apart. Designers should use the getMaxSize method before calling resize. _
 
 *getMaxSize*
 
-The getMaxSize method returns the maximum size an ad can resize to. This value defaults to the size of the screen but can be overridden by the app developer in native code. If an ad tries to resize larger than maxSize, an error is thrown.
+The getMaxSize method returns the maximum size an ad can resize to. This value defaults to the size of the screen but can be overridden by the app developer in native code. If an ad tries to resize larger than maxSize, then an error is thrown.
 
 *getSize* method
 
@@ -110,14 +110,13 @@ The getScreenSize method returns the current size of the device screen. To recei
 
 *screenSizeChange* event
 
-the screenSizeChange event fires when the devices screen size changes, usually as the result of an orientation change.
+The screenSizeChange event fires when the devices screen size changes, usually as the result of an orientation change.
 
 ===Controlling expandProperties===
 
 When an ad calls the expand method, the way the ad expands depends on the expandProperties. The expandProperties are held in a JSON object that can be written and read by the ad.
 
 At a minimum, the following properties should be supported.
-
   * "transition" : "default|dissolve|fade|roll|slide|zoom|none",
   * "navigation" : "none|close|back|forward|refresh",
   * "use-background" : "true|false",
@@ -141,7 +140,7 @@ At a minimum, the following properties should be supported.
 
   * "transition" : "default|dissolve|zoom|none"
 
-_Note: In most cases, expand is the correct behavior for rich media ads. The resize method should only be used in views where application content can be moved around within the existing view hierarchy, for example an ad cell in a table view that can grow and push the cells above and below apart._
+_Note: In most cases, expand is the correct behavior for rich media ads. The resize method should only be used in views where application content can be moved around within the existing view hierarchy, for example an ad cell in a table view that can grow and shrink moving the content cells above and below._
 
 *getResizeProperties* method
 
@@ -165,10 +164,10 @@ Rich media ads can have HTML hyperlinks in them, but the ad developer needs to b
 
 ===Opening an Embedded Browser===
 
-If the ad wants to open an external mobile web site from an ORMMA ad, it can call the open method which will open an embedded browser window in the application.
+If the ad wants to open an external mobile web site, or micro site, from an ORMMA ad, it can call the open method which will open an embedded browser window in the application.
 
 *open* method
 
 The open method will display an embedded browser window in the application that loads an external URL.
 
-_Note: This should only be used for external web pages that are not ORMMA ads. The displayed page will not load the ORMMA SDK and the close method will not have any affect on the embedded browser. It can only be closed by the user selecting the close control for the window, which is implementation specific._
+_Note: This should be used only for external web pages that are not ORMMA ads. The displayed page will not load the ORMMA SDK and the close method will not have any affect on the embedded browser. It can only be closed by the user selecting the close control for the window, which is implementation specific._
