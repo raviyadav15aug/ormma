@@ -754,14 +754,14 @@ This event is thrown when the software keyboard is opened or closed for text ent
 
 ==locationChange`*`==
 {{{
-“locationChange” -> (lat, lng, acc)
+“locationChange” -> (lat, lon, acc)
 }}}
 
 This event is thrown when the device has successfully geolocated itself.
 
   parameters: 
     * lat: Number, latitude value of device
-    * lng: Number, longitude value of device
+    * lon: Number, longitude value of device
     * acc: Number, accuracy of the reading
 
   triggered by: addEventListener("locationChange", _function()_)
