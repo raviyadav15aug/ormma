@@ -378,7 +378,7 @@ This method returns whether the ad is in its default, fixed position or is in an
 
   parameters: none
 
-  return values: String: "default", "expanded", or "hidden"
+  return values: String: "default", "resized", "expanded", or "hidden"
   
   related events: none
 
@@ -879,7 +879,7 @@ This event is thrown when the display state of the web viewer changes.
 
 This event is thrown when the Ad View changes between default and expanded states as the result of a resize() or a close(). The SDK may also close an ad as the result of a user or system action, such as resuming from background.
 
-  parameters: state - String, either "default", "expanded", or "hidden"
+  parameters: state - String, either "default", "resized", "expanded", or "hidden"
 
   triggered by: resize, close, hide, show, or the app
 
