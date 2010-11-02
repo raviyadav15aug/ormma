@@ -30,6 +30,8 @@ _`*`Requires device support_
     * URL – string, actual URL of the asset
     * alias – string, name that ad developer will use to refer to asset URL
 
+  side effects: cache remaining decreases, possibly retiring other assets
+
   return values: none
 
   event triggered: assetReady
@@ -44,6 +46,8 @@ addAssets(assets)
 This method's parameter - "assets" - is an abstract array (aka standard !JavaScript Object) of alias/uri key-value pairs. The method returns no value and executes asynchronously. Usage rules are the same as adding a single alias.
 
   parameters: assets – object, description of alias/uri key-value pairs
+
+  side effects: cache remaining decreases, possibly retiring other assets
 
   return values: none
 
