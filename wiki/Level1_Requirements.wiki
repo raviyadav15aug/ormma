@@ -85,6 +85,10 @@ The getMaxSize method returns the maximum size an ad can resize to. This value d
 
 The getSize method will return the current size of the ad.
 
+*getDefaultPosition* method
+
+The getDefaultPosition method returns the position and size of the default ad view regardless of what state the calling view is in.
+
 *sizeChange* event
 
 The sizeChange event fires when the ads size within the app UI changes. This can be the result of an orientation change of the device or calls to the resize or expand methods.
