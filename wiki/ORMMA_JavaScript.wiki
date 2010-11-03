@@ -435,12 +435,24 @@ Use this method to make a phone call on from the device to the number provided. 
 
 ==open==
 {{{
-open(URL)
+open(URL, controls)
 }}}
 
 Use this method to open an HTML browser to an external web page. This may launch an external browser, depending on the SDK implementation. To place the ad over content, use the expand() method instead.
 
-  parameters: URL - String, the URL of the web page
+Controls:
+
+|| *value*             || *description* ||
+||none         ||do not display any controls||
+||close         ||a close button for the browser ||
+||back         ||a back button for the browser ||
+||forward         ||a forward button for the browser ||
+||refresh         ||a refresh button for the browser ||
+||all              ||display all controls||
+
+  parameters: 
+   * URL - String, the URL of the web page
+   * controls - JSON: {"close", "back", "refresh"} - list of the navigation controls the view should display. default is all.
 
   return values: none
 
