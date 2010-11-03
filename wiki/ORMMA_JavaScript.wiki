@@ -118,7 +118,7 @@ Use this method to create a new event in the devices calendar.
 
 ==expand==
 {{{
-expand(initialDimensions, finalDimensions, URL)
+expand(dimensions, URL)
 }}}
 
 Use this method to open a separate overlay ad container view at the highest z-order of the window's view.
@@ -126,8 +126,7 @@ Use this method to open a separate overlay ad container view at the highest z-or
 dimensions: JSON {x, y, width, height} - this object contains desired point value dimensions of the resized web viewer
 
   parameters:
-    * initialDimensions: an object describing the initial position of the overlay view before the expand transition occurs. If null, the position and size of the default view will be used.
-    * finalDimensions: the final position of the overlay view after the expand transition occurs
+    * dimensions: the final position of the overlay view after the expand transition occurs
     * URL: The URL for the document to be displayed in the overlay view. If null, the body of the current ad will be used.
 
   return values: none
@@ -138,7 +137,7 @@ dimensions: JSON {x, y, width, height} - this object contains desired point valu
 
 ==getAssetURL==
 {{{
-getAssetURL() -> String
+getAssetURL(alias) -> String
 }}}
 
 Use this method to get the URL for local assets once the assetReady event has fired. 
@@ -162,6 +161,19 @@ Use this method to get the available size of the local cache.
 
   level: 3
 
+==getDefaultPosition==
+{{{
+getDefaultPosition() -> JSON
+}}}
+
+Use this parameter to get the location and size of the default ad view.
+
+  parameters: none
+
+  return values: JSON - {x, y, width, height}
+
+  level: 1
+
 ==getExpandProperties==
 {{{
 getExpandProperties() -> JSON
@@ -176,22 +188,12 @@ Use this method to get the properties for expanding an ad.
 *properties object*
 {{{
 properties = {
- "transition" : "default|dissolve|fade|roll|slide|zoom|none",
- "navigation" : "none|close|back|forward|refresh",
  "use-background" : "true|false",
  "background-color" : "#rrggbb",
  "background-opacity" : "n.n",
  "is-modal" : "true|false"
 }
 }}}
-
-*"transition"*
-
-If "transition" is not specified in the properties object, a value of "default" is assumed.
-
-*"navigation"*
-
-If "navigation" is not specified in the properties object, a value of "none" is assumed.
 
 *"useBackground"*
 
@@ -341,7 +343,7 @@ Point width (pt) is preferred over pixel width (px) because of device screens wi
 
   related event: screenSizeChange
 
-  level: 1
+  level: 2
 
 ==getShakeProperties`*`==
 {{{
