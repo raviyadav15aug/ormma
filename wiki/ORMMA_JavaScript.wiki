@@ -702,7 +702,7 @@ _`*`events marked with an asterisk are dependent on the device. Ad developers an
 
 ==assetReady==
 {{{
-"assetReady" -> (alias)
+"assetReady" -> function(alias)
 }}}
 
 This event is thrown when an asset has successfully been loaded in the local cache. 
@@ -715,7 +715,7 @@ This event is thrown when an asset has successfully been loaded in the local cac
 
 ==assetRemoved==
 {{{
-"assetRemoved" -> (alias)
+"assetRemoved" -> _function_(alias)
 }}}
 
 This event is thrown when an asset has successfully been removed from the local cache.
@@ -728,7 +728,7 @@ This event is thrown when an asset has successfully been removed from the local 
 
 ==assetRetired==
 {{{
-"assetRetired" -> (alias)
+"assetRetired" -> _function_(alias)
 }}}
 
 This event is thrown when an asset has been retired from the local cache to make room for new assets. 
@@ -741,7 +741,7 @@ This event is thrown when an asset has been retired from the local cache to make
 
 ==error==
 {{{
-"error" -> (message, action)
+"error" -> _function_(message, action)
 }}}
 
 This event is thrown whenever an error occurs. The event contains a description of the error that occurred and, if appropriate, the name of the action that resulted in the error (in the absence of an associated action, the action parameter is null).
@@ -750,13 +750,13 @@ This event is thrown whenever an error occurs. The event contains a description 
     * message: String, description of the type of error
     * action: String, name of AdController action that caused error
 
-  triggered by: various
+  triggered by: anything that goes wrong
 
   level: 1
 
 ==headingChange`*`==
 {{{
-"headingChange" -> (heading)
+"headingChange" -> _function_(heading)
 }}}
 
 This event is thrown when the devices compass direction changes.
@@ -764,26 +764,26 @@ This event is thrown when the devices compass direction changes.
   parameters:
     * heading: Number, compass heading in degrees or -1
 
-  triggered by: addEventListener("headingChange", _function()_)
+  triggered by: a change in the device heading after the compass has been activated by registering a "heading" event listener.
 
   level: 2
 
 ==keyboardChange`*`==
 {{{
-"keyboardChange" -> (open)
+"keyboardChange" -> _function_(open)
 }}}
 
 This event is thrown when the software keyboard is opened or closed for text entry in an ad.
 
   parameters: boolean, open - whether the keyboard is open
 
-  triggered by: addEventListener("keyboardChange", _function()_)
+  triggered by: a change in the state of the virtual keyboard after registering a "keyboard" event listener.
 
   level: 1
 
 ==locationChange`*`==
 {{{
-“locationChange” -> (lat, lon, acc)
+“locationChange” -> _function_(lat, lon, acc)
 }}}
 
 This event is thrown when the device has successfully geolocated itself.
@@ -793,13 +793,13 @@ This event is thrown when the device has successfully geolocated itself.
     * lon: Number, longitude value of device
     * acc: Number, accuracy of the reading
 
-  triggered by: addEventListener("locationChange", _function()_)
+  triggered by:  a change in the device heading after the GPS has been activated by registering a "location" event listener.
 
   level: 2
 
 ==networkChange`*`==
 {{{
-“networkChange” -> (online, connection)
+“networkChange” -> _function_(online, connection)
 }}}
 
 This event is thrown when the device network connection changes, such as loosing or acquiring an Internet connection. The connection type values will vary depending on the device and carrier.
@@ -808,41 +808,41 @@ This event is thrown when the device network connection changes, such as loosing
     * online: Boolean, true – device is connected to the Internet, false – device cannot access the Internet
     * connection: String, description of connection type such as none, wifi, or cell
 
-  triggered by: addEventListener("networkChange", _function()_) or the device itself
+  triggered by: a change in the state of the network after registering a "network" event listener.
 
   level: 2
 
 
 ==orientationChange`*`==
 {{{
-“orientationChange” -> (orientation)
+“orientationChange” -> _function_(orientation)
 }}}
 
 This event is thrown when the application screen orientation changes.
 
   parameters: orientation - Integer, degrees from upright portrait view
 
-  triggered by: addEventListener("orientationChange", _function()_)
+  triggered by: a change in the device orientation after registering a "orientation" event listener.
 
   level: 2
 
 
 ==ready==
 {{{
-"ready" -> ()
+"ready" -> _function_()
 }}}
 
 This event indicates that the ORMMA object has established communication with the SDK and has successfully initialized.
 
   parameters: none
 
-  triggered by: internal
+  triggered by: the ORMMA compliant SDK once the ad view is ready.
 
   level: 3
 
 ==response==
 {{{
-“response” -> (uri, response)
+“response” -> _function_(uri, response)
 }}}
 
 This event is thrown when a request action with a display type of "proxy" returns a response. 
@@ -851,59 +851,56 @@ This event is thrown when a request action with a display type of "proxy" return
     * uri: String, the URI of the original request action
     * response: String, the full body of the response
 
-  triggered by: request
+  triggered by: a request() method call returning.
 
   level: 1
 
 ==screenChange`*`==
 {{{
-"screenChange" -> (dimensions)
+"screenChange" -> _function_(width,height)
 }}}
 
 This event is thrown when the device screen size changes.
 
-  parameters: dimensions - JSON, {width, height}
+  parameters:
+  * width - Number:  the width of the screen
+  * height - Number: the height of the screen
 
-  triggered by: 
-  * addEventListener("screenChange", _function()_)
-  * device orientation change
+  triggered by: a change in the device orientation after registering a "orientation" event listener.
 
   level: 2
 
 ==shake`*`==
 {{{
-“shake”
+“shake” -> _function_()
 }}}
 
 This event is thrown when the device accelerometer detects that the device has been "shaken" as defined by the getShake parameters. Because the ad developer may register one listener for a soft shake and another listener for a harder shake, this event provides threshold and time parameters
 
   parameters: none
 
-  triggered by: addEventListener("shake", _function()_)
+  triggered by: The device if a shake gesture is detected after registering a "shake" event listener.
 
   level: 2
 
 ==sizeChange==
 {{{
-“sizeChange” -> (dimensions, properties)
+“sizeChange” -> _function_(width, height)
 }}}
 
 This event is thrown when the display state of the web viewer changes.
 
-  parameters: 
-    * dimensions: JSON, {width, height} - this object contains point value dimensions of the resized web viewer
-    * properties: JSON, { ... } - this object contains the state of all the web viewer properties besides dimension that are supported by the SDK _(not sure what this is)_
+  parameters:
+  * width - Number:  the width of the view
+  * height - Number: the height of the view
 
-  triggered by: 
-  * addEventListener("sizeChange", _function()_)
-  * ad expand, resize, close
-  * the device itself
+  triggered by: a change in the view size as the result of a resize, expand, close, orientation, or the app after registering a "size" event listener.
 
   level: 1
 
 ==stateChange==
 {{{
-"stateChange" -> (state)
+"stateChange" -> _function_(state)
 }}}
 
 This event is thrown when the Ad View changes between default and expanded states as the result of a resize() or a close(). The SDK may also close an ad as the result of a user or system action, such as resuming from background.
@@ -916,13 +913,13 @@ This event is thrown when the Ad View changes between default and expanded state
 
 ==tiltChange`*`==
 {{{
-“tiltChange” -> (x, y, z)
+“tiltChange” -> _function_(x, y, z)
 }}}
 
 This event is thrown when the device has successfully determined its spacial orientation.
 
   parameters: x,y,z – Numbers, the x, y, and z axis values in radians 
 
-  triggered by: addEventListener("tiltChange", _function()_)
+  triggered by: a change in the device tilt after the accelerometer is activated by registering a "tilt" event listener.
 
   level: 2
