@@ -715,7 +715,7 @@ This event is thrown when an asset has successfully been loaded in the local cac
 
 ==assetRemoved==
 {{{
-"assetRemoved" -> _function_(alias)
+"assetRemoved" -> function(alias)
 }}}
 
 This event is thrown when an asset has successfully been removed from the local cache.
@@ -728,7 +728,7 @@ This event is thrown when an asset has successfully been removed from the local 
 
 ==assetRetired==
 {{{
-"assetRetired" -> _function_(alias)
+"assetRetired" -> function(alias)
 }}}
 
 This event is thrown when an asset has been retired from the local cache to make room for new assets. 
@@ -741,7 +741,7 @@ This event is thrown when an asset has been retired from the local cache to make
 
 ==error==
 {{{
-"error" -> _function_(message, action)
+"error" -> function(message, action)
 }}}
 
 This event is thrown whenever an error occurs. The event contains a description of the error that occurred and, if appropriate, the name of the action that resulted in the error (in the absence of an associated action, the action parameter is null).
@@ -756,7 +756,7 @@ This event is thrown whenever an error occurs. The event contains a description 
 
 ==headingChange`*`==
 {{{
-"headingChange" -> _function_(heading)
+"headingChange" -> function(heading)
 }}}
 
 This event is thrown when the devices compass direction changes.
@@ -770,7 +770,7 @@ This event is thrown when the devices compass direction changes.
 
 ==keyboardChange`*`==
 {{{
-"keyboardChange" -> _function_(open)
+"keyboardChange" -> function(open)
 }}}
 
 This event is thrown when the software keyboard is opened or closed for text entry in an ad.
@@ -783,7 +783,7 @@ This event is thrown when the software keyboard is opened or closed for text ent
 
 ==locationChange`*`==
 {{{
-“locationChange” -> _function_(lat, lon, acc)
+“locationChange” -> function(lat, lon, acc)
 }}}
 
 This event is thrown when the device has successfully geolocated itself.
@@ -799,7 +799,7 @@ This event is thrown when the device has successfully geolocated itself.
 
 ==networkChange`*`==
 {{{
-“networkChange” -> _function_(online, connection)
+“networkChange” -> function(online, connection)
 }}}
 
 This event is thrown when the device network connection changes, such as loosing or acquiring an Internet connection. The connection type values will vary depending on the device and carrier.
@@ -815,7 +815,7 @@ This event is thrown when the device network connection changes, such as loosing
 
 ==orientationChange`*`==
 {{{
-“orientationChange” -> _function_(orientation)
+“orientationChange” -> function(orientation)
 }}}
 
 This event is thrown when the application screen orientation changes.
@@ -829,7 +829,7 @@ This event is thrown when the application screen orientation changes.
 
 ==ready==
 {{{
-"ready" -> _function_()
+"ready" -> function()
 }}}
 
 This event indicates that the ORMMA object has established communication with the SDK and has successfully initialized.
@@ -842,7 +842,7 @@ This event indicates that the ORMMA object has established communication with th
 
 ==response==
 {{{
-“response” -> _function_(uri, response)
+“response” -> function(uri, response)
 }}}
 
 This event is thrown when a request action with a display type of "proxy" returns a response. 
@@ -857,7 +857,7 @@ This event is thrown when a request action with a display type of "proxy" return
 
 ==screenChange`*`==
 {{{
-"screenChange" -> _function_(width,height)
+"screenChange" -> function(width,height)
 }}}
 
 This event is thrown when the device screen size changes.
@@ -872,7 +872,7 @@ This event is thrown when the device screen size changes.
 
 ==shake`*`==
 {{{
-“shake” -> _function_()
+“shake” -> function()
 }}}
 
 This event is thrown when the device accelerometer detects that the device has been "shaken" as defined by the getShake parameters. Because the ad developer may register one listener for a soft shake and another listener for a harder shake, this event provides threshold and time parameters
@@ -885,7 +885,7 @@ This event is thrown when the device accelerometer detects that the device has b
 
 ==sizeChange==
 {{{
-“sizeChange” -> _function_(width, height)
+“sizeChange” -> function(width, height)
 }}}
 
 This event is thrown when the display state of the web viewer changes.
@@ -900,7 +900,7 @@ This event is thrown when the display state of the web viewer changes.
 
 ==stateChange==
 {{{
-"stateChange" -> _function_(state)
+"stateChange" -> function(state)
 }}}
 
 This event is thrown when the Ad View changes between default and expanded states as the result of a resize() or a close(). The SDK may also close an ad as the result of a user or system action, such as resuming from background.
@@ -913,7 +913,7 @@ This event is thrown when the Ad View changes between default and expanded state
 
 ==tiltChange`*`==
 {{{
-“tiltChange” -> _function_(x, y, z)
+“tiltChange” -> function(x, y, z)
 }}}
 
 This event is thrown when the device has successfully determined its spacial orientation.
