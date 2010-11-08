@@ -829,7 +829,7 @@ This event is thrown when the application screen orientation changes.
 
 ==ready==
 {{{
-"ready"
+"ready" -> ()
 }}}
 
 This event indicates that the ORMMA object has established communication with the SDK and has successfully initialized.
