@@ -332,7 +332,7 @@ Use this method to get the current resize properties of the web viewer. Since th
 *properties object*
 {{{
 properties = {
- "transition" : "default|dissolve|zoom|none",
+ "transition" : "none|animate"
 }
 }}}
 
@@ -550,7 +550,7 @@ Use this method to resize the main ad view to the desired size. The views place 
 
   return values: none
 
-  events triggered: resizeChange, stateChange
+  events triggered: sizeChange, stateChange
 
   side effects: changes state
 
