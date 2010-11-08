@@ -215,9 +215,22 @@ The "isModal" property is a boolean value (true/false) and if it is not specifie
 
   level: 1
 
+==getKeyboard`*`==
+{{{
+getKeyboard() -> Boolean
+}}}
+
+Use this method to determine if the virtual keyboard is present on the screen. The boolean result is true if the keyboard is present and false if it is hidden or not applicable.
+
+  return value: Boolean - the virtual keyboard is present
+
+  related event: keyboardChange
+
+  level: 1
+
 ==getHeading`*`==
 {{{
-getAlignment() -> Number
+getHeading() -> Number
 }}}
 
 Use this method to get the most recent compass direction of the current vertical axis of the device. To receive events when the a change occurs, register an event listener for "headingChange" events. Values are:
