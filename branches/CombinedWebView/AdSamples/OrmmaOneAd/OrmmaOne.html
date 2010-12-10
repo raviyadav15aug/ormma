@@ -1,0 +1,19 @@
+<!-- 
+This ad is also available from Crisp Ad Server with the following URL
+http://api.crispwireless.com/adRequest.v1/single/ad.html?sitekey=ORMMA&zonekey=Level_1&partnerkey=945344a4ac19d2b72d29bf03edecf5b5&random=1234
+
+-->
+<link href="http://ormma.googlecode.com/svn/trunk/AdSamples/OrmmaOneAd/ormmaone.css" rel="stylesheet" type="text/css"/>
+<script src="http://ormma.googlecode.com/svn/trunk/iOS/AdController/ormmastub.js" type="text/javascript" language="javascript"></script>
+<script src="http://ormma.googlecode.com/svn/trunk/AdSamples/OrmmaOneAd/ormmaone.js" type="text/javascript" language="javascript"></script>
+<div id='ad'>
+<div id='banner'><img src="http://media.crispadvertising.com/adframework/1.2/components/img/300x50.gif" alt="banner advertisement" onclick="return(resizeAd());" /></div>
+<div id='closebanner'><img src="http://media.crispadvertising.com/adframework/1.2/components/img/btn_close.gif" alt="" onclick="return(hideBanner());" /></div>
+<div id='panel'>
+	<div id='background'><img src="http://media.crispadvertising.com/adframework/1.2/components/img/300x250.gif" alt="panel" /></div>
+    <div id='hotspot'><a href="http://ormma.org/" onclick="return sendOrmmaRequest(this.href);"><img src="http://media.crispadvertising.com/adframework/1.2/components/img/btn_facebook.gif" alt="facebook" /></a></div>
+    <div id='close'><img src="http://media.crispadvertising.com/adframework/1.2/components/img/btn_close.gif" alt="close" onClick="collapse();" /></div>
+    <div id='ajax'></div>
+</div>
+</div>
+<script type="text/javascript" language="javascript">initAd();</script>
