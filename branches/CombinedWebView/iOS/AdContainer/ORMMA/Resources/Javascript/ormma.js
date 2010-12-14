@@ -4,6 +4,7 @@
     // CONSTANTS ///////////////////////////////////////////////////////////////
     
     var STATES = ormma.STATES = {
+        UNKNOWN     :'unknown',
         DEFAULT     :'default',
         RESIZED     :'resized',
         EXPANDED    :'expanded',
@@ -63,7 +64,7 @@
     
     // PRIVATE PROPERTIES (sdk controlled) //////////////////////////////////////////////////////
     
-    var state = STATES.DEFAULT;
+    var state = STATES.UNKNOWN;
     
     var size = {
         width:0,
@@ -129,6 +130,10 @@
     
     // PRIVATE PROPERTIES (internal) //////////////////////////////////////////////////////
     
+    var intervalID = null;
+    var readyTimeout = 10000;
+    var readyDuration = 0;
+    
     var dimensionValidators = {
         x:function(value) { return !isNaN(value); },
         y:function(value) { return !isNaN(value); },
@@ -155,6 +160,10 @@
     
     var changeHandlers = {
         state:function(val) {
+            if (state == STATES.UNKNOWN) {
+                intervalID = window.setInterval(window.ormma.signalReady, 20);
+                broadcastEvent(EVENTS.INFO, 'controller initialized, attempting callback');
+            }
             broadcastEvent(EVENTS.INFO, 'setting state to ' + stringify(val));
             state = val;
             broadcastEvent(EVENTS.STATECHANGE, state);
@@ -369,6 +378,21 @@
     }
     
     // LEVEL 1 ////////////////////////////////////////////////////////////////////
+    
+    
+    ormma.signalReady = function() {
+        if (ORMMAReady) {
+            window.clearInterval(intervalID);
+            ORMMAReady();
+            broadcastEvent(EVENTS.INFO, 'callback invoked');
+        } else {
+            readyDuration += 20;
+            if (readyDuration >= readyTimeout) {
+                window.clearInterval(intervalID);
+                broadcastEvent(EVENTS.ERROR, 'Callback not found (timeout of ' + readyTimeout + 'ms occurred)!');
+            }
+        }
+    };
     
     ormma.addEventListener = function(event, listener) {
         if (!event || !listener) {
@@ -660,30 +684,4 @@
             broadcastEvent(EVENTS.ASSETREMOVED, alias);
         }
     };
- 
 })();
-
- 
- 
- // add ORMMA Ready Handler
- ORMMAReady = ( function() {
-			   // create event function stack
-			   var load_events = [],
-			   done,
-			   exec,
-			   init = function () {
-			   done = true;
-			   // execute each function in the stack in the order they were added
-			   while ( exec = load_events.shift() ) { exec(); }
-			   };
-			   this.init = function(){};
-			   
-			   return function ( func ) {
-			   //ormma is ready
-			   if ( ( typeof func == "boolean" ) && ( func == true ) ) { init(); return; }
-			   
-			   // if the init function was already ran, just run this function now and stop
-			   if (done){return func();}
-			   load_events.push(func);
-			   }
-			   })();

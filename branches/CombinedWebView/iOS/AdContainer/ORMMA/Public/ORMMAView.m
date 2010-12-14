@@ -220,6 +220,9 @@ NSString * const kInitialORMMAPropertiesFormat = @"{ state: '%@'," \
 	
 	// set our initial state
 	self.currentState = ORMMAViewStateDefault;
+	
+	// setup special protocols
+	m_externalProtocols = [[NSMutableArray alloc] init];
 }
 
 
@@ -238,6 +241,7 @@ NSString * const kInitialORMMAPropertiesFormat = @"{ state: '%@'," \
 	[m_javascriptBridge restoreServicesToDefaultState], [m_javascriptBridge release], m_javascriptBridge = nil;
 	[m_webBrowser release], m_webBrowser = nil;
 	[m_launchURL release], m_launchURL = nil;
+	[m_externalProtocols removeAllObjects], [m_externalProtocols release], m_externalProtocols = nil;
     [super dealloc];
 }
 
@@ -295,7 +299,7 @@ shouldStartLoadWithRequest:(NSURLRequest *)request
 	}
 
 	// handle iTunes requests
-	NSString * fullUrl = [request.URL absoluteString];
+	NSString *fullUrl = [request.URL absoluteString];
 	if ( ( [fullUrl rangeOfString:@"://itunes.apple.com/"].length > 0 ) || 
 		 ( [fullUrl rangeOfString:@"://phobos.apple.com/"].length > 0 ) )
 	{
@@ -318,27 +322,43 @@ shouldStartLoadWithRequest:(NSURLRequest *)request
 		return NO;
 	}
 	
-	// not handled by ORMMA, give the delegate a chance
-	if ( self.ormmaDelegate != nil )
+	// not handled by ORMMA, see if the delegate wants it
+	if ( m_externalProtocols.count > 0 )
 	{
-		if ( [self.ormmaDelegate respondsToSelector:@selector(shouldLoadRequest:forAd:)] )
+		if ( [self.ormmaDelegate respondsToSelector:@selector(handleRequest:forAd:)] )
 		{
-			if ( ![self.ormmaDelegate shouldLoadRequest:request
-												  forAd:self] )
+			NSString *scheme = url.scheme;
+			NSLog( @"Scheme is: %@", scheme );
+			for ( NSString *p in m_externalProtocols )
+			{
+				if ( [p isEqualToString:scheme] )
 				{
-					// container handled the call
+					// container handles the call
+					[self.ormmaDelegate handleRequest:request
+												forAd:self];
 					NSLog( @"Container handled request for: %@", request );
 					return NO;
 				}
+			}
 		}
 	}
 	
-	// if we're not an ORMMA ad, special case it
-	if ( !m_loadingAd && !self.isOrmmaAd )
+	// if the user clicked a non-handled link, open it in a new browser
+	if ( !m_loadingAd )
 	{
 		NSLog( @"Delegating Open to web browser." );
+
+		[self fireAppShouldSuspend];
+		
+		if ( self.currentState == ORMMAViewStateExpanded )
+		{
+			self.hidden = YES;
+			m_blockingView.hidden = YES;
+		}
+
 		ORMMAWebBrowserViewController *wbvc = [ORMMAWebBrowserViewController ormmaWebBrowserViewController];
 		wbvc.URL = request.URL;
+		wbvc.browserDelegate = self;
 		UIViewController *vc = [self.ormmaDelegate ormmaViewController];
 		[vc presentModalViewController:wbvc
 							  animated:YES];
@@ -396,6 +416,41 @@ shouldStartLoadWithRequest:(NSURLRequest *)request
 	[s_localServer cacheHTML:htmlFragment
 					 baseURL:url
 				withDelegate:self];
+}
+
+
+
+#pragma mark -
+#pragma mark External Protocol Control
+
+- (void)registerProtocol:(NSString *)protocol
+{
+	// don't allow dupes
+	for ( NSString *p in m_externalProtocols )
+	{
+		if ( [p isEqualToString:protocol] )
+		{
+			// already present, ignore
+			return;
+		}
+	}
+	
+	// not yet present, add it
+	[m_externalProtocols addObject:protocol];
+}
+
+
+- (void)deregisterProtocol:(NSString *)protocol
+{
+	for ( NSInteger i = ( m_externalProtocols.count - 1 ); i >= 0; i-- )
+	{
+		NSString *p = [m_externalProtocols objectAtIndex:i];
+		if ( [p isEqualToString:protocol] )
+		{
+			// found a match, remove it
+			[m_externalProtocols removeObjectAtIndex:i];
+		}
+	}
 }
 
 
@@ -660,6 +715,10 @@ blockingOpacity:(CGFloat)blockingOpacity
 	   // status bar is visible
 	   endingFrame.origin.y -= 20;
 	}
+	if ( m_blockingView != nil )
+	{
+		[m_blockingView removeFromSuperview], m_blockingView = nil;
+	}
 	m_blockingView = [[UIView alloc] initWithFrame:f];
 	m_blockingView.backgroundColor = blockingColor;
 	m_blockingView.alpha = blockingOpacity;
@@ -761,7 +820,10 @@ blockingOpacity:(CGFloat)blockingOpacity
 	// resize the web view as well
 	newFrame.origin.x = 0;
 	newFrame.origin.y = 0;
-    webView.frame = newFrame;
+    m_webView.frame = newFrame;
+	
+	// make sure we're on top of everything
+	[self.superview bringSubviewToFront:self];
 	
 	// notify the application that we are done resizing
 	[self fireAdDidResizeToSize:size];
@@ -903,6 +965,7 @@ blockingOpacity:(CGFloat)blockingOpacity
 						error:&err];       
 	}
 }
+
 
 - (CGRect)getAdFrameInWindowCoordinates
 {
@@ -1165,9 +1228,6 @@ blockingOpacity:(CGFloat)blockingOpacity
 		NSLog( @"Ad requires ORMMA, inject code" );
 		[self injectORMMAJavaScriptIntoWebView:webView];
 		
-		// now inject the current state
-		[self injectORMMAStateIntoWebView:webView];
-		
 		// now allow the app to inject it's own javascript if needed
 		if ( self.ormmaDelegate != nil )
 		{
@@ -1178,9 +1238,12 @@ blockingOpacity:(CGFloat)blockingOpacity
 			}
 		}
 		
+		// now inject the current state
+		[self injectORMMAStateIntoWebView:webView];
+		
 		// notify the creative that ORMMA is done
 		m_applicationReady = YES;
-		[self usingWebView:webView executeJavascript:@"ormmaview.enableORMMA();"];
+		self.isOrmmaAd = YES;
 	}
 	
 	// Notify app that the ad has been shown
@@ -1524,7 +1587,6 @@ blockingOpacity:(CGFloat)blockingOpacity
 
 #pragma mark -
 #pragma mark Launch App Store
-
 
 -(void)verifyAppStoreLaunchWithURL:(NSURL*)url 
 {

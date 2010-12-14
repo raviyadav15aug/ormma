@@ -67,6 +67,8 @@ typedef enum ORMMAViewStateEnum
 	BOOL m_isOrmmaAd;
 	NSURL *m_launchURL;
 	BOOL m_loadingAd;
+	
+	NSMutableArray *m_externalProtocols;
 }
 @property( nonatomic, assign ) id<ORMMAViewDelegate> ormmaDelegate;
 @property( nonatomic, copy ) NSString *htmlStub;
@@ -84,6 +86,12 @@ typedef enum ORMMAViewStateEnum
 
 - (void)loadHTMLCreative:(NSString *)htmlFragment
 			 creativeURL:(NSURL *)url;
+
+// registers a protocol scheme for external handling
+- (void)registerProtocol:(NSString *)protocol;
+
+// removes a protocol scheme from external handling
+- (void)deregisterProtocol:(NSString *)protocol;
 
 
 // used to force an ad to revert to its default state
@@ -111,9 +119,10 @@ typedef enum ORMMAViewStateEnum
 // called to allow the application to inject javascript into the creative
 - (NSString *)javascriptForInjection;
 
-// called whenever a non-ormma page is displayed
-- (BOOL)shouldLoadRequest:(NSURLRequest *)request
-	forAd:(ORMMAView *)adView;
+// notifies the consumer that it should handle the specified request
+// NOTE: REQUIRED IF A PROTOCOL IS REGISTERED
+- (void)handleRequest:(NSURLRequest *)request
+				forAd:(ORMMAView *)adView;
 
 
 // called to allow the application to execute javascript on the creative at the
