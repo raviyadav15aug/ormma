@@ -660,4 +660,30 @@
             broadcastEvent(EVENTS.ASSETREMOVED, alias);
         }
     };
+ 
 })();
+
+ 
+ 
+ // add ORMMA Ready Handler
+ ORMMAReady = ( function() {
+			   // create event function stack
+			   var load_events = [],
+			   done,
+			   exec,
+			   init = function () {
+			   done = true;
+			   // execute each function in the stack in the order they were added
+			   while ( exec = load_events.shift() ) { exec(); }
+			   };
+			   this.init = function(){};
+			   
+			   return function ( func ) {
+			   //ormma is ready
+			   if ( ( typeof func == "boolean" ) && ( func == true ) ) { init(); return; }
+			   
+			   // if the init function was already ran, just run this function now and stop
+			   if (done){return func();}
+			   load_events.push(func);
+			   }
+			   })();

@@ -46,10 +46,13 @@ typedef enum ORMMAViewStateEnum
 	CGSize m_maxSize;
 
 	UIWebView *m_webView;
+	
 	CGRect m_defaultFrame;
 	
-	UIWebView *m_expandedView;
-	CGRect m_initialFrame;
+	CGRect m_translatedFrame;
+	NSInteger m_originalTag;
+	NSInteger m_parentTag;
+	
 	UIButton *m_blockingView;
 	
 	ORMMAWebBrowserViewController *m_webBrowser;
@@ -164,6 +167,19 @@ typedef enum ORMMAViewStateEnum
 // called when the ad is finished with it's heavy content (usually when the ad returns from full screen)
 - (void)appShouldResumeFromAd:(ORMMAView *)adView;
 
+// allows the application to override the phone call process to, for example
+// display an alert to the user before hand
+- (void)placePhoneCall:(NSString *)number;
 
-//- (BOOL)cpm
+// allows the application to override the create calendar event process to, for 
+// example display an alert to the user before hand
+- (void)createCalendarEntryForDate:(NSDate *)date
+							 title:(NSString *)title
+							  body:(NSString *)body;
+
+// allows the application to inject itself into the full screen browser menu 
+// to handle the "go" method (for example, send to safari, facebook, etc)
+- (void)showURLFullScreen:(NSURL *)url
+			   sourceView:(UIView *)view;
+
 @end
