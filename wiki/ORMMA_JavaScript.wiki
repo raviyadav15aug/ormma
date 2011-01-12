@@ -188,10 +188,10 @@ Use this method to get the properties for expanding an ad.
 *properties object*
 {{{
 properties = {
- "use-background" : "true|false",
- "background-color" : "#rrggbb",
- "background-opacity" : "n.n",
- "is-modal" : "true|false"
+ "useBackground" : "true|false",
+ "backgroundColor" : "#rrggbb",
+ "backgroundOpacity" : "n.n",
+ "isModal" : "true|false"
 }
 }}}
 
