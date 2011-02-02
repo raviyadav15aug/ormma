@@ -226,7 +226,7 @@ Use this method to determine if the virtual keyboard is present on the screen. T
 
   related event: keyboardChange
 
-  level: 1
+  level: 2
 
 ==getHeading`*`==
 {{{
@@ -779,7 +779,7 @@ This event is thrown when the software keyboard is opened or closed for text ent
 
   triggered by: a change in the state of the virtual keyboard after registering a "keyboard" event listener.
 
-  level: 1
+  level: 2
 
 ==locationChange`*`==
 {{{
