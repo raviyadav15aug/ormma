@@ -855,9 +855,9 @@ This event is thrown when a request action with a display type of "proxy" return
 
   level: 3
 
-==screenChange`*`==
+==screenSizeChange`*`==
 {{{
-"screenChange" -> function(width,height)
+"screenSizeChange" -> function(width,height)
 }}}
 
 This event is thrown when the device screen size changes.
