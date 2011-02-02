@@ -41,6 +41,14 @@ Most devices have several different kinds of sensors that can report on various 
 
 It's important to know that requesting a device's hardware features impacts physical properties such as battery life and available memory. Ad designers should only request native features on an as-needed basis and use removeEventListener when the feature is no longer needed.
 
+*getScreenSize* method
+
+The getScreenSize method returns the current size of the device screen. To receive updates on screen size changes use addEventListener for "screen" events.
+
+*screenSizeChange* event
+
+The screenSizeChange event fires when the devices screen size changes, usually as the result of an orientation change.
+
 *getHeading* method
 
 The getHeading method alone returns the last compass heading of the device. The heading may be unknown or out-of date. 
