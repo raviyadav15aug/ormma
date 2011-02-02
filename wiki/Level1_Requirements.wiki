@@ -6,9 +6,11 @@
 ===Initialization===
 Simply by including the SDK’s !JavaScript library, the Controller and its !JavaScript API is available to the ad designer. The Controller encapsulates and abstracts all interactions between the web layer and the native layer and identifies the SDK as compatible with these specifications.
 
-*ready* event
+*ORMMAReady* method
 
-The ready event will fire when the SDK is fully loaded and attached to the underlying native code.
+The window-scope method named exactly "ORMMAReady" will be called by the SDK once it is fully loaded and has attached to the underlying native code.
+
+This is one of the most important methods to expose in your ad scripts as it is required to initialize the bridge between native and web layers.
 
 *supports* method
 
