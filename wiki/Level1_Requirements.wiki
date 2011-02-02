@@ -108,14 +108,6 @@ The hide method will cause ads in their default state to hide themselves from th
 
 The hide method will move the state from "default" to "hidden" and fire the stateChanged event. If the state is not "default" then there is no effect.
 
-*getScreenSize* method
-
-The getScreenSize method returns the current size of the device screen. To receive updates on screen size changes use addEventListener for "screen" events.
-
-*screenSizeChange* event
-
-The screenSizeChange event fires when the devices screen size changes, usually as the result of an orientation change.
-
 ===Controlling expandProperties===
 
 When an ad calls the expand method, the way the ad expands depends on the expandProperties. The expandProperties are held in a JSON object that can be written and read by the ad.
