@@ -853,7 +853,7 @@ This event is thrown when a request action with a display type of "proxy" return
 
   triggered by: a request() method call returning.
 
-  level: 1
+  level: 3
 
 ==screenChange`*`==
 {{{
