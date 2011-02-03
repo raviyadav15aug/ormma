@@ -45,9 +45,9 @@ It's important to know that requesting a device's hardware features impacts phys
 
 The getScreenSize method returns the current size of the device screen. To receive updates on screen size changes use addEventListener for "screen" events.
 
-*screenSizeChange* event
+*screenChange* event
 
-The screenSizeChange event fires when the devices screen size changes, usually as the result of an orientation change.
+The screenChange event fires when the devices screen size changes, usually as the result of an orientation change.
 
 *getHeading* method
 
