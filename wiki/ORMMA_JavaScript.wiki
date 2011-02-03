@@ -372,7 +372,7 @@ Point width (pt) is preferred over pixel width (px) because of device screens wi
 
   return values: {width, height}
 
-  related event: screenSizeChange
+  related event: screenChange
 
   level: 2
 
@@ -860,9 +860,9 @@ This event is thrown when a request action with a display type of "proxy" return
 
   level: 3
 
-==screenSizeChange`*`==
+==screenChange`*`==
 {{{
-"screenSizeChange" -> function(width,height)
+"screenChange" -> function(width,height)
 }}}
 
 This event is thrown when the device screen size changes.
