@@ -204,12 +204,12 @@ AdFrame.addEventListener('networkChange', function(isOnline, connectionType) {
 }}}
 
 ===screenSize===
-The following example demonstrates receiving a "screenSizeChange" event:
+The following example demonstrates receiving a "screenChange" event:
 
 {{{
-AdFrame.addEventListener('screenSizeChange', function(width, height) {
+AdFrame.addEventListener('screenChange', function(width, height) {
 	alert('Wow - the screen is ' + width + 'x' + height);
-	AdFrame.removeEventListener('screenSizeChange', this);
+	AdFrame.removeEventListener('screenChange', this);
 });
 }}}
 
