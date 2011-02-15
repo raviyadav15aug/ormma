@@ -492,6 +492,62 @@ Controls:
 
   level: 1
 
+
+==playAudio==
+{{{
+playAudio(URL, properties)
+}}}
+
+Use this method to play a audio on the device. This may launch an external player, depending on the SDK implementation. To place the audio with the content, set the inline property. For the most part, properties follow the HTML5 audio tag conventions.
+
+Controls:
+
+|| *property* || *values* || *description* ||
+||autoplay || autoplay || include if audio should play immediately ||
+||controls || controls || include if native player controls should be visible ||
+||loop|| loop || include if video should start over again after finishing ||
+||inline || inline || include if audio should be included with ad content ||
+||startStyle || normal/fullscreen || set to fullscreen if audio should start playing in native full screen mode -- user may still use controls to change size, default is normal ||
+||stopStyle || normal/exit || set to exit if audio player should exit after the audio stops, default is normal ||
+
+  parameters: 
+   * URL - String, the URL of the audio or audio stream
+   * properties - JSON:, list of the properties for native player
+
+  return values: none
+
+  level: 1
+
+
+==playVideo==
+{{{
+playVideo(URL, properties)
+}}}
+
+Use this method to play a video on the device. This may launch an external player, depending on the SDK implementation. To place the video over content, set the inline property. For the most part, properties follow the HTML5 video tag conventions.
+
+Controls:
+
+|| *property* || *values* || *description* ||
+||audio || muted || include if audio track should be muted ||
+||autoplay || autoplay || include if video should play immediately ||
+||controls || controls || include if native player controls should be visible ||
+||loop|| loop || include if video should start over again after finishing ||
+||inline || {top, left} || provide the top and left coordinates in pixels if video should play inline (or on top of) ad content ||
+||width || (pixels) || pixel width of video, required for inline ||
+||height || (pixels) || pixel height of video, required for inline ||
+||startStyle || normal/fullscreen || set to fullscreen if video should start playing in native full screen mode -- user may still use controls to change size, default is normal ||
+||stopStyle || normal/exit || set to exit if video player should exit after the video stops, default is normal ||
+
+  parameters: 
+   * URL - String, the URL of the video or video stream
+   * properties - JSON:, list of the properties for native player
+
+  return values: none
+
+  level: 1
+
+
 ==removeAllAssets==
 {{{
 removeAllAssets()
@@ -675,7 +731,7 @@ This method has no return value and is executed asynchronously (so always listen
 
   side effects: changes the state value
 
-  event triggered: visibleChange
+  event triggered: stateChange
 
   level: 1
 
