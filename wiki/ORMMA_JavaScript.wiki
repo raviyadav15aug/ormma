@@ -209,7 +209,8 @@ properties = {
  "useBackground" : "true|false",
  "backgroundColor" : "#rrggbb",
  "backgroundOpacity" : "n.n",
- "isModal" : "true|false"
+ "isModal" : "true|false",
+ "lockOrientation" : "true|false"
 }
 }}}
 
@@ -228,6 +229,10 @@ properties = {
 *"isModal"*
 
 The "isModal" property is a boolean value (true/false) and if it is not specified in the properties object a value of false is assumed.
+
+*"lockOrientation"*
+
+The "lockOrientation" property is a boolean value (true/false) and if it is not specified in the properties object a value of false is assumed. Setting lockOrientation to true also sets isModal to true.
 
   events triggered: none
 
