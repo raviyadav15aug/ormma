@@ -38,21 +38,21 @@ Which you chose is largely a personal choice. Source integration makes debugging
 
 Make sure to include the following frameworks in your application:
 
-  * CFNetwork
-  * CoreFoundation
-  * CoreGraphics
-  * CoreLocation
-  * _CoreMotion_
-  * _EventKit_
-  * _EventKitUI_
+  * CF Network
+  * Core Foundation
+  * Core Graphics
+  * Core Location
+  * _Core Motion_
+  * _Event Kit_
+  * _Event Kit UI_
   * Foundation
   * libsqlite3.0.dylib
   * libz.1.2.3.dylib
-  * _MessageUI_
-  * _MobileCoreServices_
-  * QuartzCore
-  * SystemConfiguration
-  * UIKit
+  * _Message UI_
+  * _Mobile Core Services_
+  * Quartz Core
+  * System Configuration
+  * UI Kit
 
 (frameworks in _italics_  may be weak linked, all others are required)
 
