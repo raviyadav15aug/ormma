@@ -26,13 +26,13 @@ To build, make sure your target is set to "ORMMATestBed". This will construct bo
 
 = How to Include ORMMA in Your Project =
 
-The Reference Implementation can be included one of two ways:
+You will need to add the following 3 files from the build/Debug-universal directory of the ORMMA project to your project.
 
-The first uses the static library.
+libORMMA.a
+ORMMA.bundle
+ORMMAView.h
 
-The second integrates the ORMMA source code into your application directly.
-
-Which you chose is largely a personal choice. Source integration makes debugging a bit easier, while library integration provides a bit more control over the exact version of the library in use.
+Make sure that ORMMA.bundle is part of your target's "copy bundle resources" phase, and that libORMMA.a is part of your target's "link" phase.
 
 = Required Frameworks =
 
