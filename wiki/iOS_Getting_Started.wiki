@@ -28,9 +28,9 @@ To build, make sure your target is set to "ORMMATestBed". This will construct bo
 
 You will need to add the following 3 files from the build/Debug-universal directory of the ORMMA project to your project.
 
-libORMMA.a
-ORMMA.bundle
-ORMMAView.h
+  * libORMMA.a
+  * ORMMA.bundle
+  * ORMMAView.h
 
 Make sure that ORMMA.bundle is part of your target's "copy bundle resources" phase, and that libORMMA.a is part of your target's "link" phase.
 
