@@ -11,7 +11,7 @@ This page provides examples of calling the methods and listening for events in t
 These calls focus on Level 1 compliance -- primarily, resizing the ad.
 
 
-==Event handling=
+==Event handling==
 The following example code illustrates adding a listener:
 
 {{{
