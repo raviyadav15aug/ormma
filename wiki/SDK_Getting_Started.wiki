@@ -19,12 +19,12 @@ Each implementation also has a sample ad included that can also help with your u
 
 ==Background information==
 Some (dated) information about the inner workings is also available. If you can help us keep this up-to-date, please consider joining the ORMMA code group.
-  * GeneralRequirements
-  * Android_ORMMA_spec
-  * iOS_AdController
-  * AdView
-  * AdViewDelegate
-  * iOS_ORMMA_Spec
-  * iOS_FlowDiagrams
-  * ORMMAView_iOS
-  * ORMMAViewDelegate_iOS
+  * [GeneralRequirements]
+  * [Android_ORMMA_spec]
+  * [iOS_AdController]
+  * [AdView]
+  * [AdViewDelegate]
+  * [iOS_ORMMA_Spec]
+  * [iOS_FlowDiagrams]
+  * [ORMMAView_iOS]
+  * [ORMMAViewDelegate_iOS]
