@@ -1,8 +1,8 @@
 #summary SideBar
 
-I want to
+*I want to...*
   * [Webtester Test my ad]
   * [ORMMA_JavaScript Read the ORMMA API]
-  * [http://code.google.com/p/ormma/source/browse/ Download the reference SDK]
+  * [http://code.google.com/p/ormma/source/browse/ Download the reference code]
   * [SDK_Certification Certify my SDK]
   * [Join_ORMMA Join ORMMA]
