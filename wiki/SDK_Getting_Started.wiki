@@ -9,8 +9,8 @@ You do _not_ need to include this reference code to be ORMMA compliant. Any SDK 
 
 ==Quick Start==
 Documentation is available for iOS developers to understand and get started with the reference code.
-  * iOS_Getting_Started
-  * iOS_Basic_Use_Of_The_RI
+  * [iOS_Getting_Started]
+  * [iOS_Basic_Use_Of_The_RI]
 
 There is a reference for Android as well, but documentation is incomplete at this time. Other platforms will also be added to the source repository as they become available.
 
