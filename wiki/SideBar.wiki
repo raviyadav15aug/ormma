@@ -1,10 +1,8 @@
 #summary SideBar
 
-  * [Welcome Intro]
-  * [Description Problems ORMMA solves]
-  * [GeneralRequirements General SDK requirements]
-    * [Level1_Requirements Level 1 requirements]
-    * [Level2_Requirements Level 2 requirements]
-    * [Level3_Requirements Level 3 requirements]
-  * [ORMMA_JavaScript ORMMA JavaScript API Reference]
-    * [AdControllerSampleCallingCode Sample calling code]
+I want to
+  * [Webtester Test my ad]
+  * [ORMMA_JavaScript Read the ORMMA API]
+  * [http://code.google.com/p/ormma/source/browse/ Download the reference SDK]
+  * [SDK_Certification Certify my SDK]
+  * [Join_ORMMA Join ORMMA]
