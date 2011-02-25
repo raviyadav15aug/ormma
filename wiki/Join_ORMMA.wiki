@@ -8,7 +8,7 @@ There are multiple ways to join ORMMA. As an industry-wide initiative, help is e
 ==Observers==
 You do _not_ need to join ORMMA to take part in the benefits. You can use the ORMMA API and even the reference code at any time without joining any group.
 
-The ORMMA API is published under Creative Commons and the reference SDK is open source with the BSD license to allow anyone to use it for commercial purposes. 
+The ORMMA API is published under Creative Commons and the reference implementation is open source with the BSD license to allow anyone to use it for commercial purposes. 
 
 
 
