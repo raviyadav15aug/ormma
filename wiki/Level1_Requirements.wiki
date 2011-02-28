@@ -4,13 +4,16 @@
 =Ad Controller Requirements: Level 1=
 
 ===Initialization===
-Simply by including the SDK’s !JavaScript library, the Controller and its !JavaScript API is available to the ad designer. The Controller encapsulates and abstracts all interactions between the web layer and the native layer and identifies the SDK as compatible with these specifications.
+Simply by including the SDK’s !JavaScript library, the Controller and its !JavaScript API is available to the ad designer. The Controller encapsulates and abstracts all interactions between the web layer and the native layer and identifies the SDK as compatible with these specifications. For ad designers, this means that you do not need to include any libraries for ORMMA.
 
 *ORMMAReady* method
 
 The window-scope method named exactly "ORMMAReady" will be called by the SDK once it is fully loaded and has attached to the underlying native code.
 
-This is one of the most important methods to expose in your ad scripts as it is required to initialize the bridge between native and web layers.
+For ad designers, having a function named "ORMMAReady" is one of the most important methods to expose in your ad scripts. It will be called once by the SDK to initialize the bridge between native and web layers.
+
+The ad designer should also wait for the ORMMAReady method to be called before taking any actions beyond initial state. This is your signal that the SDK is ORMMA compliant, that the libraries are ready for you, and that the ad state can be queries and listened to.
+
 
 *supports* method
 
