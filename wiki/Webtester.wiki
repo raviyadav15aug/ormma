@@ -21,12 +21,13 @@ You do _NOT_ need to include an ORMMA !JavaScript library. This is provided by t
 
 Most development testing has been done against the Safari browser. However, some users report that Firefox works in most circumstances. For best results, please use Safari.
 
+==Test Online==
+The !WebTester is available online. Although this may not be the absolute latest version, it is built from the most recent stable release.
+ http://ormma-tester.appspot.com/
 
 ==Download the !WebTester==
-The ORMMA code group is looking to make this tool available on line in the near future. For now, please find the web tester in the ORMMA source code: http://code.google.com/p/ormma/source/browse/#svn%2Ftrunk%2FWebTester. 
-
-To limit cross-browser scripting errors, download the source files to your computer and run them in a local web server.
-
+As an alternate, you can run the web tester locally by downloading the ORMMA source code. To limit cross-browser scripting errors, download the source files to your computer and run them in a local web server.
+ http://code.google.com/p/ormma/source/browse/#svn%2Ftrunk%2FWebTester. 
 
 ==Prepare==
 On the prepare tab, set the size of your device as well as the ad area. You can enter numbers on the form, or resize the boxes to visually configure your scenario.
