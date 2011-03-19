@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<classpath>
-	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/android"/>
-	<classpathentry kind="src" path="gen"/>
-	<classpathentry kind="lib" path="/ORMMA/bin/ORMMA.jar" sourcepath="/ORMMA/src"/>
-	<classpathentry kind="output" path="bin"/>
-</classpath>
