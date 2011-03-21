@@ -4,7 +4,7 @@
 =Ad Controller Requirements: Level 1=
 
 ===Initialization===
-Simply by including the SDK’s !JavaScript library, the Controller and its !JavaScript API is available to the ad designer. The Controller encapsulates and abstracts all interactions between the web layer and the native layer and identifies the SDK as compatible with these specifications. For ad designers, this means that you do not need to include any libraries for ORMMA.
+The Controller encapsulates and abstracts all interactions between the web layer and the native layer and identifies the SDK as compatible with these specifications. For ad designers, this means that you do not need to include any JavaScript libraries for ORMMA. They are injected into the web display by the SDK Controller of the particular device.
 
 *ORMMAReady* method
 
