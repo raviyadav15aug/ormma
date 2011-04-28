@@ -118,12 +118,21 @@ The hide method will move the state from "default" to "hidden" and fire the stat
 When an ad calls the expand method, the way the ad expands depends on the expandProperties. The expandProperties are held in a JSON object that can be written and read by the ad.
 
 At a minimum, the following properties should be supported.
-  * "transition" : "default|dissolve|fade|roll|slide|zoom|none",
-  * "navigation" : "none|close|back|forward|refresh",
-  * "use-background" : "true|false",
-  * "background-color" : "#rrggbb",
-  * "background-opacity" : "n.n",
-  * "is-modal" : "true|false"
+  * "useBackground" : boolean true|false,     
+  * "backgroundColor" : string formatted as "#rrggbb",
+  * "backgroundOpacity" : float "n.n",
+  * "isModal" : boolean true|false
+
+default values are
+
+{
+ useBackground:false,
+ backgroundColor:'#ffffff',
+ backgroundOpacity:1.0,
+ isModal:false
+}
+
+
 
 *getExpandProperties* method
 
