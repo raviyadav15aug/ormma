@@ -493,6 +493,24 @@ Controls:
   level: 1
 
 
+==openMap==
+{{{
+open(POI, fullscreen)
+}}}
+
+Use this method to open a native map with the POI parameter formatted according to the Google maps standard. 
+
+
+
+  parameters: 
+   * POI - String, the Google maps formatted argument
+   * fulscreen - boolean
+
+  return values: none
+
+  level: 1
+
+
 ==playAudio==
 {{{
 playAudio(URL, properties)
