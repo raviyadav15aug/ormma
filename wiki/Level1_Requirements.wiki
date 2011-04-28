@@ -122,6 +122,7 @@ At a minimum, the following properties should be supported.
   * "backgroundColor" : string formatted as "#rrggbb",
   * "backgroundOpacity" : float "n.n",
   * "isModal" : boolean true|false
+  * "lockOrientation" : boolean true|false
 
 
 default values are
@@ -131,7 +132,8 @@ default values are
  useBackground:false,
  backgroundColor:'#ffffff',
  backgroundOpacity:1.0,
- isModal:false
+ isModal:false,
+ lockOrientation:false
 }
 }}}
 
