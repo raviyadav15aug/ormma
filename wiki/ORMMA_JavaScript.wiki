@@ -495,12 +495,10 @@ Controls:
 
 ==openMap==
 {{{
-open(POI, fullscreen)
+openMap(POI, fullscreen)
 }}}
 
 Use this method to open a native map with the POI parameter formatted according to the Google maps standard. 
-
-
 
   parameters: 
    * POI - String, the Google maps formatted argument
