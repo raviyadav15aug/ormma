@@ -124,7 +124,6 @@ At a minimum, the following properties should be supported.
   * "isModal" : boolean true|false
 
 default values are
-
 {
  useBackground:false,
  backgroundColor:'#ffffff',
