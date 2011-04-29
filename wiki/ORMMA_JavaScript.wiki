@@ -209,7 +209,6 @@ properties = {
  "useBackground" : "true|false",
  "backgroundColor" : "#rrggbb",
  "backgroundOpacity" : "n.n",
- "isModal" : "true|false",
  "lockOrientation" : "true|false"
 }
 }}}
@@ -225,10 +224,6 @@ properties = {
 *"backgroundOpacity"*
 
 "backgroundOpacity" is a number between 0 and 1 inclusively (ranging from 0 equaling fully transparent to 1 equaling fully opaque). If either "backgroundColor" or "backgroundOpacity" is not specified in the properties object, values of 0xffffff and 1.0 respectively are assumed.
-
-*"isModal"*
-
-The "isModal" property is a boolean value (true/false) and if it is not specified in the properties object a value of false is assumed.
 
 *"lockOrientation"*
 
