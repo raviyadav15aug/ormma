@@ -227,7 +227,7 @@ properties = {
 
 *"lockOrientation"*
 
-The "lockOrientation" property is a boolean value (true/false) and if it is not specified in the properties object a value of false is assumed. Setting lockOrientation to true also sets isModal to true.
+The "lockOrientation" property is a boolean value (true/false) and if it is not specified in the properties object a value of false is assumed.
 
   events triggered: none
 
