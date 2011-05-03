@@ -685,7 +685,7 @@ setExpandProperties(properties)
 Use this method to set the ad's expand properties.
 
   parameters: 
-    * properties: JSON { ... } - this object contains any number of properties, such as transition, that might be used by the SDK when presenting the full screen web viewer. For more info see properties object.
+    * properties: JSON { ... } - this object contains any number of standard properties that might be used by the library when presenting the full screen web viewer. For more info see properties object.
 
   return values: none
 
