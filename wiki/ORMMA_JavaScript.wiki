@@ -338,28 +338,6 @@ Use this method to get the most recent orientation of the device. To receive eve
 
   level: 2
 
-==getResizeProperties==
-{{{
-getResizeProperties() -> JSON
-}}}
-
-Use this method to get the current resize properties of the web viewer. Since the resize action is asynchronous, this value does not update until the action has completed execution (when the "resizeChange" event fires).
-
-  parameters: none
-
-*properties object*
-{{{
-properties = {
- "transition" : "none|animate"
-}
-}}}
-
-*"transition"*
-
-If "transition" is not specified in the properties object, a value of "default" is assumed.
-
-  level: 1
-
 ==getScreenSize`*`==
 {{{
 getScreenSize() -> JSON
@@ -632,7 +610,7 @@ The method executes asynchronously, but returns a Boolean value of false to faci
 resize(width, height)
 }}}
 
-Use this method to resize the main ad view to the desired size. The views place in the view hierarch will not change, so the effect on other views is up to the app developer. To place the ad over content, use the expand() method instead.
+Use this method to resize the main ad view to the desired size. The views place in the view hierarch will not change, so the effect on other views is up to the app developer. To place the ad over content, use the expand() method instead. You may build any transition effect needed into the ad creative.
 
   parameters:
     * width: Number: the width in pixels
@@ -690,24 +668,6 @@ Use this method to set the ad's expand properties.
   return values: none
 
   events triggered: none
-
-  level: 1
-
-==setResizeProperties==
-{{{
-setResizeProperties(properties)
-}}}
-
-Use this method to set the ads resize properties.
-
-  parameters:
-    * properties: JSON { ... } - this object contains any number of properties, such as transition, that might be used by the SDK when resizing the web viewer. For more info see properties object.
-
-  return values: none
-
-  events triggered: none
-
-  side effects: none
 
   level: 1
 
