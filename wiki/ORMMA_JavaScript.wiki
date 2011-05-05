@@ -141,7 +141,7 @@ expand(dimensions, URL)
 
 Use this method to open a separate overlay ad container view at the highest z-order of the window's view.
 
-dimensions: JSON {x, y, width, height} - this object contains desired point value dimensions of the resized web viewer
+dimensions: JSON {x, y, width, height} - this object contains desired pixel value dimensions of the resized web viewer
 
   parameters:
     * dimensions: the final position of the overlay view after the expand transition occurs
@@ -365,8 +365,8 @@ If "transition" is not specified in the properties object, a value of "default" 
 getScreenSize() -> JSON
 }}}
 
-Use this method to get the current point width and height of the device.
-Point width (pt) is preferred over pixel width (px) because of device screens with different DPI specs.
+Use this method to get the current pixel width and height of the device.
+Although point width (pt) is preferred over pixel width (px) in the ad design because of device screens with different DPI specs, it is still essential for the designer to know how many pixels are on the screen.
 
   parameters: none
 
