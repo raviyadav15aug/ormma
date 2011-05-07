@@ -475,7 +475,7 @@ Use this method to open a native map with the Point of Interest (POI) parameter 
 
   parameters: 
    * POI - String, Google Maps-formatted argument
-   * fullscreen - boolean, whether the map opens within the view or launches the native maps application to take up the whole screen
+   * fullscreen - boolean, whether the map displays within the view or within the launched native application to take up the whole screen
 
   return values: none
 
