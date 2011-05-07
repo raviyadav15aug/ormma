@@ -471,11 +471,11 @@ Controls:
 openMap(POI, fullscreen)
 }}}
 
-Use this method to open a native map with the POI parameter formatted according to the Google maps standard. 
+Use this method to open a native map with the Point of Interest (POI) parameter formatted according to the Google Maps standard (see http://mapki.com/wiki/Google_Map_Parameters)
 
   parameters: 
-   * POI - String, the Google maps formatted argument
-   * fulscreen - boolean
+   * POI - String, Google Maps-formatted argument
+   * fullscreen - boolean, whether the map opens within the view or launches the native maps application
 
   return values: none
 
