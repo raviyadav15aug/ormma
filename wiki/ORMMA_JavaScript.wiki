@@ -499,13 +499,18 @@ Controls:
 ||startStyle || normal/fullscreen || set to fullscreen if audio should start playing in native full screen mode -- user may still use controls to change size, default is normal ||
 ||stopStyle || normal/exit || set to exit if audio player should exit after the audio stops, default is normal ||
 
+There are some special combinations to identify:
+* loop=loop and stopStyle=exit. In this case, the stopStyle will be ignored while the audio is playing. That is, the audio will loop back to the beginning after having played all the way through. However, when the user stops the audio with controls, the player will exit.
+* position={top,left} and startStyle=fullscreen. In this case, the position will be ignored while the audio control is in full screen. That is, the audio will start with a full screen player. However, when the user resizes the player with controls, the player will display at the position given.
+
+
   parameters: 
    * URL - String, the URL of the audio or audio stream
    * properties - JSON:, list of the properties for native player
 
   return values: none
 
-  level: 1
+  level: 2
 
 
 ==playVideo==
@@ -528,13 +533,17 @@ Controls:
 ||startStyle || normal/fullscreen || set to fullscreen if video should start playing in native full screen mode -- user may still use controls to change size, default is normal ||
 ||stopStyle || normal/exit || set to exit if video player should exit after the video stops, default is normal ||
 
+There are some special combinations to identify:
+* loop=loop and stopStyle=exit. In this case, the stopStyle will be ignored while the video is playing. That is, the video will loop back to the beginning after having played all the way through. However, when the user stops the video with controls, the player will exit.
+* position={top,left} and startStyle=fullscreen. In this case, the position will be ignored while the video is in full screen. That is, the video will start with a full screen player. However, when the user resizes the player with controls, the video will display at the position given.
+
   parameters: 
    * URL - String, the URL of the video or video stream
    * properties - JSON:, list of the properties for native player
 
   return values: none
 
-  level: 1
+  level: 2
 
 
 ==removeAllAssets==
