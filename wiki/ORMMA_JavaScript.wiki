@@ -495,7 +495,7 @@ Controls:
 ||autoplay || autoplay || include if audio should play immediately ||
 ||controls || controls || include if native player controls should be visible ||
 ||loop|| loop || include if audio should start over again after finishing ||
-||position || {top, left}  || include if audio can be included with ad content. Calculated relatively to the WebView Container ||
+||position || {top, left}  || include if audio can be included with ad content. Calculated relatively to the Web Container ||
 ||startStyle || normal/fullscreen || set to fullscreen if audio should start playing in native full screen mode -- user may still use controls to change size, default is normal ||
 ||stopStyle || normal/exit || set to exit if audio player should exit after the audio stops, default is normal ||
 
