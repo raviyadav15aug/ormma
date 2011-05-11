@@ -495,7 +495,7 @@ Controls:
 ||autoplay || autoplay || include if audio should play immediately ||
 ||controls || controls || include if native player controls should be visible ||
 ||loop|| loop || include if audio should start over again after finishing ||
-||position || {top, left}  || include if audio can be included with ad content. The position is relative to the WebView ||
+||position || {top, left}  || include if audio can be included with ad content. Calculated relatively to the WebView Container ||
 ||startStyle || normal/fullscreen || set to fullscreen if audio should start playing in native full screen mode -- user may still use controls to change size, default is normal ||
 ||stopStyle || normal/exit || set to exit if audio player should exit after the audio stops, default is normal ||
 
@@ -527,7 +527,7 @@ Controls:
 ||autoplay || autoplay || include if video should play immediately ||
 ||controls || controls || include if native player controls should be visible ||
 ||loop|| loop || include if video should start over again after finishing ||
-||position || {top, left} || provide the top and left coordinates in pixels if video could play inline (or on top of) ad content. The position is relative to the WebView ||
+||position || {top, left} || provide the top and left coordinates in pixels if video could play inline (or on top of) ad content.  Calculated relatively to the WebView Container  ||
 ||width || (pixels) || pixel width of video, required for inline ||
 ||height || (pixels) || pixel height of video, required for inline ||
 ||startStyle || normal/fullscreen || set to fullscreen if video should start playing in native full screen mode -- user may still use controls to change size, default is normal ||
