@@ -414,6 +414,21 @@ This method returns the last reading of the devices 3 dimensional tilt.
 
   level: 2
 
+==getVisible==
+{{{
+getVisible() -> boolean
+}}}
+
+This method returns whether the web container view showing the ad is currently on screen.
+
+  parameters: none
+
+  return values: boolean - true: container is on-screen and viewable by the user; false: container is off-screen and not viewable
+
+  related events: viewableChange
+
+  level: 1
+
 ==hide==
 {{{
 hide()
@@ -887,6 +902,20 @@ This event is thrown when the application screen orientation changes.
   triggered by: a change in the device orientation after registering a "orientation" event listener.
 
   level: 2
+
+
+==viewableChange==
+{{{
+“viewableChange” -> function(boolean)
+}}}
+
+This event is thrown when the container showing the ad changes between on-screen and off-screen.
+
+  parameters: boolean - true: container is on-screen and viewable by the user; false: container is off-screen and not viewable
+
+  triggered by: a change in the application view controller
+
+  level: 1
 
 
 ==response==
