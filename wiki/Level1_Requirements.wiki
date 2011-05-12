@@ -62,6 +62,12 @@ Each ad has a state that is one of the following:
 
 The getState method returns the current state of the ad and the stateChange event fires when the state is changed programmatically by the ad or by the environment.
 
+*getViewable* method, *viewableChange* event
+
+In addition to the state of the ad in the container, it is possible that the container is loaded off-screen as part of an application's buffer to help provide a smooth user experience. This is especially prevalent in apps that employ scrolling views.
+
+The getViewable method returns whether the ad is currently on or off the screen. The viewableChange event fires when the ad moves from on-screen to off-screen and vice versa.
+
 *show* method
 
 The show method will cause a hidden ad to become visible in the default position.
