@@ -76,7 +76,7 @@ The show method will move the state from "hidden" to "default" and fire the stat
 
 *expand* method
 
-The expand method will cause the WebView to reposition itself at the highest z-order in the view hierarchy at the desired position and size. The view can either contain a new HTML document or a copy of the same document that was in the default position. While an ad is expanded, the default position's HTML is suspended. The transition is controlled by the expandProperties.
+The expand method will cause the Web View to reposition itself at the highest z-order in the view hierarchy at the desired position and size. The view can either contain a new HTML document or a copy of the same document that was in the default position. While an ad is expanded, the default position's HTML is suspended. The transition is controlled by the expandProperties.
 
 The expand method will move state from "default" or "resized" to "expanded" and fire the stateChange event. If the state is not in "default" or "resized" there is no effect.
 
