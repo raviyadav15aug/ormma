@@ -76,7 +76,7 @@ The show method will move the state from "hidden" to "default" and fire the stat
 
 *expand* method
 
-The expand method will cause a new Web View to open at the highest z-order in the view hierarchy at the desired position and size. The new view can either contain a new HTML document or a copy of the same document that was in the default position. While an ad is expanded, the default position's HTML is suspended. The transition is controlled by the expandProperties.
+The expand method will cause the WebView to reposition itself at the highest z-order in the view hierarchy at the desired position and size. The view can either contain a new HTML document or a copy of the same document that was in the default position. While an ad is expanded, the default position's HTML is suspended. The transition is controlled by the expandProperties.
 
 The expand method will move state from "default" or "resized" to "expanded" and fire the stateChange event. If the state is not in "default" or "resized" there is no effect.
 
@@ -86,7 +86,7 @@ The resize method will cause the existing Web View to resize itself within the c
 
 The resize method will move the state from "default" to "resized" and fire the stateChanged event. If the state is not "default" then there is no effect.
 
-_Note: In most cases, expand is the correct behavior for rich media ads. The resize method should only be used in views where application content can be moved around within the existing view hierarchy, for example an ad cell in a table view that can grow and push the cells above and below apart. Designers should use the getMaxSize method before calling resize. _
+_Note: In most cases, expand is the correct behavior for rich media ads. The resize method should only be used in views where application content can be change its size within the existing view hierarchy, for example an ad cell in a table view that can grow and push the cells above and below apart. Designers should use the getMaxSize method before calling resize. _
 
 *getMaxSize*
 
