@@ -150,24 +150,6 @@ The getExpandProperties method returns the whole JSON object.
 
 The setExpandProperties method sets the whole JSON object.
 
-===Controlling resizeProperties===
-
-When an ad calls the resize method, the way the ad resizes depends on the resizeProperties. The resizeProperties are held in a JSON object that can be written and read by the ad.
-
-At a minimum, the following properties should be supported.
-
-  * "transition" : "default|dissolve|zoom|none"
-
-_Note: In most cases, expand is the correct behavior for rich media ads. The resize method should only be used in views where application content can be moved around within the existing view hierarchy, for example an ad cell in a table view that can grow and shrink moving the content cells above and below._
-
-*getResizeProperties* method
-
-The getResizeProperties method returns the whole JSON object.
-
-*setResizeProperties* method
-
-The setResizeProperties method sets the whole JSON object.
-
 ===Working with a Virtual Keyboard===
 
 On devices that have a virtual keyboard, the display of the keyboard can affect the ad display.
