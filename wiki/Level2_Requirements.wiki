@@ -92,6 +92,25 @@ To receive updates on tilt changes use addEventListened for "tiltChange" events.
 
 The tiltChange event fires when the devices 3 dimensional tilt values change.
 
+===Controlling shakeProperties===
+
+When an ad calls the expand method, the way the ad expands depends on the expandProperties. The expandProperties are held in a JSON object that can be written and read by the ad.
+
+At a minimum, the following properties should be supported.
+  * "intensity" : integer,     
+  * "interval" : integer
+
+
+default values are
+
+{{{
+{
+ intensity:,
+ interval:
+}
+}}}
+
+
 *getShakeProperties* method
 
 The getShakeProperties method returns the current thresholds that define a shake gesture. The defaults should be sufficient in most cases, but setShakeProperties is available as required.
