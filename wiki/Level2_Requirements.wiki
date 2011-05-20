@@ -100,13 +100,12 @@ At a minimum, the following properties should be supported.
   * "intensity" : integer,     
   * "interval" : integer
 
-
 default values are
 
 {{{
 {
- intensity:,
- interval:
+ intensity: 1000,
+ interval:  100
 }
 }}}
 
