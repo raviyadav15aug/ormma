@@ -414,9 +414,9 @@ This method returns the last reading of the devices 3 dimensional tilt.
 
   level: 2
 
-==getVisible==
+==getViewable==
 {{{
-getVisible() -> boolean
+getViewable() -> boolean
 }}}
 
 This method returns whether the web container view showing the ad is currently on screen.
