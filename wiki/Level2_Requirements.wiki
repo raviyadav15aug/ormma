@@ -46,7 +46,7 @@ It's important to know that requesting a device's hardware features impacts phys
 
 *getScreenSize* method
 
-The getScreenSize method returns the current size of the device screen. To receive updates on screen size changes use addEventListener for "screen" events.
+The getScreenSize method returns the current size of the device screen. To receive updates on screen size changes use addEventListener for "screenChange" events.
 
 *screenChange* event
 
