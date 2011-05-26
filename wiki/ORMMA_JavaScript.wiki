@@ -489,7 +489,7 @@ openMap(POI, fullscreen)
 Use this method to open a native map with the Point of Interest (POI) parameter formatted according to the Google Maps standard (see http://mapki.com/wiki/Google_Map_Parameters)
 
   parameters: 
-   * POI - String, Google Maps-formatted argument
+   * POI - String, Google Maps-formatted argument. The parameter must describe a point on a map, not, for example, driving directions
    * fullscreen - boolean, whether the map displays within the current View or within a new View that takes up the whole screen
 
   return values: none
@@ -634,7 +634,7 @@ The method executes asynchronously, but returns a Boolean value of false to faci
 resize(width, height)
 }}}
 
-Use this method to resize the main ad view to the desired size. The views place in the view hierarch will not change, so the effect on other views is up to the app developer. To place the ad over content, use the expand() method instead. You may build any transition effect needed into the ad creative.
+Use this method to resize the main ad view to the desired size. The views place in the view hierarchy will not change, so the effect on other views is up to the app developer. To place the ad over content, use the expand() method instead. You may build any transition effect needed into the ad creative. Resize is bound by the maxSize currently in effect.
 
   parameters:
     * width: Number: the width in pixels
@@ -653,10 +653,10 @@ Use this method to resize the main ad view to the desired size. The views place 
 sendMail(recipient, subject, body)
 }}}
 
-Use this method to compose an email message on the device. This is similar to the mailto:// protocol, but the SDK will attempt to suspend the application.
+Use this method to compose an email message on the device. This is similar to the mailto:// protocol, but the SDK will transition from the application.
 
   parameters:
-    * recipient - String, the email address for the message
+    * recipient - String, the email address for the message. Several recipients are seperated by ; or ,
     * subject - String, the subject line of the message
     * body - String, the body of the message
 
@@ -672,7 +672,7 @@ sendSMS(recipient, body)
 Use this method to compose a SMS message on the device. This is similar to the sms:// protocol, but the SDK will attempt to suspend the application.
 
   parameters:
-    * recipient - String, the email address for the message
+    * recipient - String, the email address for the message. Several recipients are seperated by ; or ,
     * body - String, the body of the message
 
   return value: none
@@ -724,7 +724,7 @@ This method has no return value and is executed asynchronously (so always listen
 
   return values: none
 
-  side effects: changes the state value
+  side effects: changes the state value from hidden
 
   event triggered: stateChange
 
