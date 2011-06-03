@@ -136,7 +136,7 @@ Use this method to create a new event in the devices calendar.
 
 ==expand==
 {{{
-expand(dimensions, URL)
+expand(dimensions)
 }}}
 
 Use this method to open a separate overlay ad container view at the highest z-order of the window's view.
@@ -145,7 +145,6 @@ dimensions: JSON {x, y, width, height} - this object contains desired pixel valu
 
   parameters:
     * dimensions: the final position of the overlay view after the expand transition occurs
-    * URL: The URL for the document to be displayed in the overlay view. If null, the body of the current ad will be used.
 
   return values: none
 
