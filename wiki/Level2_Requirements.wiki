@@ -31,6 +31,7 @@ The controller should support as many of the following features as is possible f
 ||email            ||the device can compose an email||
 ||calendar       ||the device can create a calendar entry||
 ||camera           ||the device can take a still picture image||
+||screenshot           ||the device can take a screenshot picture image||
 ||video           ||the device can play video||
 ||audio           ||the device can play audio||
 ||map           ||the device can display a location on a map||
