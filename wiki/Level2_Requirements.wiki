@@ -37,7 +37,6 @@ The controller should support as many of the following features as is possible f
 ||map           ||the device can display a location on a map||
 ||level-1         ||the SDK supports ORMMA level 1 functionality*||
 ||level-2         ||the SDK supports ORMMA level 2 functionality*||
-||level-3         ||the SDK supports ORMMA level 3 functionality*||
 
 ===Working with the Device's Physical Characteristics===
 
