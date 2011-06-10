@@ -765,7 +765,6 @@ For SDKs that do not expose any of the native device features, this method shoul
 ||video           ||the device can play native video||
 ||level-1         ||the SDK supports ORMMA level 1 functionality||
 ||level-2         ||the SDK supports ORMMA level 2 functionality||
-||level-3         ||the SDK supports ORMMA level 3 functionality||
  
   parameters: String, name of feature
 
