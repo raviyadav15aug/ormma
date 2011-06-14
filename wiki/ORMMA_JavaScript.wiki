@@ -30,49 +30,6 @@ This method initializes communication between the web layer and the native layer
 
   level: 1
 
-
-==addAsset==
-{{{
-addAsset(URL, alias)
-}}}
-
-This method returns no value and executes asynchronously, but the alias can be used immediately in ad content. If the alias is referenced before the asset has loaded, the object simply does not return to the web viewer until it has loaded. The addAsset call can also support the following special keywords for assets that come from the native device.
-
-|| *value*                              || *description* ||
-||ormma://screenshot        ||capture a screenshot of the application and save as an asset`*`||
-||ormma://photo                ||capture a photo using the devices camera and save as an asset`*`||
-
-_`*`Requires device support_
-
-  parameters:
-    * URL – string, actual URL of the asset
-    * alias – string, name that ad developer will use to refer to asset URL
-
-  side effects: cache remaining decreases, possibly retiring other assets
-
-  return values: none
-
-  event triggered: assetReady
-
-  level: 3
-
-==addAssets==
-{{{
-addAssets(assets)
-}}}
-
-This method's parameter - "assets" - is an abstract array (aka standard !JavaScript Object) of alias/uri key-value pairs. The method returns no value and executes asynchronously. Usage rules are the same as adding a single alias.
-
-  parameters: assets – object, description of alias/uri key-value pairs
-
-  side effects: cache remaining decreases, possibly retiring other assets
-
-  return values: none
-
-  event triggered: assetReady
-
-  level: 3
-
 ==addEventListener==
 {{{
 addEventListener(event, listener)
@@ -152,31 +109,6 @@ dimensions: JSON {x, y, width, height} - this object contains desired pixel valu
 
   level 1
 
-==getAssetURL==
-{{{
-getAssetURL(alias) -> String
-}}}
-
-Use this method to get the URL for local assets once the assetReady event has fired. 
-
-  return values: String, the URL to the asset
-
-  events triggered: none
-
-  level: 3
-
-==getCacheRemaining==
-{{{
-getCacheRemaining() -> Number
-}}}
-
-Use this method to get the available size of the local cache.
-
-  parameters: none
-
-  return values: integer, number of bytes available
-
-  level: 3
 
 ==getDefaultPosition==
 {{{
@@ -559,37 +491,6 @@ There are some special combinations to identify:
 
   level: 2
 
-
-==removeAllAssets==
-{{{
-removeAllAssets()
-}}}
-
-The method returns no value and executes asynchronously.
-
-  parameters: none
-
-  return values: none
-
-  events triggered: assetRemoved
-
-  level: 3
-
-==removeAsset==
-{{{
-removeAsset(alias)
-}}}
-
-The method returns no value and executes asynchronously.
-
-  parameters: none
-
-  return values: none
-
-  events triggered: assetRemoved
-
-  level: 3
-
 ==removeEventListener==
 {{{
 removeEventListener(event, listener)
@@ -775,44 +676,6 @@ For SDKs that do not expose any of the native device features, this method shoul
 =Events=
 _`*`events marked with an asterisk are dependent on the device. Ad developers and SDK implementers must use the supports() method to identify what events are available._
 
-==assetReady==
-{{{
-"assetReady" -> function(alias)
-}}}
-
-This event is thrown when an asset has successfully been loaded in the local cache. 
-
-  parameters: String, alias name of asset that was loaded
-
-  triggered by: addAsset, addAssets
-
-  level: 3
-
-==assetRemoved==
-{{{
-"assetRemoved" -> function(alias)
-}}}
-
-This event is thrown when an asset has successfully been removed from the local cache.
-
-  parameters: String, alias name of asset that was removed
-
-  triggered by: removeAsset, removeAllAssets
-
-  level: 3
-
-==assetRetired==
-{{{
-"assetRetired" -> function(alias)
-}}}
-
-This event is thrown when an asset has been retired from the local cache to make room for new assets. 
-
-  parameters: String, alias name of asset that was removed
-
-  triggered by: addAsset, addAssets, or any application events that determine the cache is full and must be resized
-
-  level: 3
 
 ==error==
 {{{
