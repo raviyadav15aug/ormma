@@ -97,18 +97,10 @@ The tiltChange event fires when the devices 3 dimensional tilt values change.
 When an ad calls the shake method, the way the ad expands depends on the shakeProperties. The shakeProperties are held in a JSON object that can be written and read by the ad.
 
 At a minimum, the following properties should be supported.
-  * "intensity" : integer,     
-  * "interval" : integer
+  * "intensity" : float,     
+  * "interval" : float
 
-default values are
-
-{{{
-{
- intensity: 1000,
- interval:  100
-}
-}}}
-
+default values are platform-specific
 
 *getShakeProperties* method
 
