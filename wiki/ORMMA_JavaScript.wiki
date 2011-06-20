@@ -520,7 +520,7 @@ The method executes asynchronously, but returns a Boolean value of false to faci
 ||proxy           ||the response is cached if the device is off-line and proxied when connectivity returns||
 
   parameters: 
-    * URL - string, the fully qualified URL of the page or call to action asset
+    * uri - string, the fully qualified uri of the page or call to action asset
     * display - string, the display style for the call to action
 
   event triggered: response
