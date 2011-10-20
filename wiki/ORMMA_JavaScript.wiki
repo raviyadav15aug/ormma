@@ -19,8 +19,8 @@ _`*`methods marked with an asterisk are dependent on the device. Ad developers a
 	mraid.addEventListener(event, listener)
 }}}
 API version history
-* Introduced in ORMMA version: 1.0.0
-* Included in MRAID version: 1
+ * Introduced in ORMMA version: 1.0.0
+ * Included in MRAID version: 1
 
 Use this method to subscribe a specific handler method to a specific event. In this way, multiple listeners can subscribe to a specific event, and a single listener can handle multiple events. All ORMMA events are listed below, with the MRAID subset of events listed first:
 
@@ -44,8 +44,8 @@ Use this method to subscribe a specific handler method to a specific event. In t
 
 
     parameters:
-        * event [String - required] : name of event to listen for
-        * listener [Function - required] : function name (or anonymous function) to execute
+        * event (String - required) : name of event to listen for
+        * listener (Function - required) : function name (or anonymous function) to execute
 
     return value: none
 
@@ -61,8 +61,8 @@ Use this method to subscribe a specific handler method to a specific event. In t
 	mraid.close()
 }}}
 API version history
-* Introduced in ORMMA version: 1.0.0
-* Included in MRAID version: 1
+ * Introduced in ORMMA version: 1.0.0
+ * Included in MRAID version: 1
 
 The close method will cause the ad webview to downgrade its state. It will also fire the stateChange event. For ads in an expanded state, the close() method moves to a default state.
 
@@ -92,14 +92,14 @@ If the expanded or interstitial ad view was closed using the SDK-supplied close 
 	ormma.createEvent(date, title, body)
 }}}
 API version history
-* Introduced in ORMMA version: 1.0.0
+ * Introduced in ORMMA version: 1.0.0
 
 Use this method to create a new event in the devices calendar.
 
     parameters:
-        * date [Date - required] : the date and time of the event
-        * title  [String - required] : the title of the event
-        * body  [String - required] : the body of the event
+        * date (Date - required) : the date and time of the event
+        * title  (String - required) : the title of the event
+        * body  (String - required) : the body of the event
 
     return value: none
 
@@ -115,8 +115,8 @@ Use this method to create a new event in the devices calendar.
 	mraid.expand(url)
 }}}
 API version history
-* Introduced in ORMMA version: 1.0.0
-* Included in MRAID version: 1
+ * Introduced in ORMMA version: 1.0.0
+ * Included in MRAID version: 1
 
 The expand method will cause an existing Web View (for one-part creatives) or a new Web View (for two-part creatives) to open at the highest z-order in the view hierarchy. The expanded view can either contain a new HTML document if a URL is specified, or a copy of the same document that was in the default position. While an ad is in an expanded state, the default position's HTML is suspended. Thus a complete implementation allows for ad designers to use one-part ads (where the banner and panel are part of one creative) and two-part ads (where the banner and panel are separate HTML creatives).
 
@@ -133,7 +133,7 @@ When the expand method is called without the URL parameter, the current web view
 When the expand method is called with the URL parameter, a new web view will be used. Implementing this definition allows for two-part creatives.
 
     parameters:
-        * url [String] : The optional URL for the document to be displayed in a new overlay view. If null, the body of the current ad will be used in the current web view.
+        * url (String) : The optional URL for the document to be displayed in a new overlay view. If null, the body of the current ad will be used in the current web view.
 
     return value: none
 
@@ -148,7 +148,7 @@ When the expand method is called with the URL parameter, a new web view will be 
 	ormma.getDefaultPosition()
 }}}
 API version history
-* Introduced in ORMMA version: 1.0.0
+ * Introduced in ORMMA version: 1.0.0
 
 Use this parameter to get the location and size of the default ad view.
 
@@ -169,8 +169,8 @@ Use this parameter to get the location and size of the default ad view.
 	mraid.getExpandProperties()
 }}}
 API version history
-* Introduced in ORMMA version: 1.0.0
-* Included in MRAID version: 1
+ * Introduced in ORMMA version: 1.0.0
+ * Included in MRAID version: 1
 
 Use this method to get the properties for expanding an ad. The properties marked with an asterisk `*` are also available in MRAID containers.
 
@@ -229,7 +229,7 @@ The "lockOrientation" property is a boolean value (true/false) and if it is not 
 	ormma.getHeading()
 }}}
 API version history
-* Introduced in ORMMA version: 1.0.0
+ * Introduced in ORMMA version: 1.0.0
 
 Use this method to get the most recent compass direction of the current vertical axis of the device. To receive events when the a change occurs, register an event listener for "headingChange" events. Values are:
 
@@ -257,7 +257,7 @@ Use this method to get the most recent compass direction of the current vertical
 	ormma.getKeyboard()
 }}}
 API version history
-* Introduced in ORMMA version: 1.0.0
+ * Introduced in ORMMA version: 1.0.0
 
 Use this method to determine if the virtual keyboard is present on the screen. The boolean result is true if the keyboard is present and false if it is hidden or not applicable.
 
@@ -279,7 +279,7 @@ Use this method to determine if the virtual keyboard is present on the screen. T
 	ormma.getLocation()
 }}}
 API version history
-* Introduced in ORMMA version: 1.0.0
+ * Introduced in ORMMA version: 1.0.0
 
 Use this method to get the most recent location reading from the device. To receive events when the a change occurs, register an event listener for "locationChange" events.
 
@@ -301,7 +301,7 @@ Use this method to get the most recent location reading from the device. To rece
 	ormma.getMaxSize()
 }}}
 API version history
-* Introduced in ORMMA version: 1.0.0
+ * Introduced in ORMMA version: 1.0.0
 
 Use this method to return the maximum size an ad can grow to using the resize() method. This may be set by the developer, or be the size of the parent view.
 
@@ -321,7 +321,7 @@ Use this method to return the maximum size an ad can grow to using the resize() 
 	ormma.getNetwork()
 }}}
 API version history
-* Introduced in ORMMA version: 1.0.0
+ * Introduced in ORMMA version: 1.0.0
 
 Use this method to identify the most recent network status of the device. To receive events when a change occurs, register an event listener for "networkChange" events. Possible results include:
 
@@ -351,7 +351,7 @@ Use this method to identify the most recent network status of the device. To rec
 	ormma.getOrientation()
 }}}
 API version history
-* Introduced in ORMMA version: 1.0.0
+ * Introduced in ORMMA version: 1.0.0
 
 Use this method to get the most recent orientation of the device. To receive events when a change occurs, register an event listener for "orientationChange" events. Possible results include:
 
@@ -382,8 +382,8 @@ Use this method to get the most recent orientation of the device. To receive eve
 	mraid.getPlacementType(none)
 }}}
 API version history
-* Introduced in ORMMA version: 1.1.0
-* Included in MRAID version: 1
+ * Introduced in ORMMA version: 1.1.0
+ * Included in MRAID version: 1
 
 For efficiency, ad designers sometimes flight a single piece of creative in both banner and interstitial placements.  So that the creative can be aware of its placement, and therefore potentially behave differently, each ad container has a placement type determining whether the ad is being displayed inline with content (i.e. a banner) or as an interstitial overlaid content (e.g. during a content transition).  The SDK returns the value of the placement to creative so that creative can behave differently as necessary.  The SDK does not determine whether a banner is an expandable (the creative does) and thus does not return a separate type for expandable.
 
@@ -394,7 +394,7 @@ interstitial   	the ad placement is over laid on top of content
 
 
     parameters:
-        * none [String] : 
+        * none (String) : 
 
     return value: String - either "inline" or "interstitial"
 
@@ -409,7 +409,7 @@ interstitial   	the ad placement is over laid on top of content
 	ormma.getScreenSize()
 }}}
 API version history
-* Introduced in ORMMA version: 1.0.0
+ * Introduced in ORMMA version: 1.0.0
 
 Use this method to get the current pixel width and height of the device. Although point width (pt) is preferred over pixel width (px) in the ad design because of device screens with different DPI specs, it is still essential for the designer to know how many pixels are on the screen.
 
@@ -431,7 +431,7 @@ Use this method to get the current pixel width and height of the device. Althoug
 	ormma.getShakeProperties()
 }}}
 API version history
-* Introduced in ORMMA version: 1.0.0
+ * Introduced in ORMMA version: 1.0.0
 
 Use this method to retrieve the current shake properties.
 
@@ -453,7 +453,7 @@ Use this method to retrieve the current shake properties.
 	ormma.getSize()
 }}}
 API version history
-* Introduced in ORMMA version: 1.0.0
+ * Introduced in ORMMA version: 1.0.0
 
 Use this method to get the current size of the ad.
 
@@ -476,8 +476,8 @@ Use this method to get the current size of the ad.
 	mraid.getState()
 }}}
 API version history
-* Introduced in ORMMA version: 1.0.0
-* Included in MRAID version: 1
+ * Introduced in ORMMA version: 1.0.0
+ * Included in MRAID version: 1
 
 Each ad container (or Web View) has a state that is one of the following. Note that "resized" is currently only available in ORMMA.
 
@@ -519,7 +519,7 @@ The effect on state from calling expand(), resize(), and close() are defined in 
 	ormma.getTilt()
 }}}
 API version history
-* Introduced in ORMMA version: 1.0.0
+ * Introduced in ORMMA version: 1.0.0
 
 This method returns the last reading of the devices 3 dimensional tilt.
 
@@ -542,8 +542,8 @@ This method returns the last reading of the devices 3 dimensional tilt.
 	mraid.getVersion()
 }}}
 API version history
-* Introduced in ORMMA version: 1.1.0
-* Included in MRAID version: 1
+ * Introduced in ORMMA version: 1.1.0
+ * Included in MRAID version: 1
 
 This method allows the ad to confirm a basic feature set before display. The version number corresponds with the API specification version and not a vendor’s SDK version.
 
@@ -565,7 +565,7 @@ For example, calling mraid.getVersion() will return the MRAID version the contai
 	ormma.hide()
 }}}
 API version history
-* Introduced in ORMMA version: 1.0.0
+ * Introduced in ORMMA version: 1.0.0
 
 Use this method to hide the web viewer. The method has no return value and is executed asynchronously (so always listen for a result event before taking action instead of assuming the change has occurred).
 
@@ -586,15 +586,15 @@ Use this method to hide the web viewer. The method has no return value and is ex
 	mraid.isViewable(none)
 }}}
 API version history
-* Introduced in ORMMA version: 1.1.0
-* Included in MRAID version: 1
+ * Introduced in ORMMA version: 1.1.0
+ * Included in MRAID version: 1
 
 In addition to the state of the ad container, it is possible that the container is loaded off-screen as part of an application's buffer to help provide a smooth user experience. This is especially prevalent in apps that employ scrolling views.
 
 This method returns whether the web container view showing the ad is currently on screen. 
 
     parameters:
-        * none [String] : 
+        * none (String) : 
 
     return value: Boolean - true, container is on-screen and viewable by the user; false: container is off-screen and not viewable
 
@@ -611,12 +611,12 @@ This method returns whether the web container view showing the ad is currently o
 	ormma.makeCall(phoneNumber)
 }}}
 API version history
-* Introduced in ORMMA version: 1.0.0
+ * Introduced in ORMMA version: 1.0.0
 
 Use this method to make a phone call on the device to the phone number provided. This is similar to a tel:// protocol, but the SDK will attempt to suspend the application.
 
     parameters:
-        * phoneNumber [String - required] : the phone number for the device to call
+        * phoneNumber (String - required) : the phone number for the device to call
 
     return value: none
 
@@ -632,8 +632,8 @@ Use this method to make a phone call on the device to the phone number provided.
 	mraid.open(url)
 }}}
 API version history
-* Introduced in ORMMA version: 1.0.0
-* Included in MRAID version: 1
+ * Introduced in ORMMA version: 1.0.0
+ * Included in MRAID version: 1
 
 The open method will display an embedded browser window in the application that loads an external URL. On device platforms that do not allow an embedded browser, the open method invokes the native browser with the external URL.
 
@@ -646,7 +646,7 @@ The native browser controls – back, forward, refresh, close – will always be
 
 
     parameters:
-        * url [String - required] : the URL of the web page to open
+        * url (String - required) : the URL of the web page to open
 
     return value: none
 
@@ -661,13 +661,13 @@ The native browser controls – back, forward, refresh, close – will always be
 	ormma.openMap(POI, fullscreen)
 }}}
 API version history
-* Introduced in ORMMA version: 1.0.1
+ * Introduced in ORMMA version: 1.0.1
 
 Use this method to open a native map with the Point of Interest (POI) parameter formatted according to the Google Maps standard (see http://mapki.com/wiki/Google_Map_Parameters)
 
     parameters:
-        * POI [String - required] : Google Maps-formatted argument. The parameter must describe a point on a map, not, for example, driving directions
-        * fullscreen [Boolean, default value = true] : true - map displays within the current View, false - within a new View that takes up the whole screen
+        * POI (String - required) : Google Maps-formatted argument. The parameter must describe a point on a map, not, for example, driving directions
+        * fullscreen (Boolean, default value = true) : true - map displays within the current View, false - within a new View that takes up the whole screen
 
     return value: none
 
@@ -682,7 +682,7 @@ Use this method to open a native map with the Point of Interest (POI) parameter 
 	ormma.playAudio(url, properties)
 }}}
 API version history
-* Introduced in ORMMA version: 1.0.1
+ * Introduced in ORMMA version: 1.0.1
 
 Use this method to play audio on the device. This may launch an external player, depending on the SDK implementation. To place the audio with the content, set the position property. For the most part, properties follow the HTML5 audio tag conventions.
 
@@ -701,8 +701,8 @@ There are some special combinations to identify:
 
 
     parameters:
-        * url [String - required] : the URL of the audio or audio stream
-        * properties [JSON - required] : list of the properties for native player
+        * url (String - required) : the URL of the audio or audio stream
+        * properties (JSON - required) : list of the properties for native player
 
     return value: none
 
@@ -717,7 +717,7 @@ There are some special combinations to identify:
 	ormma.playVideo(url, properties)
 }}}
 API version history
-* Introduced in ORMMA version: 1.0.1
+ * Introduced in ORMMA version: 1.0.1
 
 Use this method to play a video on the device. This may launch an external player, depending on the SDK implementation. To place the video over content, set the position property. For the most part, properties follow the HTML5 video tag conventions.
 
@@ -739,8 +739,8 @@ There are some special combinations to identify:
 
 
     parameters:
-        * url [String - required] : the URL of the video or video stream
-        * properties [JSON - required] : list of the properties for native player
+        * url (String - required) : the URL of the video or video stream
+        * properties (JSON - required) : list of the properties for native player
 
     return value: none
 
@@ -756,14 +756,14 @@ There are some special combinations to identify:
 	mraid.removeEventListener(event, listener)
 }}}
 API version history
-* Introduced in ORMMA version: 1.0.0
-* Included in MRAID version: 1
+ * Introduced in ORMMA version: 1.0.0
+ * Included in MRAID version: 1
 
 Use this method to unsubscribe a specific handler method from a specific event. Event listeners should always be removed when they are no longer useful to avoid errors. If no listener function is provided, then all functions listening to the event will be removed.
 
     parameters:
-        * event [String - required] : name of event
-        * listener [String - required] : name of function to be removed
+        * event (String - required) : name of event
+        * listener (String - required) : name of function to be removed
 
     return value: none
 
@@ -778,7 +778,7 @@ Use this method to unsubscribe a specific handler method from a specific event. 
 	ormma.request(url, display)
 }}}
 API version history
-* Introduced in ORMMA version: 1.0.0
+ * Introduced in ORMMA version: 1.0.0
 
 The method executes asynchronously, but returns a Boolean value of false to facilitate use in anchor tags. There is also an option explicitly for metrics tracking that will cache requests offline and execute them whenever the device reconnects. The display parameter supports the following values:
 
@@ -788,8 +788,8 @@ The method executes asynchronously, but returns a Boolean value of false to faci
 
 
     parameters:
-        * url [String - required] : the fully qualified URL of the page or call to action asset
-        * display [String - required] : the display style for the call to action
+        * url (String - required) : the fully qualified URL of the page or call to action asset
+        * display (String - required) : the display style for the call to action
 
     return value: Boolean - false
 
@@ -804,13 +804,13 @@ The method executes asynchronously, but returns a Boolean value of false to faci
 	ormma.resize(width, height)
 }}}
 API version history
-* Introduced in ORMMA version: 1.0.0
+ * Introduced in ORMMA version: 1.0.0
 
 Use this method to resize the main ad view to the desired size. The views place in the view hierarchy will not change, so the effect on other views is up to the app developer. To place the ad over content, use the expand() method instead. You may build any transition effect needed into the ad creative. Resize is bound by the maxSize currently in effect.
 
     parameters:
-        * width [Number - required] : the width in pixels
-        * height [Number - required] : the height in pixels
+        * width (Number - required) : the width in pixels
+        * height (Number - required) : the height in pixels
 
     return value: none
 
@@ -825,14 +825,14 @@ Use this method to resize the main ad view to the desired size. The views place 
 	ormma.sendMail(recipient, subject, body)
 }}}
 API version history
-* Introduced in ORMMA version: 1.0.0
+ * Introduced in ORMMA version: 1.0.0
 
 Use this method to compose an email message on the device. This is similar to the mailto:// protocol, but the SDK will attempt to suspend the application.
 
     parameters:
-        * recipient [String - required] : the email address for the message -- several recipients are seperated by ; or ,
-        * subject [String - required] : the subject line of the message
-        * body [String - required] : the body of the message
+        * recipient (String - required) : the email address for the message -- several recipients are seperated by ; or ,
+        * subject (String - required) : the subject line of the message
+        * body (String - required) : the body of the message
 
     return value: none
 
@@ -847,13 +847,13 @@ Use this method to compose an email message on the device. This is similar to th
 	ormma.sendSMS(recipient, body)
 }}}
 API version history
-* Introduced in ORMMA version: 1.0.0
+ * Introduced in ORMMA version: 1.0.0
 
 Use this method to compose an SMS message on the device. This is similar to the sms:// protocol, but the SDK will attempt to suspend the application.
 
     parameters:
-        * recipient [String - required] : the mobile device number for the message
-        * body [String - required] : the body of the message
+        * recipient (String - required) : the mobile device number for the message
+        * body (String - required) : the body of the message
 
     return value: none
 
@@ -869,13 +869,13 @@ Use this method to compose an SMS message on the device. This is similar to the 
 	mraid.setExpandProperties(properties)
 }}}
 API version history
-* Introduced in ORMMA version: 1.0.0
-* Included in MRAID version: 1
+ * Introduced in ORMMA version: 1.0.0
+ * Included in MRAID version: 1
 
 Use this method to set the ad's expand properties.
 
     parameters:
-        * properties [JSON - required] : this object contains any number of standard properties that might be used by the library when presenting the full screen web viewer. For more info see properties object.
+        * properties (JSON - required) : this object contains any number of standard properties that might be used by the library when presenting the full screen web viewer. For more info see properties object.
 
     return value: none
 
@@ -892,12 +892,12 @@ Use this method to set the ad's expand properties.
 	ormma.setShakeProperties(properties)
 }}}
 API version history
-* Introduced in ORMMA version: 1.0.0
+ * Introduced in ORMMA version: 1.0.0
 
 Use this method to set the shake properties. This method rarely needs to be called as supported devices have default settings.
 
     parameters:
-        * properties [JSON - required] : { intensity, interval }
+        * properties (JSON - required) : { intensity, interval }
 
     return value: none
 
@@ -914,7 +914,7 @@ Use this method to set the shake properties. This method rarely needs to be call
 	ormma.show()
 }}}
 API version history
-* Introduced in ORMMA version: 1.0.0
+ * Introduced in ORMMA version: 1.0.0
 
 This method has no return value and is executed asynchronously (so always listen for a result event before taking action instead of assuming the change has occurred).
 
@@ -934,12 +934,12 @@ This method has no return value and is executed asynchronously (so always listen
 	ormma.storePicture(url)
 }}}
 API version history
-* Introduced in ORMMA version: 1.0.0
+ * Introduced in ORMMA version: 1.0.0
 
 This method will store the image or other media type specified by the URL.
 
     parameters:
-        * url [String - required] : the URL to the image or other media asset
+        * url (String - required) : the URL to the image or other media asset
 
     return value: none
 
@@ -954,7 +954,7 @@ This method will store the image or other media type specified by the URL.
 	ormma.supports(feature)
 }}}
 API version history
-* Introduced in ORMMA version: 1.0.0
+ * Introduced in ORMMA version: 1.0.0
 
 For devices that do not expose any of the native device features, this method should always return false. The features are:
 
@@ -980,7 +980,7 @@ For devices that do not expose any of the native device features, this method sh
 
 
     parameters:
-        * feature [String - required] : name of feature
+        * feature (String - required) : name of feature
 
     return value: Boolean – true, the feature is supported and getter and events are available; false, the feature is not supported
 
@@ -996,8 +996,8 @@ For devices that do not expose any of the native device features, this method sh
 	mraid.useCustomClose(flag)
 }}}
 API version history
-* Introduced in ORMMA version: 1.1.0
-* Included in MRAID version: 1
+ * Introduced in ORMMA version: 1.1.0
+ * Included in MRAID version: 1
 
 Although it is required that all implementing SDKs provide a clickable area with a default “close” graphic, it is possible for ad creators to use their own designs.
 
@@ -1010,7 +1010,7 @@ For a stand-alone interstitial where there is no call to expand(), but there is 
 Ad designers should be clear that a default close indicator will always show until the useCustomClose method is called and/or the property is set.
 
     parameters:
-        * flag [Boolean - required] : true – ad creative supplies its own designs for the close area; false – default image will be displayed for the close area
+        * flag (Boolean - required) : true – ad creative supplies its own designs for the close area; false – default image will be displayed for the close area
 
     return value: none
 
@@ -1022,13 +1022,13 @@ Ad designers should be clear that a default close indicator will always show unt
 
     level: 1
 
-==getViewable (DEPRECATED)==
+==getViewable (deprecated)==
 {{{
 	ormma.getViewable()
 }}}
 API version history
-* Introduced in ORMMA version: 1.0.1
-* Deprecated in ORMMA version: 1.1.0
+ * Introduced in ORMMA version: 1.0.1
+ * Deprecated in ORMMA version: 1.1.0
 
 Alias for isViewable().
 
@@ -1045,13 +1045,13 @@ Alias for isViewable().
 
     level: 1
 
-==ORMMAReady (DEPRECATED)==
+==ORMMAReady (deprecated)==
 {{{
 	ormma.ORMMAReady()
 }}}
 API version history
-* Introduced in ORMMA version: 1.0.0
-* Deprecated in ORMMA version: 1.1.0
+ * Introduced in ORMMA version: 1.0.0
+ * Deprecated in ORMMA version: 1.1.0
 
 The ORMMAReady() method has been deprecated in favor of the ready event. It is still available for compatibility.
 
@@ -1078,14 +1078,14 @@ _`*`events marked with an asterisk are dependent on the device. Ad developers an
 	"error" -> function(message, action)
 }}}
 API version history
-* Introduced in ORMMA version: 1.0.0
-* Included in MRAID version: 1
+ * Introduced in ORMMA version: 1.0.0
+ * Included in MRAID version: 1
 
 This event is thrown whenever an SDK error occurs. The event contains a description of the error that occurred and, when appropriate, the name of the action that resulted in the error (in the absence of an associated action, the action parameter is null). JavaScript errors remain the full responsibility of the ad designer.
 
     parameters:
-        * message [String] : description of the type of error
-        * action [String] : name of action that caused error
+        * message (String) : description of the type of error
+        * action (String) : name of action that caused error
 
     triggered by: anything that goes wrong
 
@@ -1096,12 +1096,12 @@ This event is thrown whenever an SDK error occurs. The event contains a descript
 	"headingChange" -> function(heading)
 }}}
 API version history
-* Introduced in ORMMA version: 1.0.0
+ * Introduced in ORMMA version: 1.0.0
 
 This event is thrown when the devices compass direction changes.
 
     parameters:
-        * heading [Number] : compass heading in degrees or -1 for unknown
+        * heading (Number) : compass heading in degrees or -1 for unknown
 
     triggered by: a change in the device heading after the compass has been activated by registering a "heading" event listener.
 
@@ -1112,12 +1112,12 @@ This event is thrown when the devices compass direction changes.
 	"keyboardChange" -> function(open)
 }}}
 API version history
-* Introduced in ORMMA version: 1.0.0
+ * Introduced in ORMMA version: 1.0.0
 
 This event is thrown when the software keyboard is opened or closed for text entry in an ad.
 
     parameters:
-        * open [Boolean] : true if keyboard is open, false if keyboard is not open
+        * open (Boolean) : true if keyboard is open, false if keyboard is not open
 
     triggered by: a change in the state of the virtual keyboard after registering a "keyboard" event listener.
 
@@ -1128,14 +1128,14 @@ This event is thrown when the software keyboard is opened or closed for text ent
 	"locationChange" -> function(lat, lon, acc)
 }}}
 API version history
-* Introduced in ORMMA version: 1.0.0
+ * Introduced in ORMMA version: 1.0.0
 
 This event is thrown when the device has successfully geolocated itself.
 
     parameters:
-        * lat [Number] : latitude value of device
-        * lon [Number] : longitude value of device
-        * acc [Number] : accuracy of the reading
+        * lat (Number) : latitude value of device
+        * lon (Number) : longitude value of device
+        * acc (Number) : accuracy of the reading
 
     triggered by: a change in the device heading after the GPS has been activated by registering a "location" event listener.
 
@@ -1146,13 +1146,13 @@ This event is thrown when the device has successfully geolocated itself.
 	"networkChange" -> function(online, connection)
 }}}
 API version history
-* Introduced in ORMMA version: 1.0.0
+ * Introduced in ORMMA version: 1.0.0
 
 This event is thrown when the device network connection changes, such as loosing or acquiring an Internet connection. The connection type values will vary depending on the device and carrier.
 
     parameters:
-        * online [Boolean] : true – device is connected to the Internet, false – device cannot access the Internet
-        * connection [String (enumerated)] : description of connection type such as none, wifi, or cell
+        * online (Boolean) : true – device is connected to the Internet, false – device cannot access the Internet
+        * connection (String (enumerated)) : description of connection type such as none, wifi, or cell
 
     triggered by: a change in the state of the network after registering a "network" event listener.
 
@@ -1163,12 +1163,12 @@ This event is thrown when the device network connection changes, such as loosing
 	"orientationChange" -> function(orientation)
 }}}
 API version history
-* Introduced in ORMMA version: 1.0.0
+ * Introduced in ORMMA version: 1.0.0
 
 This event is thrown when the application screen orientation changes.
 
     parameters:
-        * orientation [Integer] : degrees from upright portrait view, expected values are 0, 90, 180, 270
+        * orientation (Integer) : degrees from upright portrait view, expected values are 0, 90, 180, 270
 
     triggered by: a change in the device orientation after registering an "orientation" event listener.
 
@@ -1179,8 +1179,8 @@ This event is thrown when the application screen orientation changes.
 	"ready" -> function()
 }}}
 API version history
-* Introduced in ORMMA version: 1.1.0
-* Included in MRAID version: 1
+ * Introduced in ORMMA version: 1.1.0
+ * Included in MRAID version: 1
 
 The ready event triggers when the SDK is fully loaded, initialized, and ready for any calls from the ad creative.
 
@@ -1208,13 +1208,13 @@ showMyAd();
 	"response" -> function(url, response)
 }}}
 API version history
-* Introduced in ORMMA version: 1.0.0
+ * Introduced in ORMMA version: 1.0.0
 
 This event is thrown when a request action with a display type of "proxy" returns a response.
 
     parameters:
-        * url [String] : the URL of the original request action
-        * response [String] : the full body of the response
+        * url (String) : the URL of the original request action
+        * response (String) : the full body of the response
 
     triggered by: a request() method call returning.
 
@@ -1225,13 +1225,13 @@ This event is thrown when a request action with a display type of "proxy" return
 	"screenChange" -> function(width, height)
 }}}
 API version history
-* Introduced in ORMMA version: 1.0.0
+ * Introduced in ORMMA version: 1.0.0
 
 This event is thrown when the device screen size changes.
 
     parameters:
-        * width [Number] : the width of the screen in pixels
-        * height [Number] : the height of the screen in pixels
+        * width (Number) : the width of the screen in pixels
+        * height (Number) : the height of the screen in pixels
 
     triggered by: a change in the device orientation after registering a "orientation" event listener.
 
@@ -1242,7 +1242,7 @@ This event is thrown when the device screen size changes.
 	"shake" -> function()
 }}}
 API version history
-* Introduced in ORMMA version: 1.0.0
+ * Introduced in ORMMA version: 1.0.0
 
 This event is thrown when the device accelerometer detects that the device has been "shaken" as defined by the getShake parameters.
 
@@ -1258,13 +1258,13 @@ This event is thrown when the device accelerometer detects that the device has b
 	"sizeChange" -> function(width, height)
 }}}
 API version history
-* Introduced in ORMMA version: 1.0.0
+ * Introduced in ORMMA version: 1.0.0
 
 This event is thrown when the display state of the web viewer changes.
 
     parameters:
-        * width [Number] : the width of the view in pixels
-        * height [Number] : the height of the view in pixels
+        * width (Number) : the width of the view in pixels
+        * height (Number) : the height of the view in pixels
 
     triggered by: a change in the view size as the result of a resize, expand, close, orientation, or the app after registering a "size" event listener.
 
@@ -1275,8 +1275,8 @@ This event is thrown when the display state of the web viewer changes.
 	"stateChange" -> function(state)
 }}}
 API version history
-* Introduced in ORMMA version: 1.0.0
-* Included in MRAID version: 1
+ * Introduced in ORMMA version: 1.0.0
+ * Included in MRAID version: 1
 
 This event fires when the state is changed programmatically by the ad or by the environment. This event is thrown when the Ad View changes between default, resized, expanded, and hidden states as the result of an expand(), resize() or a close(). The SDK may also close an ad as the result of a user or system action, such as resuming from background.
 
@@ -1284,7 +1284,7 @@ Note that "resized" is currently only available in ORMMA.
 
 
     parameters:
-        * state [String (enumerated)] : either "loading", "default", "resized", "expanded", or "hidden"
+        * state (String (enumerated)) : either "loading", "default", "resized", "expanded", or "hidden"
 
     triggered by: resize, close, hide, show, expand, or the app
 
@@ -1295,14 +1295,14 @@ Note that "resized" is currently only available in ORMMA.
 	"tiltChange" -> function(x, y, z)
 }}}
 API version history
-* Introduced in ORMMA version: 1.0.0
+ * Introduced in ORMMA version: 1.0.0
 
 This event is thrown when the device has successfully determined its spacial orientation.
 
     parameters:
-        * x [Number] : the x axis value in radians
-        * y [Number] : the y axis value in radians
-        * z [Number] : the z axis value in radians
+        * x (Number) : the x axis value in radians
+        * y (Number) : the y axis value in radians
+        * z (Number) : the z axis value in radians
 
     triggered by: a change in the device tilt after the accelerometer is activated by registering a "tilt" event listener.
 
@@ -1313,13 +1313,13 @@ This event is thrown when the device has successfully determined its spacial ori
 	"viewableChange" -> function(boolean)
 }}}
 API version history
-* Introduced in ORMMA version: 1.1.0
-* Included in MRAID version: 1
+ * Introduced in ORMMA version: 1.1.0
+ * Included in MRAID version: 1
 
 This event is thrown when the container showing the ad changes from on-screen to off-screen and vice versa.
 
     parameters:
-        * boolean [Boolean] : true - container is on-screen and viewable by the user, false - container is off-screen and not viewable
+        * boolean (Boolean) : true - container is on-screen and viewable by the user, false - container is off-screen and not viewable
 
     triggered by: a change in the application view controller
 
